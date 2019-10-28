@@ -39,6 +39,7 @@
 
 </head>
 <body>
+    
 
 <div class="wrapper">
     <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-4.jpg">

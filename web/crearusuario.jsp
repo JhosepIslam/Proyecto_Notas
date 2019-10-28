@@ -4,6 +4,8 @@
     Author     : osmin_000
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="Controllers.ListNiveles"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -202,6 +204,25 @@
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email </label>
                                                 <input type="email" class="form-control" placeholder="Email">
+                                            </div>
+                                        </div>
+                                         <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Nivel </label>
+                                                <select name="select" class ="form-control">
+                                                    
+                                                    
+                                                    <%
+                                                        ListNiveles niveles = new ListNiveles();
+                                                        ArrayList id,Nivel = new ArrayList();                                                        
+                                                        id= niveles.getIdNiveles();
+                                                        Nivel = niveles.getNiveles();
+                                                        for (int i = 0; i < id.size(); i++) {
+                                                           out.print("<option value="+id.get(i).toString()+" selected>"+Nivel.get(i).toString()+"</option>");
+                                                            }
+                                                    %>
+                                                    <option value="0" selected>SELECCIONE</option> 
+                                                 </select>
                                             </div>
                                         </div>
                                     </div>

@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,10 +29,12 @@ public class Login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            HttpSession session = request.getSession(true); 
             /* TODO output your page here. You may use following sample code. */
            String Usuario = request.getParameter("name");
            String Pass = request.getParameter("pass");
@@ -39,14 +42,17 @@ public class Login extends HttpServlet {
            
             
             int nivel = MLogin.login(Usuario, Pass);
-         
+            Boolean Login;
            
             if (nivel !=0) {
+                Login=true;
+                session.setAttribute("LoginFail", Login);
                 response.sendRedirect("admin.jsp");
             }else{
-                String mensaje="<script language='javascript'>alert('Nombre o Password Incorrecto.');</script>";
+                 Login=false;
+                session.setAttribute("LoginFail", Login);
                 response.sendRedirect("index.jsp");
-                out.println(mensaje);
+                
 
             }
         }

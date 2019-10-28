@@ -10,15 +10,34 @@
 <message name="loginResponse">
 <part name="parameters" element="tns:loginResponse"/>
 </message>
+<message name="GetNiveles">
+<part name="parameters" element="tns:GetNiveles"/>
+</message>
+<message name="GetNivelesResponse">
+<part name="parameters" element="tns:GetNivelesResponse"/>
+</message>
 <portType name="ServicioWeb">
 <operation name="login">
 <input wsam:Action="http://Service/ServicioWeb/loginRequest" message="tns:login"/>
 <output wsam:Action="http://Service/ServicioWeb/loginResponse" message="tns:loginResponse"/>
 </operation>
+<operation name="GetNiveles">
+<input wsam:Action="http://Service/ServicioWeb/GetNivelesRequest" message="tns:GetNiveles"/>
+<output wsam:Action="http://Service/ServicioWeb/GetNivelesResponse" message="tns:GetNivelesResponse"/>
+</operation>
 </portType>
 <binding name="ServicioWebPortBinding" type="tns:ServicioWeb">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
 <operation name="login">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GetNiveles">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

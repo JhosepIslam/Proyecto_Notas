@@ -19,6 +19,8 @@
 <link rel="stylesheet" href="./css-login/style.css">
 </head>
 <body>
+    
+
 <!-- partial:index.partial.html -->
 <div class="materialContainer">
 
@@ -43,11 +45,22 @@
       <div class="button login" >
           <button type="submit">Entrar</span></button>
       </div>
-
      
+   
 
-   </div></form>
-
+   </div>
+         <%
+           HttpSession objSesion = request.getSession(true);
+            try {
+                    boolean login = Boolean.parseBoolean(objSesion.getAttribute("LoginFail").toString());
+                    if (!login) {                            
+                            out.print("<font color='red'> Usuario o Contraseña incorrecta</font>");
+                        }
+                } catch (Exception e) {
+                }
+    %>
+    </form>
+ 
    
 
 

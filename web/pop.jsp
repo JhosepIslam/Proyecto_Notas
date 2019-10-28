@@ -12,15 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <body>
-<%
-// Extracción de los parámetros recibidos
-String name = request.getParameter("name");
-String pass = request.getParameter("pass");
- 
+        <div id="dialog" title="Basic dialog">
+            <center>Error al Ingresar</center>
+        </div>
+    </body>
 
-
-%>
    
 </html>
