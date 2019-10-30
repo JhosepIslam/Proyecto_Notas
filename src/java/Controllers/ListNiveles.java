@@ -6,12 +6,6 @@
 package Controllers;
 
 import java.util.ArrayList;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,45 +27,7 @@ public class ListNiveles {
         return IdNiveles;
     }
     
-    
-    
-    
 
-   /* public ListNiveles() {
-        {
-        String Json = Models.MGet_Niveles.getNiveles();
-        JsonParser parser = new JsonParser();  
-        JsonArray gsonArray = parser.parse(Json).getAsJsonArray();
-        
-            
-            
-            
-            try {
-                
-                for(JsonElement obj : gsonArray){
-                    JsonObject gsonObj = obj.getAsJsonObject();
-                    JsonArray IdNivelesJSON = gsonObj.get("id_nivel").getAsJsonArray();            
-                    for(JsonElement ID : IdNivelesJSON){
-                        IdNiveles.add(ID.getAsString());
-                    }            
-                    JsonArray NivelesJSON = gsonObj.get("nivel").getAsJsonArray();
-                    for(JsonElement Nivel : NivelesJSON){
-                        Niveles.add(Nivel.getAsString());                
-                    }
-                }
-            } catch (Exception e) {
-              for(JsonElement obj : gsonArray){
-                JsonObject gsonObj = obj.getAsJsonObject();
-                int ID = gsonObj.get("id_nivel").getAsInt();
-                String Nivel = gsonObj.get("nivel").getAsString();
-                IdNiveles.add(ID);
-                Niveles.add(Nivel);
-              }
-            }
-            
-        }
-    }
-    */
     public ListNiveles(){
         
         try {
@@ -99,9 +55,7 @@ public class ListNiveles {
             }
             
             
-        } catch (JSONException ex) {
-            String ada= ex.getMessage();
-            System.out.println("");
+        } catch (JSONException ex) {           
             
         }
         

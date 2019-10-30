@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="crearusuario.jsp">
+                    <a href="CrearUsuarios.jsp">
                         <i class="pe-7s-add-user"></i>
                         <p>Crear Usuario</p>
                     </a>

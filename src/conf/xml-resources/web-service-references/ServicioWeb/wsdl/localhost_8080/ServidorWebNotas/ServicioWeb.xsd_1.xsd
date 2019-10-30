@@ -4,9 +4,25 @@
 
 <xs:element name="GetNivelesResponse" type="tns:GetNivelesResponse"/>
 
+<xs:element name="GetUsuarioIfExits" type="tns:GetUsuarioIfExits"/>
+
+<xs:element name="GetUsuarioIfExitsResponse" type="tns:GetUsuarioIfExitsResponse"/>
+
 <xs:element name="login" type="tns:login"/>
 
 <xs:element name="loginResponse" type="tns:loginResponse"/>
+
+<xs:complexType name="GetUsuarioIfExits">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetUsuarioIfExitsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="GetNiveles">
 <xs:sequence/>
