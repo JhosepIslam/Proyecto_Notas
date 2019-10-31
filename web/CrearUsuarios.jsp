@@ -15,6 +15,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>UTEC</title>
+            
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -193,30 +194,27 @@
           <label for="icon_prefix">First Name</label>
         </div -->
                             <div class="content">
-                                <form action="CrearUsuario" id="form" method="post" onsubmit="return validarForm()">
+                                <form action="CrearUsuario" id="form" method="post" onsubmit="return validarForm()" >
                                     <div class="row">
                                       
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Usuario</label> 
-                                                <input type="text" class="form-control" id="txtUser" required="Requerido"  placeholder="Usuario" value="">                                               
-                                                <div style="display:none;color:#F41C1C; font-size:11px" id="user">Nombre de Usuario no valido</div>
-                                            </div>  
-                                            <script type="text/javascript">
-                                                    
-                                            </script>
+                                                <input type="text" class="form-control" name ="txtUser" id="txtUser" required="Requerido"  placeholder="Usuario" value="">                                               
+                                                <div style="display:none;color:#F41C1C; font-size: 10px" id="userDiv">Nombre de Usuario no valido</div>
+                                            </div>                                              
                                         </div>
                                         
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email </label>
-                                                <input type="email" class="form-control" required="Requerido"  placeholder="Email">
+                                                <input type="email" name="txtEmail" id ="txtEmail" class="form-control" required="Requerido"  placeholder="Email">
                                             </div>
                                         </div>
                                          <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Nivel </label>
-                                                <select name="select" id="dnivel" onchange="validarNivel()" class ="form-control">
+                                                <select  name="dnivel" id="dnivel" onchange="validarNivel()" class ="form-control">
                                                     
                                                     
                                                     <%
@@ -238,20 +236,21 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nombre</label>
-                                                <input type="text" class="form-control" placeholder=""  required="Requerido"  value="">
+                                                <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder=""  required="Requerido"  value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Apellido</label>
-                                                <input type="text" class="form-control" placeholder="" required="Requerido" value="">
+                                                <input type="text" id ="txtApellido" name="txtApellido" class="form-control" placeholder="" required="Requerido" value="">
                                             </div>
                                         </div>
                                     </div><div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <input type="Password" class="form-control" id="txtPass" placeholder="" required="Requerido" value="">
+                                                <input type="Password" class="form-control" name="txtPass" id="txtPass" placeholder="" required="Requerido" value="">
+                                                 <div style="display:none;color:#F41C1C; font-size: 10px" id="passDiv">Las contraseñas no coinciden</div>
                                             </div>
                                         </div>
                                         <div class="col-md-5">
@@ -262,67 +261,91 @@
                                             </div>
                                              <script type="text/javascript">
                                                     $( "#txtRepPass" ).blur(function() {
-                                                    
-                                                    var Rep=document.getElementById("txtRepPass").value;
-                                                    var Pass=document.getElementById("txtPass").value;
-                                                    
-                                                    if (Rep!==Pass) {                                                       
-                                                        document.getElementById("txtRepPass").style.borderColor="#F41C1C";
-                                                        document.getElementById("txtPass").style.borderColor="#F41C1C";
-                                                    }else{
-                                                        
-                                                        document.getElementById("txtRepPass").style.borderColor="#D9D9D9";
-                                                        document.getElementById("txtPass").style.borderColor="#D9D9D9";
-                                                    }
-                                                    
+                                                        validarPass();                                                   
 
                                                          });
                                                          
-                                                     $( "#txtUser" ).blur(function() {
-                                                    
-                                                                validarUser();                                                     
+                                                     $( "#txtUser" ).blur(function() {                                                    
+                                                         validarUser();                                                     
 
                                                          });
 
                                             </script>
                                             
                                             <script type="text/javascript">
-                                                function validarUser(){                                                                                                     
-                                                        document.getElementById('user').style.display='block';
+                                                
+                                                    var user = false;
+                                                    var nivel = false;
+                                                    var pass = false;
+                                                    
+                                                function validarUser(){ 
+                                                    
+                                                    var direccion = "ValidarUsuarioExist";
+                                                    var elemento = $("#txtUser").val();
+                                                    var parametro ={nombreUsuario : elemento};
+                                                    $.post(direccion,parametro,function (respuesta){                                                         
+                                                     if (respuesta === 'true') {                                                         
+                                                         document.getElementById('userDiv').style.display='block';
                                                          document.getElementById("txtUser").style.borderColor="#F41C1C";
-
-                                                }                                                                       
-
+                                                         user = false;
+                                                         return user;
+                                                     }else {
+                                                         document.getElementById('userDiv').style.display='none';
+                                                         document.getElementById("txtUser").style.borderColor="#D9D9D9";
+                                                         user = true;
+                                                         return user;
+                                                     }
+                                                    
+                                                    });                                                                                                      
+                                                }                                                                      
+                                                function validarPass(){
+                                                    var Rep=document.getElementById("txtRepPass").value;
+                                                    var Pass=document.getElementById("txtPass").value;
+                                                    
+                                                    if (Rep!==Pass) {                                                       
+                                                        document.getElementById("txtRepPass").style.borderColor="#F41C1C";
+                                                        document.getElementById("txtPass").style.borderColor="#F41C1C";
+                                                        document.getElementById('passDiv').style.display='block';
+                                                        pass = false;
+                                                        return pass;
+                                                    }else{                                                        
+                                                        document.getElementById("txtRepPass").style.borderColor="#D9D9D9";
+                                                        document.getElementById("txtPass").style.borderColor="#D9D9D9";
+                                                        document.getElementById('passDiv').style.display='none';
+                                                        pass = true;                                                        
+                                                        return pass;
+                                                    }
+                                                }
     
-                                                function validarForm(){                                                    
-                                                    
-                                                     var lvl=document.getElementById("dnivel").value;
-                                                    
+                                               function validarNivel(){
+                                                   
+                                                   var lvl=document.getElementById("dnivel").value;                                                    
                                                     if (lvl === "0") {
                                                         document.getElementById("dnivel").style.borderColor="#F41C1C";
-                                                    }else{
-                                                        
+                                                        nivel = false;
+                                                        return nivel;
+                                                    }else{                                                        
                                                         document.getElementById("dnivel").style.borderColor="#D9D9D9";
+                                                        nivel = true;
+                                                        return nivel;
                                                     }
-                                                    
+                                               }
+                                                
+                                                function validarForm(){  
+                                                    validarNivel();
+                                                    validarUser();
+                                                    validarNivel();
+                                                    if(user && nivel && pass){
+                                                        
+                                                        document.getElementById("form").submit();
+                                                        return true;
+                                                    }
                                                     
                                                     return false;
                                                 }
-                                               function validarNivel(){
-                                                   var lvl=document.getElementById("dnivel").value;
-                                                    
-                                                    if (lvl === "0") {
-                                                        document.getElementById("dnivel").style.borderColor="#F41C1C";
-                                                    }else{
-                                                        
-                                                        document.getElementById("dnivel").style.borderColor="#D9D9D9";
-                                                    }
-                                               }
-
-                                                
                                             </script>
                                         </div> </div>
-                                                    <button type="submit"  class="btn btn-info btn-fill pull-right">Crear Perfil</button>
+                                                    <button type="submit" onclick="validarForm()" class="btn btn-info btn-fill pull-right">Crear Perfil</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>

@@ -31,16 +31,19 @@ public class CrearUsuario extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CrearUsuario</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CrearUsuario at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            String Usuario = request.getParameter("txtUser");
+            String Correo= request.getParameter("txtEmail");
+            String Nombre= request.getParameter("txtNombre");
+            String Apellido= request.getParameter("txtApellido");
+            String Pass= request.getParameter("txtPass");
+           int Nivel= Integer.parseInt(request.getParameter("dnivel"));
+            
+            
+            
+            
+           
+           
         }
     }
 
