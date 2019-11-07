@@ -37,9 +37,11 @@ public class CrearUsuario extends HttpServlet {
             String Nombre= request.getParameter("txtNombre");
             String Apellido= request.getParameter("txtApellido");
             String Pass= request.getParameter("txtPass");
-           int Nivel= Integer.parseInt(request.getParameter("dnivel"));
+            int Nivel= Integer.parseInt(request.getParameter("dnivel"));
             
+            out.print("Creado");
             
+    
             
             
            

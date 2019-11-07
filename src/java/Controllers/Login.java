@@ -47,7 +47,23 @@ public class Login extends HttpServlet {
             if (nivel !=0) {
                 Login=true;
                 session.setAttribute("LoginFail", Login);
-                response.sendRedirect("admin.jsp");
+                session.setAttribute("Nivel", nivel);
+                switch(nivel){
+                    case 1: 
+                        response.sendRedirect("Admin/");
+                        break;
+                    case 2:
+                        response.sendRedirect("Academico/");
+                        break;
+                    case 3:
+                        response.sendRedirect("Docente/");
+                        break;
+                        
+                    case 4:
+                        response.sendRedirect("Estudiante/");
+                        break;
+                }
+                
             }else{
                  Login=false;
                 session.setAttribute("LoginFail", Login);

@@ -4,11 +4,17 @@
 <xsd:import namespace="http://Service/" schemaLocation="http://localhost:8080/ServidorWebNotas/ServicioWeb?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="GetNiveles">
-<part name="parameters" element="tns:GetNiveles"/>
+<message name="GetUsuarioIfExits">
+<part name="parameters" element="tns:GetUsuarioIfExits"/>
 </message>
-<message name="GetNivelesResponse">
-<part name="parameters" element="tns:GetNivelesResponse"/>
+<message name="GetUsuarioIfExitsResponse">
+<part name="parameters" element="tns:GetUsuarioIfExitsResponse"/>
+</message>
+<message name="GetCarnetIfExists">
+<part name="parameters" element="tns:GetCarnetIfExists"/>
+</message>
+<message name="GetCarnetIfExistsResponse">
+<part name="parameters" element="tns:GetCarnetIfExistsResponse"/>
 </message>
 <message name="login">
 <part name="parameters" element="tns:login"/>
@@ -16,29 +22,62 @@
 <message name="loginResponse">
 <part name="parameters" element="tns:loginResponse"/>
 </message>
-<message name="GetUsuarioIfExits">
-<part name="parameters" element="tns:GetUsuarioIfExits"/>
+<message name="GetNiveles">
+<part name="parameters" element="tns:GetNiveles"/>
 </message>
-<message name="GetUsuarioIfExitsResponse">
-<part name="parameters" element="tns:GetUsuarioIfExitsResponse"/>
+<message name="GetNivelesResponse">
+<part name="parameters" element="tns:GetNivelesResponse"/>
+</message>
+<message name="GetGrados">
+<part name="parameters" element="tns:GetGrados"/>
+</message>
+<message name="GetGradosResponse">
+<part name="parameters" element="tns:GetGradosResponse"/>
+</message>
+<message name="GetSecciones">
+<part name="parameters" element="tns:GetSecciones"/>
+</message>
+<message name="GetSeccionesResponse">
+<part name="parameters" element="tns:GetSeccionesResponse"/>
 </message>
 <portType name="ServicioWeb">
-<operation name="GetNiveles">
-<input wsam:Action="http://Service/ServicioWeb/GetNivelesRequest" message="tns:GetNiveles"/>
-<output wsam:Action="http://Service/ServicioWeb/GetNivelesResponse" message="tns:GetNivelesResponse"/>
+<operation name="GetUsuarioIfExits">
+<input wsam:Action="http://Service/ServicioWeb/GetUsuarioIfExitsRequest" message="tns:GetUsuarioIfExits"/>
+<output wsam:Action="http://Service/ServicioWeb/GetUsuarioIfExitsResponse" message="tns:GetUsuarioIfExitsResponse"/>
+</operation>
+<operation name="GetCarnetIfExists">
+<input wsam:Action="http://Service/ServicioWeb/GetCarnetIfExistsRequest" message="tns:GetCarnetIfExists"/>
+<output wsam:Action="http://Service/ServicioWeb/GetCarnetIfExistsResponse" message="tns:GetCarnetIfExistsResponse"/>
 </operation>
 <operation name="login">
 <input wsam:Action="http://Service/ServicioWeb/loginRequest" message="tns:login"/>
 <output wsam:Action="http://Service/ServicioWeb/loginResponse" message="tns:loginResponse"/>
 </operation>
-<operation name="GetUsuarioIfExits">
-<input wsam:Action="http://Service/ServicioWeb/GetUsuarioIfExitsRequest" message="tns:GetUsuarioIfExits"/>
-<output wsam:Action="http://Service/ServicioWeb/GetUsuarioIfExitsResponse" message="tns:GetUsuarioIfExitsResponse"/>
+<operation name="GetNiveles">
+<input wsam:Action="http://Service/ServicioWeb/GetNivelesRequest" message="tns:GetNiveles"/>
+<output wsam:Action="http://Service/ServicioWeb/GetNivelesResponse" message="tns:GetNivelesResponse"/>
+</operation>
+<operation name="GetGrados">
+<input wsam:Action="http://Service/ServicioWeb/GetGradosRequest" message="tns:GetGrados"/>
+<output wsam:Action="http://Service/ServicioWeb/GetGradosResponse" message="tns:GetGradosResponse"/>
+</operation>
+<operation name="GetSecciones">
+<input wsam:Action="http://Service/ServicioWeb/GetSeccionesRequest" message="tns:GetSecciones"/>
+<output wsam:Action="http://Service/ServicioWeb/GetSeccionesResponse" message="tns:GetSeccionesResponse"/>
 </operation>
 </portType>
 <binding name="ServicioWebPortBinding" type="tns:ServicioWeb">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="GetNiveles">
+<operation name="GetUsuarioIfExits">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GetCarnetIfExists">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -56,7 +95,25 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="GetUsuarioIfExits">
+<operation name="GetNiveles">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GetGrados">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GetSecciones">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

@@ -8,6 +8,14 @@
         <servlet-name>CrearUsuario</servlet-name>
         <servlet-class>Controllers.CrearUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ValidarCarnet</servlet-name>
+        <servlet-class>Controllers.ValidarCarnet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetSecciones</servlet-name>
+        <servlet-class>Controllers.GetSecciones</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>CrearUsuario</servlet-name>
         <url-pattern>/CrearUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidarCarnet</servlet-name>
+        <url-pattern>/ValidarCarnet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetSecciones</servlet-name>
+        <url-pattern>/GetSecciones</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
