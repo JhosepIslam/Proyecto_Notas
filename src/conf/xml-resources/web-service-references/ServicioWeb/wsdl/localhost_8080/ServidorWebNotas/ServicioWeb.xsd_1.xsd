@@ -8,6 +8,10 @@
 
 <xs:element name="GetGradosResponse" type="tns:GetGradosResponse"/>
 
+<xs:element name="GetListGrados" type="tns:GetListGrados"/>
+
+<xs:element name="GetListGradosResponse" type="tns:GetListGradosResponse"/>
+
 <xs:element name="GetNiveles" type="tns:GetNiveles"/>
 
 <xs:element name="GetNivelesResponse" type="tns:GetNivelesResponse"/>
@@ -24,18 +28,6 @@
 
 <xs:element name="loginResponse" type="tns:loginResponse"/>
 
-<xs:complexType name="GetUsuarioIfExits">
-<xs:sequence>
-<xs:element name="arg0" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="GetUsuarioIfExitsResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="GetSecciones">
 <xs:sequence>
 <xs:element name="arg0" type="xs:int"/>
@@ -45,6 +37,18 @@
 <xs:complexType name="GetSeccionesResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetUsuarioIfExits">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetUsuarioIfExitsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -90,6 +94,16 @@
 <xs:complexType name="GetCarnetIfExistsResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetListGrados">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GetListGradosResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

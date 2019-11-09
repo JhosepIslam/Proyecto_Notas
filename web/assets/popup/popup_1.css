@@ -20,14 +20,15 @@
     border-radius: 5px;
     box-shadow: 0 0 10px #CCC;
     background: #FFF;
-    position: fixed ;
+    position: relative;
     transition: all 20s ease-in-out;
-    margin: 15% auto;    
+    margin: 15% auto;
+    transform: translate(0%, -27.5%);  
 }
 #cerrar{
     position: absolute;
-    top: 5px;
-    right:10px;
+    top: 20px;
+    right: 30px;
     transition: all 200ms;
     font-size: 30px;
     font-weight: bold;

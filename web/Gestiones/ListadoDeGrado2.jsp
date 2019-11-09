@@ -19,7 +19,7 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
+    <link href="../assets/popup/popup_1.css" rel="stylesheet" type="text/css"/>
     <!-- Bootstrap core CSS     -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -38,11 +38,11 @@
     <link rel="icon" type="../image/png" href="../assets/img/favicon.ico">
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
- 
+  <link href="../assets/popup/tabla_scroll.css" rel="stylesheet" type="text/css"/>
    
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-    <link href="../assets/popup/popup_1.css" rel="stylesheet">
+    <link href="../assets/popup/popup.css" rel="stylesheet">
 
 </head>
 <body>
@@ -59,18 +59,18 @@
                                
                             </div>
                             <div class="content table-responsive table-middle-width">
-                                <table class="table table-hover ">
+                                <table class="table table-hover " >
                                     <thead>
                                         <th><label class="checkbox">
-                                                    <input type="checkbox" value="" data-toggle="checkbox" checked="">
+                                                    
                                                     </label></th>
-                                         <th>ID</th>
-                                        <th>Grado</th>
-                                        <th>Seccion</th>
-                                        
+                                                    <center><th>ID</th></center>
+                                        <center><th>Grado</th></center>
+                                        <center><th>Secciones</th></center>
+                                        <th></th>
                                     	
                                     </thead>
-                                    <tbody>
+                                    <tbody id="tbody">
                                         <%
                                             ListadoDeGrados list = new ListadoDeGrados();
                                             ArrayList Id = list.getID_Grado();
@@ -113,13 +113,22 @@
                                                  }
                                              %>
 
+                                       
                                     </tbody>
                                     
+                                    <script type="text/javascript">
+                                        function limpiar(){
+                                        $("#tbody").empty();
+                                    }
+                                    
+                                    
+                                    </script>
                                 </table>
+                                             <hr>
                                          <div class="col-md-12">
                                         <button type="submit" class="btn btn-info btn-fill pull-right" role="link" onclick="window.location=href='#popup'">Modificar</button>
                                         <div class="col-md-11"> 
-                                        <button type="submit" class="btn btn-info btn-fill pull-right" role="link" >Eliminar</button>
+                                            <button type="button" class="btn btn-info btn-fill pull-right" onclick="limpiar()" role="link" >Eliminar</button>
                                          </div>
                                         
                                         </div>
@@ -143,7 +152,7 @@
                                                 </li>
                                               </ul>
                                             </nav>
-                                     </div>
+                            </div>
                                 
                             </div>
                             
@@ -152,6 +161,8 @@
                 </div>
             </div>
         </div>
+      
+                                             
         <div id="popup" class="overlay">
                                         
                                     <div id="popupBody">
@@ -160,80 +171,31 @@
                                                 <h2>Modificar</h2> 
                                                 <a id="cerrar" href="#">&times;</a>
                                                 <div class="popupContent">
-                                            <div class="row"><br>
+                                            <div class="row">
                                                     <div class="col-md-5">
                                                         <div class="form-group">
-                                                            
                                                             <label>Grado</label>
                                                             <input type="text" class="form-control" placeholder="" value="">
-                                                            
                                                         </div>
-                                                         
-                                                        
                                                     </div>
-                                                   <br>
-                                                        <div class="col-md-5">
-                                                        <div class="form-group">
-                                                            <button type="submit" class="btn btn-info btn-fill pull-left ">Actualizar</button>
-                                                        </div>
-                                                    
-                                                     </div>
-                                            </div>
-                                                
-                                            
-                                            <div class="left">
-                                                <div class="col-md-4">
-                                                                     
-                                                        </div>
                                                         <div class="col-md-5">
                                                             <div class="form-group">
                                                                 <label for="sel1">Seccion</label>
-                                                                <input type="text" class="form-control" placeholder="" value="">
-                                                                
-                                                            </div> 
-                                                            
-                                                        </div><br>
-                                                <div class="col-md-3">
-                                                <div class="form-group">
-                                                                <button type="submit" class="btn btn-info btn-fill pull-left ">Agregar</button>
-                                                            </div></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                    <div class="content table-responsive table-full-width">
-                                                        <table class="table table-hover ">
-                                                            <thead>
-                                                            <th>ID</th>
-                                                            <th>Seccion</th>
-                                                            <th></th>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>A</td>
-                                                                    <td><button type="submit" class="btn btn-info btn-fill pull-right ">Borrar</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>A</td>
-                                                                    <td><button type="submit" class="btn btn-info btn-fill pull-right ">Borrar</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>A</td>
-                                                                    <td><button type="submit" class="btn btn-info btn-fill pull-right ">Borrar</button></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
+                                                                <select class="form-control" id="sel1">
+                                                                    <option></option>
+                                                                </select>
+
+                                                            </div>          
+                                                        </div>
+                                                <div class="col-md-12 ">
+                                            <button type="submit" class="btn btn-info btn-fill pull-right ">Actualizar</button>
+                                            </div> 
                                             </div>
                                                 </div>
                                         </form>  
                                     </div>
                                 </div>
+
 
       
         <footer class="footer">
