@@ -9,6 +9,7 @@ import Models.MGetListGrados;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -51,55 +52,25 @@ public class ListadoDeGrados extends HttpServlet {
     
     public ListadoDeGrados(){
         try {
-            String Json = MGetListGrados.getListGrados();
+            ID_Grado = (ArrayList) MGetListGrados.getListGradosInfo().getID();
+            Grados = (ArrayList) MGetListGrados.getListGradosInfo().getGRADO();
+            Secciones = (ArrayList) MGetListGrados.getListGradosInfo().getSECCIONES();
             
-            JSONObject jsonObj = new JSONObject(Json);
-            JSONArray obtener = jsonObj.getJSONArray("Table");
-            int length =  obtener.length();
-            
-            for (int i = 0; i < length; i++)
-            {
-                JSONObject v = obtener.getJSONObject(i);                
-          
-                int ID =v.getInt("ID_GRADO");
-                String grado =v.getString("GRADO");
-                int secciones =v.getInt("SECCIONES");
-
-                if (!grado.isEmpty()){
-                    Grados.add(grado);
-                    ID_Grado.add(ID);
-                    Secciones.add(secciones);
-
-                }
-              
-
-            }
-            
-    }catch(JSONException ex){}
+    }catch(Exception ex){}
     }
 
     public ArrayList getID_Grado() {
         return ID_Grado;
-    }
-
-    public void setID_Grado(ArrayList ID_Grado) {
-        this.ID_Grado = ID_Grado;
-    }
+    } 
 
     public ArrayList getGrados() {
         return Grados;
-    }
-
-    public void setGrados(ArrayList Grados) {
-        this.Grados = Grados;
-    }
+    }   
 
     public ArrayList getSecciones() {
         return Secciones;
     }
 
-    public void setSecciones(ArrayList Secciones) {
-        this.Secciones = Secciones;
-    }
+  
 
 }

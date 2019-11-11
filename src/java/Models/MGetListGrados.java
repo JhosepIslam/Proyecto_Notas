@@ -5,17 +5,21 @@
  */
 package Models;
 
+import service.Grados;
+
 /**
  *
  * @author LENOVO
  */
 public class MGetListGrados {
 
-    public static String getListGrados() {
+    public static Grados getListGradosInfo() {
         service.ServicioWeb_Service service = new service.ServicioWeb_Service();
         service.ServicioWeb port = service.getServicioWebPort();
-        return port.getListGrados();
+        return port.getListGradosInfo();
     }
+
+    
     
     
     

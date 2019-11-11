@@ -8,9 +8,9 @@
 
 <xs:element name="GetGradosResponse" type="tns:GetGradosResponse"/>
 
-<xs:element name="GetListGrados" type="tns:GetListGrados"/>
+<xs:element name="GetListGrados_Info" type="tns:GetListGrados_Info"/>
 
-<xs:element name="GetListGradosResponse" type="tns:GetListGradosResponse"/>
+<xs:element name="GetListGrados_InfoResponse" type="tns:GetListGrados_InfoResponse"/>
 
 <xs:element name="GetNiveles" type="tns:GetNiveles"/>
 
@@ -62,6 +62,26 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="GetListGrados_Info">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GetListGrados_InfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:grados" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="grados">
+<xs:sequence>
+<xs:element name="ERROR_MESSAGE" type="xs:string" minOccurs="0"/>
+<xs:element name="ESTADO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="GRADO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ID" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="SECCIONES" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="login">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
@@ -81,7 +101,7 @@
 
 <xs:complexType name="GetGradosResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
+<xs:element name="return" type="tns:grados" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -94,16 +114,6 @@
 <xs:complexType name="GetCarnetIfExistsResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="GetListGrados">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="GetListGradosResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>
