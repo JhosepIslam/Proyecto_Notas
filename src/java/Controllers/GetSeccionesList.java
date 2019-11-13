@@ -9,47 +9,57 @@ import Models.MGetSecciones;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  *
  * @author LENOVO
  */
-public class GetSecciones extends HttpServlet {
+public class GetSeccionesList extends HttpServlet {
+
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        
+    }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
     }
 
-    ArrayList Seccion = new ArrayList();
-    ArrayList id = new ArrayList();
-            
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Seccion.clear();
-        id.clear();
+        
         try (PrintWriter out = response.getWriter()) {
-            int idGrado =Integer.parseInt(request.getParameter("id_grado"));
-            getSecciones(idGrado);
-            String resultado = "<option value= 0>SELECCIONE</option>" ;
-            for (int i = 0; i < id.size(); i++) {
-                resultado += "<option value="+id.get(i)+">"+Seccion.get(i)+"</option>";
-            }
-            out.print(resultado);
             
+            int idGrado =Integer.parseInt(request.getParameter("id_grado"));
+            ArrayList Seccion = (ArrayList)MGetSecciones.getSecciones(idGrado).getSECCION();
+            ArrayList id = (ArrayList)MGetSecciones.getSecciones(idGrado).getIDSECCION();
+            String Result = "";
+            
+            for (int i = 0; i < id.size(); i++) {
+                Result +=
+                    "<tr>"
+                    + "<td>"+id.get(i)+"</td>"
+                    + "<td>"+Seccion.get(i)+"</td>"                  
+                    + "<td><button type=\"button\" class=\"btn btn-info btn-fill pull-right \"  onclick=\"DeleteSeccion('"+id.get(i)+"')\">Borrar</button></td>"
+                    + "</tr>";
+            }
+            out.print(Result);
+ 
+           
         }
-    }
-    private void getSecciones(int id_grado){          
-        Seccion = (ArrayList)MGetSecciones.getSecciones(id_grado).getSECCION();
-        id= (ArrayList)MGetSecciones.getSecciones(id_grado).getIDSECCION();
         
     }
+
 
 }

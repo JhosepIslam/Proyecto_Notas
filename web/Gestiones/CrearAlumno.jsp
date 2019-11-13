@@ -132,14 +132,22 @@
                                                 <select class="form-control" name="sGrados" id="sGrados" onchange="getSecciones(); validarGrado()">
                                                     <option value= 0>SELECCIONE</option>
                                                     <%
-                                                        GetGrados grados = new GetGrados();
-                                                        
-                                                        ArrayList Id = grados.getId_Grado();
-                                                        ArrayList Grados = grados.getId_Grado();
-                                                        
-                                                        for (int i = 0; i < grados.size(); i++) {
-                                                                out.print("<option value="+Id.get(i)+">"+Grados.get(i)+"</option>" );
+                                                        try {
+                                                                GetGrados grados = new GetGrados();
+
+                                                            ArrayList Id = grados.getId_Grado();
+                                                            ArrayList Grados = grados.getGrado();
+
+                                                            String ID= Id.get(0).toString();
+                                                            String Grado= Grados.get(0).toString();
+
+                                                            for (int i = 0; i < grados.size(); i++) {
+                                                                    out.print("<option value="+Id.get(i)+">"+Grados.get(i)+"</option>" );
+                                                                }
+                                                                
+                                                            } catch (Exception e) {
                                                             }
+                                                        
                                                     %>
                                                 </select>
                                             </div>

@@ -5,20 +5,19 @@
  */
 package Models;
 
-import service.Secciones;
+import service.Grados;
 
 /**
  *
  * @author LENOVO
  */
-public class MGetSecciones {
+public class MDeleteGrado {
 
-    public static Secciones getSecciones(int arg0) {
+    public static Grados deleteGrado(int arg0) {
         service.ServicioWeb_Service service = new service.ServicioWeb_Service();
         service.ServicioWeb port = service.getServicioWebPort();
-        return port.getSecciones(arg0);
+        return port.deleteGrado(arg0);
     }
-
     
     
 }

@@ -11,14 +11,16 @@ import service.Secciones;
  *
  * @author LENOVO
  */
-public class MGetSecciones {
+public class MDeleteSeccion {
 
-    public static Secciones getSecciones(int arg0) {
+    public static Secciones deleteSeccion(int id) {
         service.ServicioWeb_Service service = new service.ServicioWeb_Service();
         service.ServicioWeb port = service.getServicioWebPort();
-        return port.getSecciones(arg0);
+        return port.deleteSeccion(id);
     }
 
+
+    
     
     
 }

@@ -9,14 +9,10 @@ import Models.MGetListGrados;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  *
@@ -46,31 +42,55 @@ public class ListadoDeGrados extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    
-    public ListadoDeGrados(){
-        try {
+        try (PrintWriter out = response.getWriter()) {
+            
             ID_Grado = (ArrayList) MGetListGrados.getListGradosInfo().getID();
             Grados = (ArrayList) MGetListGrados.getListGradosInfo().getGRADO();
             Secciones = (ArrayList) MGetListGrados.getListGradosInfo().getSECCIONES();
             
-    }catch(Exception ex){}
+            int inicio = Integer.parseInt(request.getParameter("inicio"));
+            int fin = Integer.parseInt(request.getParameter("fin"));
+            String Resp ="";
+            if (fin < inicio) {
+                fin=inicio+fin;                
+            }
+            
+            for ( int i =inicio; i < fin; i++) {
+                Resp +=   "<tr> "
+                        + "<td>"
+                        + "<label class='checkbox'>"
+                        + "<input type='checkbox' value="+ID_Grado.get(i)+" data-toggle='checkbox' >"
+                        + "</label>"
+                        + "</td>"
+                        + "<td>"+ID_Grado.get(i)
+                        + "</td>"
+                        + "<td>"+Grados.get(i)
+                        + "</td>"
+                        + "<td>"+Secciones.get(i)
+                        + "</td>"
+                        + "<td><button type=\"button\" class=\"btn btn-info btn-fill pull-right\" role=\"link\" onclick=\"getSecciones('"+ID_Grado.get(i)
+                        + "','"+Grados.get(i)
+                        + "')\">Ver Secciones</button></td>"
+                        + "</tr>";
+            }
+            out.print(Resp);
+            
+        }
     }
 
     public ArrayList getID_Grado() {
+        ID_Grado = (ArrayList) MGetListGrados.getListGradosInfo().getID();
         return ID_Grado;
-    } 
-
-    public ArrayList getGrados() {
-        return Grados;
-    }   
-
-    public ArrayList getSecciones() {
-        return Secciones;
     }
+    
+    
 
+ 
+ 
+   
+
+    
+   
   
 
 }

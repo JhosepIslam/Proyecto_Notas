@@ -11,14 +11,13 @@ import service.Secciones;
  *
  * @author LENOVO
  */
-public class MGetSecciones {
+public class MCreateSeccion {
 
-    public static Secciones getSecciones(int arg0) {
+    public static Secciones createSeccion(int id, java.lang.String seccion) {
         service.ServicioWeb_Service service = new service.ServicioWeb_Service();
         service.ServicioWeb port = service.getServicioWebPort();
-        return port.getSecciones(arg0);
+        return port.createSeccion(id, seccion);
     }
-
     
     
 }

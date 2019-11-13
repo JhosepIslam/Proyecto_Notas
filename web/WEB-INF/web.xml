@@ -20,6 +20,30 @@
         <servlet-name>ListadoDeGrados</servlet-name>
         <servlet-class>Controllers.ListadoDeGrados</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetSeccionesList</servlet-name>
+        <servlet-class>Controllers.GetSeccionesList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarGrado</servlet-name>
+        <servlet-class>Controllers.EliminarGrado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrearGrado</servlet-name>
+        <servlet-class>Controllers.CrearGrado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrearSeccion</servlet-name>
+        <servlet-class>Controllers.CrearSeccion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActualizarNombreGrado</servlet-name>
+        <servlet-class>Controllers.ActualizarNombreGrado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarSeccion</servlet-name>
+        <servlet-class>Controllers.EliminarSeccion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -39,6 +63,30 @@
     <servlet-mapping>
         <servlet-name>ListadoDeGrados</servlet-name>
         <url-pattern>/ListadoDeGrados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetSeccionesList</servlet-name>
+        <url-pattern>/GetSeccionesList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarGrado</servlet-name>
+        <url-pattern>/EliminarGrado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearGrado</servlet-name>
+        <url-pattern>/CrearGrado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearSeccion</servlet-name>
+        <url-pattern>/CrearSeccion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActualizarNombreGrado</servlet-name>
+        <url-pattern>/ActualizarNombreGrado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarSeccion</servlet-name>
+        <url-pattern>/EliminarSeccion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

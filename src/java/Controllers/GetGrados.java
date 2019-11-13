@@ -34,12 +34,14 @@ public class GetGrados {
     
     
     public GetGrados(){
+        try {
+             Id_Grado = (ArrayList)MGetGrados.getGrados().getID();
+             Grado = (ArrayList)MGetGrados.getGrados().getGRADO();            
+             
+        } catch (Exception e) {
+        }
         
-        Id_Grado = (ArrayList)MGetGrados.getGrados().getID();
-        Grado = (ArrayList)MGetGrados.getGrados().getGRADO();
-        
-        
-
+       
     }
     
     

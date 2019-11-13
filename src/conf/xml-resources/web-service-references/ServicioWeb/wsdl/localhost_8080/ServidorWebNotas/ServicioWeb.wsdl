@@ -4,11 +4,17 @@
 <xsd:import namespace="http://Service/" schemaLocation="http://localhost:8080/ServidorWebNotas/ServicioWeb?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="GetGrados">
-<part name="parameters" element="tns:GetGrados"/>
+<message name="DeleteSeccion">
+<part name="parameters" element="tns:DeleteSeccion"/>
 </message>
-<message name="GetGradosResponse">
-<part name="parameters" element="tns:GetGradosResponse"/>
+<message name="DeleteSeccionResponse">
+<part name="parameters" element="tns:DeleteSeccionResponse"/>
+</message>
+<message name="login">
+<part name="parameters" element="tns:login"/>
+</message>
+<message name="loginResponse">
+<part name="parameters" element="tns:loginResponse"/>
 </message>
 <message name="GetNiveles">
 <part name="parameters" element="tns:GetNiveles"/>
@@ -16,17 +22,35 @@
 <message name="GetNivelesResponse">
 <part name="parameters" element="tns:GetNivelesResponse"/>
 </message>
+<message name="GetGrados">
+<part name="parameters" element="tns:GetGrados"/>
+</message>
+<message name="GetGradosResponse">
+<part name="parameters" element="tns:GetGradosResponse"/>
+</message>
 <message name="GetSecciones">
 <part name="parameters" element="tns:GetSecciones"/>
 </message>
 <message name="GetSeccionesResponse">
 <part name="parameters" element="tns:GetSeccionesResponse"/>
 </message>
-<message name="login">
-<part name="parameters" element="tns:login"/>
+<message name="DeleteGrado">
+<part name="parameters" element="tns:DeleteGrado"/>
 </message>
-<message name="loginResponse">
-<part name="parameters" element="tns:loginResponse"/>
+<message name="DeleteGradoResponse">
+<part name="parameters" element="tns:DeleteGradoResponse"/>
+</message>
+<message name="CreateGrado">
+<part name="parameters" element="tns:CreateGrado"/>
+</message>
+<message name="CreateGradoResponse">
+<part name="parameters" element="tns:CreateGradoResponse"/>
+</message>
+<message name="CreateSeccion">
+<part name="parameters" element="tns:CreateSeccion"/>
+</message>
+<message name="CreateSeccionResponse">
+<part name="parameters" element="tns:CreateSeccionResponse"/>
 </message>
 <message name="GetUsuarioIfExits">
 <part name="parameters" element="tns:GetUsuarioIfExits"/>
@@ -46,22 +70,44 @@
 <message name="GetListGrados_InfoResponse">
 <part name="parameters" element="tns:GetListGrados_InfoResponse"/>
 </message>
+<message name="UpdateNombreGrado">
+<part name="parameters" element="tns:UpdateNombreGrado"/>
+</message>
+<message name="UpdateNombreGradoResponse">
+<part name="parameters" element="tns:UpdateNombreGradoResponse"/>
+</message>
 <portType name="ServicioWeb">
-<operation name="GetGrados">
-<input wsam:Action="http://Service/ServicioWeb/GetGradosRequest" message="tns:GetGrados"/>
-<output wsam:Action="http://Service/ServicioWeb/GetGradosResponse" message="tns:GetGradosResponse"/>
+<operation name="DeleteSeccion">
+<input wsam:Action="http://Service/ServicioWeb/DeleteSeccionRequest" message="tns:DeleteSeccion"/>
+<output wsam:Action="http://Service/ServicioWeb/DeleteSeccionResponse" message="tns:DeleteSeccionResponse"/>
+</operation>
+<operation name="login">
+<input wsam:Action="http://Service/ServicioWeb/loginRequest" message="tns:login"/>
+<output wsam:Action="http://Service/ServicioWeb/loginResponse" message="tns:loginResponse"/>
 </operation>
 <operation name="GetNiveles">
 <input wsam:Action="http://Service/ServicioWeb/GetNivelesRequest" message="tns:GetNiveles"/>
 <output wsam:Action="http://Service/ServicioWeb/GetNivelesResponse" message="tns:GetNivelesResponse"/>
 </operation>
+<operation name="GetGrados">
+<input wsam:Action="http://Service/ServicioWeb/GetGradosRequest" message="tns:GetGrados"/>
+<output wsam:Action="http://Service/ServicioWeb/GetGradosResponse" message="tns:GetGradosResponse"/>
+</operation>
 <operation name="GetSecciones">
 <input wsam:Action="http://Service/ServicioWeb/GetSeccionesRequest" message="tns:GetSecciones"/>
 <output wsam:Action="http://Service/ServicioWeb/GetSeccionesResponse" message="tns:GetSeccionesResponse"/>
 </operation>
-<operation name="login">
-<input wsam:Action="http://Service/ServicioWeb/loginRequest" message="tns:login"/>
-<output wsam:Action="http://Service/ServicioWeb/loginResponse" message="tns:loginResponse"/>
+<operation name="DeleteGrado">
+<input wsam:Action="http://Service/ServicioWeb/DeleteGradoRequest" message="tns:DeleteGrado"/>
+<output wsam:Action="http://Service/ServicioWeb/DeleteGradoResponse" message="tns:DeleteGradoResponse"/>
+</operation>
+<operation name="CreateGrado">
+<input wsam:Action="http://Service/ServicioWeb/CreateGradoRequest" message="tns:CreateGrado"/>
+<output wsam:Action="http://Service/ServicioWeb/CreateGradoResponse" message="tns:CreateGradoResponse"/>
+</operation>
+<operation name="CreateSeccion">
+<input wsam:Action="http://Service/ServicioWeb/CreateSeccionRequest" message="tns:CreateSeccion"/>
+<output wsam:Action="http://Service/ServicioWeb/CreateSeccionResponse" message="tns:CreateSeccionResponse"/>
 </operation>
 <operation name="GetUsuarioIfExits">
 <input wsam:Action="http://Service/ServicioWeb/GetUsuarioIfExitsRequest" message="tns:GetUsuarioIfExits"/>
@@ -75,10 +121,23 @@
 <input wsam:Action="http://Service/ServicioWeb/GetListGrados_InfoRequest" message="tns:GetListGrados_Info"/>
 <output wsam:Action="http://Service/ServicioWeb/GetListGrados_InfoResponse" message="tns:GetListGrados_InfoResponse"/>
 </operation>
+<operation name="UpdateNombreGrado">
+<input wsam:Action="http://Service/ServicioWeb/UpdateNombreGradoRequest" message="tns:UpdateNombreGrado"/>
+<output wsam:Action="http://Service/ServicioWeb/UpdateNombreGradoResponse" message="tns:UpdateNombreGradoResponse"/>
+</operation>
 </portType>
 <binding name="ServicioWebPortBinding" type="tns:ServicioWeb">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="GetGrados">
+<operation name="DeleteSeccion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="login">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -96,6 +155,15 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="GetGrados">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="GetSecciones">
 <soap:operation soapAction=""/>
 <input>
@@ -105,7 +173,25 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="login">
+<operation name="DeleteGrado">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CreateGrado">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CreateSeccion">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -133,6 +219,15 @@
 </output>
 </operation>
 <operation name="GetListGrados_Info">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="UpdateNombreGrado">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
