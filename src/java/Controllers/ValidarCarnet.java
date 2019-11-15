@@ -44,8 +44,9 @@ public class ValidarCarnet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-            String Carnet = request.getParameter("carnet");                        
-            out.print(MValidarCarnet.getCarnetIfExists(Carnet));
+            String Carnet = request.getParameter("carnet"); 
+            boolean card =MValidarCarnet.getCarnetIfExists(Carnet);
+            out.print(card);
             
         }
     }

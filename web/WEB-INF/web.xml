@@ -44,6 +44,22 @@
         <servlet-name>EliminarSeccion</servlet-name>
         <servlet-class>Controllers.EliminarSeccion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CrearAlumno</servlet-name>
+        <servlet-class>Controllers.CrearAlumno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarMaterias</servlet-name>
+        <servlet-class>Controllers.Materias.ListarMaterias</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarMateria</servlet-name>
+        <servlet-class>Controllers.Materias.EliminarMateria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrearMateria</servlet-name>
+        <servlet-class>Controllers.Materias.CrearMateria</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -87,6 +103,22 @@
     <servlet-mapping>
         <servlet-name>EliminarSeccion</servlet-name>
         <url-pattern>/EliminarSeccion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearAlumno</servlet-name>
+        <url-pattern>/CrearAlumno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarMaterias</servlet-name>
+        <url-pattern>/ListarMaterias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarMateria</servlet-name>
+        <url-pattern>/EliminarMateria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearMateria</servlet-name>
+        <url-pattern>/CrearMateria</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

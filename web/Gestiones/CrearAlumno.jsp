@@ -96,7 +96,7 @@
           <label for="icon_prefix">First Name</label>
         </div -->
                             <div class="content">
-                                <form onsubmit="return validarForm()">
+                                <form onsubmit="return validarForm()" action="../CrearAlumno" method="POST">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
@@ -181,7 +181,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <input type="Password" name="txtPass"  id="txtPass"class="form-control" placeholder="******" value="" required="Requerido">
+                                                <input type="Password" name="txtPass"  id="txtPass"class="form-control" placeholder="******" value="" minlength="6" required="Requerido">
                                                 <div style="display:none;color:#F41C1C; font-size: 10px" id="passDiv">Las contraseñas no coinciden</div>
                                             </div>
                                         </div>
@@ -216,20 +216,21 @@
                                             
                                              <script type="text/javascript">
                                                 
-                                                    var carnet = false;                                                   
-                                                    var pass = false;
-                                                    var Grado = false;
-                                                    var Seccion = false;
+                                                    var carnet;                                                   
+                                                    var pass;
+                                                    var Grado;
+                                                    var Seccion;
                                                     
                                                     function validarGrado(){
                                                         
                                                         if ($("#sGrados").val() === '0') {  
                                                             document.getElementById("sGrados").style.borderColor="#F41C1C";
-                                                            var Grado = false;
+                                                             Grado = false;
                                                         }else{
                                                             document.getElementById("sGrados").style.borderColor="#D9D9D9";
-                                                            var Grado = true;
+                                                             Grado = true;
                                                         }
+                                                       
                                                         return Grado;
   
                                                     }
@@ -237,43 +238,41 @@
                                                     function validarSeccion() {
                                                         if ($("#sSeccion").val() === '0') {
                                                                  document.getElementById("sSeccion").style.borderColor="#F41C1C";
-                                                                var Seccion = false;
+                                                                 Seccion = false;
                                                             }else{
                                                                  document.getElementById("sSeccion").style.borderColor="#D9D9D9";                                                                
-                                                                 var Seccion = true;
-                                                            }                                                          
+                                                                  Seccion = true;
+                                                            }              
+                                                           
                                                             return Seccion;
                                                     }
     
 
 
 
-                                                function validarCarnet(){                                                     
-                                                    
-                                                    try{
+                                                function validarCarnet(){                                                   
+
                                                          var direccion = "../ValidarCarnet";                                                    
                                                             var elemento = $("#txtNie").val();
                                                             var parametro ={carnet : elemento}; 
                                                             
-                                                            $.post(direccion,parametro,function (resp){                                                        
-                                                         if (resp === 'true') {                                                         
-                                                             document.getElementById('carnetDiv').style.display='block';
-                                                             document.getElementById("txtCarnet").style.borderColor="#F41C1C";
-                                                             carnet = false;                                                            
-                                                             return carnet;
-                                                         }else {
-                                                             document.getElementById('carnetDiv').style.display='none';
-                                                             document.getElementById("txtCarnet").style.borderColor="#D9D9D9";
-                                                             carnet = true;                                                              
-                                                             return carnet;
-                                                         }
-
+                                                            $.post(direccion,parametro,function(respuesta){                                                        
+                                                                
+                                                                if (respuesta === 'true') {                                                         
+                                                                 document.getElementById('carnetDiv').style.display='block';
+                                                                 document.getElementById("txtNie").style.borderColor="#F41C1C";
+                                                                 carnet = false;
+                                                                 
+                                                                 return carnet;
+                                                             }else {
+                                                                 document.getElementById('carnetDiv').style.display='none';
+                                                                 document.getElementById("txtNie").style.borderColor="#D9D9D9";
+                                                                 carnet = true;
+                                                                 
+                                                                 return carnet;
+                                                             }
                                                         });                                                     
-                                                    }catch (exception) {
-                                                        alert(exception);
-                                                    }
- 
-                                                    return false;
+                  
                                                 }   
                                                 
                                                 function validarPass(){
@@ -297,18 +296,30 @@
     
                                                
                                                 
-                                                function validarForm(){                                                                                                 
-                                                    validarCarnet();
-                                                    validarCarnet();
-                                                    validarGrado();
-                                                    validarSeccion();
-                                                    if(carnet && pass  && Grado && Seccion){
+                                                function validarForm(){ 
+                                                    try {
                                                         
+                                                        
+                                                        validarPass();
+                                                        Grado=validarGrado();
+                                                        Seccion=validarSeccion();
                                                        
-                                                        return true;
-                                                    }
+                                                        if(carnet && pass  && Grado && Seccion){                                                       
+                                                            return true;
+                                                        }
                                                     
                                                     return false;
+                                                        
+                                                    } catch (e) {                                                        
+                                                        alert(e);
+                                                         return false;
+                                                    }
+    
+
+    
+
+
+                                                    
                                                 }
                                             </script>
                                             

@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controllers;
+package Controllers.Materias;
 
-import Models.MGetListGrados;
+
+import Models.Materias.MMaterias;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -18,10 +19,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author LENOVO
  */
-public class ListadoDeGrados extends HttpServlet {
-    private ArrayList ID_Grado = new ArrayList();
-    private ArrayList Grados = new ArrayList();
-    private ArrayList Secciones = new ArrayList();
+public class ListarMaterias extends HttpServlet {
+    private ArrayList ID_Materia;
+
+    public int getID_MateriaSize() {
+        int size =  MMaterias.listMaterias().getIDMATERIA().size();
+        return size;
+    }
     
     
     
@@ -29,9 +33,10 @@ public class ListadoDeGrados extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
+         
         }
     }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -44,9 +49,9 @@ public class ListadoDeGrados extends HttpServlet {
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
             
-            ID_Grado = (ArrayList) MGetListGrados.getListGradosInfo().getID();
-            Grados = (ArrayList) MGetListGrados.getListGradosInfo().getGRADO();
-            Secciones = (ArrayList) MGetListGrados.getListGradosInfo().getSECCIONES();
+            ID_Materia = (ArrayList)  MMaterias.listMaterias().getIDMATERIA();
+            ArrayList Materia = (ArrayList) MMaterias.listMaterias().getNOMBREMATERIA();
+            ArrayList Codigo = (ArrayList)  MMaterias.listMaterias().getCODIGOMATERIA();
             
             int inicio = Integer.parseInt(request.getParameter("inicio"));
             int fin = Integer.parseInt(request.getParameter("fin"));
@@ -58,18 +63,15 @@ public class ListadoDeGrados extends HttpServlet {
             for ( int i =inicio; i < fin; i++) {
                 int num = i+1;
                 Resp +=   "<tr> "
-                        + "<td>"+num+"</td>"                       
-                        + "<td>"+ID_Grado.get(i)
+                        + "<td>"+num+"</td>"                        
+                        + "<td>"+ID_Materia.get(i)
                         + "</td>"
-                        + "<td>"+Grados.get(i)
+                        + "<td>"+Materia.get(i)
                         + "</td>"
-                        + "<td>"+Secciones.get(i)
-                        + "</td>"
-                        + "<td><button type=\"button\" class=\"btn btn-info btn-fill pull-right\" role=\"link\" onclick=\"getSecciones('"+ID_Grado.get(i)
-                        + "','"+Grados.get(i)
-                        + "')\">Ver Secciones</button></td>"
+                        + "<td>"+Codigo.get(i)
+                        + "</td>"                        
                         + "<td>"
-                        + "<button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"eliminar('"+ID_Grado.get(i)+"')\" role=\"link\" >Eliminar</button>"
+                        + "<button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"eliminar('"+ID_Materia.get(i)+"')\" role=\"link\" >Eliminar</button>"
                         + "</td>"                        
                         + "</tr>";
             }
@@ -77,21 +79,5 @@ public class ListadoDeGrados extends HttpServlet {
             
         }
     }
-
-    public ArrayList getID_Grado() {
-        ID_Grado = (ArrayList) MGetListGrados.getListGradosInfo().getID();       
-             
-        return ID_Grado;
-    }
-    
-    
-
- 
- 
-   
-
-    
-   
-  
 
 }

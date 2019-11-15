@@ -31,7 +31,11 @@ public class GetSeccionesList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try (PrintWriter out = response.getWriter()) {
+           int idGrado =Integer.parseInt(request.getParameter("id_grado")); 
+           int Size = MGetSecciones.getSecciones(idGrado).getIDSECCION().size();
+           out.print(Size);
+        }
     }
 
 
@@ -40,13 +44,17 @@ public class GetSeccionesList extends HttpServlet {
             throws ServletException, IOException {
         
         try (PrintWriter out = response.getWriter()) {
-            
+            int inicio = Integer.parseInt(request.getParameter("inicio"));
+            int fin = Integer.parseInt(request.getParameter("fin"));
+            if (fin <= inicio) {
+                fin=inicio+fin;                
+            }
             int idGrado =Integer.parseInt(request.getParameter("id_grado"));
             ArrayList Seccion = (ArrayList)MGetSecciones.getSecciones(idGrado).getSECCION();
             ArrayList id = (ArrayList)MGetSecciones.getSecciones(idGrado).getIDSECCION();
             String Result = "";
             
-            for (int i = 0; i < id.size(); i++) {
+            for (int i = inicio; i < fin; i++) {
                 Result +=
                     "<tr>"
                     + "<td>"+id.get(i)+"</td>"

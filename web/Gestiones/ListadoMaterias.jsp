@@ -4,6 +4,7 @@
     Author     : osmin_000
 --%>
 
+<%@page import="Controllers.Materias.ListarMaterias"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Controllers.ListadoDeGrados"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -93,7 +94,7 @@
 
               }
                
-               var direccion="../ListadoDeGrados";
+               var direccion="../ListarMaterias";
                var parametros ={inicio : start , fin : thisTab };
                $.post(direccion,parametros,function (respuesta){                                     
                    $("#tbodyGrados").html(respuesta);                   
@@ -183,19 +184,19 @@
                             <div class="content table-responsive table-middle-width">
                                 <table class="table table-hover ">
                                     
-                                    <thead>                                    
-                                        <th>Nº</th>
+                                    <thead> 
+                                    <th>Nº</th>
                                          <th>ID</th>
-                                        <th>Grado</th>
-                                        <th>Secciones</th>
+                                        <th>Materia</th>
+                                        <th>Codigo</th>
                                         <th></th>                                    	
-                                        <th></th>
+                                        
                                     </thead>
                                     <input type="hidden" id="tabSelected" value="1">
                                     <input type="hidden" id="SizeArray" value="<%
-                                        ListadoDeGrados list = new ListadoDeGrados();
-                                        ArrayList Id = list.getID_Grado();
-                                        out.print(Id.size());
+                                        ListarMaterias materias = new ListarMaterias();
+                                        
+                                        out.print(materias.getID_MateriaSize());
                                            %>">
                                     <tbody id="tbodyGrados">
                                     
@@ -214,8 +215,8 @@
                                             
                                             function eliminar(id){                                               
                                               
-                                                 var direccion="../EliminarGrado";
-                                                 var parametro={ id_grado : id};                                                 
+                                                 var direccion="../EliminarMateria";
+                                                 var parametro={ id_materia : id};                                                 
                                                  $.post(direccion,parametro,function(respuesta){                                                     
                                                //     $("#tbodyGrados").html(respuesta); 
                                                     location.reload();
@@ -510,7 +511,7 @@
                     </div>
                 </form>  
             </div>
-            <div id="snackbar">Some text some message..</div>  
+           
         </div>
                                              
                                              
@@ -521,29 +522,45 @@
                     <h2>Agregar</h2>                                                
                     <a id="cerrar" href="#">&times;</a>                                               
                     <div class="popupContent">                                                                              
-                        <div class="left">                                               
+                        <div class="left">
+                            <div id="snackbar" >Some text some message..</div>  
                             <div class="col-md-4">                                
                             </div>                                                       
-                            <div class="col-md-5">                                                        
-                                <div class="form-group">                                                          
-                                    <label for="sel1">Grado</label>                                                           
-                                    <input type="text" id="txtGrado" class="form-control" placeholder="" value="" required="Requerido">                    
-                                </div>                   
-                            </div><br>                                               
-                            <div class="col-md-3">                                              
+                            <div class="col-md-9">                                                        
+                                <div class="col-md-6">                                                          
+                                    <label for="sel1">Código de la Materia</label>                                                           
+                                    <input type="text" id="txtCodigo" class="form-control" placeholder="" value="" required="Requerido">                    
+                                    <div style="display:none;color:#F41C1C; font-size: 10px" id="CodDiv">Codigo No válido</div>
+                                </div><div class="col-md-6">                                                          
+                                    <label for="sel1">Nombre de la Materia</label>                                                           
+                                    <input type="text" id="txtMateria" class="form-control" placeholder="" value="" required="Requerido">                    
+                                </div> 
+                            </div><br><div class="col-md-3">                                              
                                 <div class="form-group">                                                       
                                     <button type="button" class="btn btn-info btn-fill pull-left " onclick="add()">Agregar</button>                                                       
                                     <script type="text/javascript">
+                                        var codigo_com=false;
+                                        function validarCodig(){
+                                            
+                                        }
+                                        
                                         function add(){
-                                          var direccion  ="../CrearGrado";
-                                          var elemento = $("#txtGrado").val();
-                                          var parametro = {grado : elemento};
+                                          var direccion  ="../CrearMateria";
+                                          var codigo = $("#txtCodigo").val();
+                                          var materia = $("#txtMateria").val();
+                                          var parametro = {codigo : codigo , materia : materia};
                                          $.post(direccion,parametro,function(respuesta){
                                               if (respuesta === 'true') {
-                                                  show("Agregado!","snackbar1");  
+                                                  var x = document.getElementById("snackbar");                                               
+                                                x.className = "show";
+                                                $("#snackbar").html("Agregado Exitosamente!");
+                                                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000); 
                                                   location.reload();
-                                              }else{
-                                                  show("Error!","snackbar1");
+                                              }else{                                                  
+                                                 var x = document.getElementById("snackbar");                                               
+                                                x.className = "show";
+                                                $("#snackbar").html("Error: complete los campos vacios");
+                                                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
                                               }                                                                                             
                                           });
                                         
@@ -559,7 +576,7 @@
                         </div>
                     </div>
                 </form>  
-                <div id="snackbar1">Some text some message..</div>  
+                
             </div>
         </div>                                            
 

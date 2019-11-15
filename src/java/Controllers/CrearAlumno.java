@@ -5,7 +5,7 @@
  */
 package Controllers;
 
-import Models.Usuario.MUsuario;
+import Models.Alumnos.MAlumnos;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author LENOVO
  */
-public class CrearUsuario extends HttpServlet {
+public class CrearAlumno extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,33 +32,27 @@ public class CrearUsuario extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            String Nombre_Usuario = request.getParameter("txtUser");
-            String Correo= request.getParameter("txtEmail");
-            String Nombre= request.getParameter("txtNombre");
-            String Apellido= request.getParameter("txtApellido");
-            String Password= request.getParameter("txtPass");
-            int Nivel= Integer.parseInt(request.getParameter("dnivel"));
-            
-            boolean resp=MUsuario.createUser(Nombre_Usuario, Password, Nombre, Apellido, Correo, Nivel).isRESULT();
+            String NIE = request.getParameter("txtNie");
+            String Nombre = request.getParameter("txtNombre");
+            String Apellido = request.getParameter("txtApellido");
+            String FechaMatricula = request.getParameter("txtfechaMatricula");
+            int id_seccion =Integer.parseInt(request.getParameter("sSeccion"));
+            String Password = request.getParameter("txtPass");
+            boolean resp = MAlumnos.createAlumno(NIE, Nombre, Apellido, FechaMatricula, id_seccion,Password.trim()).isRESULT();
             if (resp) {
                
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Insertador Existosamente!!');");
-                out.println("location='/Notas/Gestiones/CrearUsuarios.jsp';");
+                out.println("location='/Notas/Gestiones/CrearAlumno.jsp';");
                 out.println("</script>");
                     
             }else{
                 out.println("<script type=\"text/javascript\">");
-                out.println("alert('Error al Tratar de Crear El Usuario');");
-                out.println("location='/Notas/Gestiones/CrearUsuarios.jsp';");
+                out.println("alert('Error al Tratar de Crear El Alumno');");
+                out.println("location='/Notas/Gestiones/CrearAlumno.jsp';");
                 out.println("</script>");
             }
             
-            //response.sendRedirect("/Notas/Gestiones/CrearUsuarios.jsp");
-                
-            
-           
         }
     }
 

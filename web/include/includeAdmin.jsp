@@ -56,18 +56,7 @@
                         <p>Asignacion Materia</p>
                     </a>
                 </li>
-                  <li>
-                    <a href="../Gestiones/DescargaAprobados.jsp">
-                        <i class="pe-7s-cloud-download"></i>
-                        <p>Descargar Aprobados</p>
-                    </a>
-                </li>
-                  <li>
-                    <a href="../Gestiones/DescargaReprobados.jsp">
-                        <i class="pe-7s-cloud-download"></i>
-                        <p>Descargar Reprobados</p>
-                    </a>
-                </li>
+                 
                 <li>
                     <a href="../Gestiones/DardeBaja.jsp">
                         <i class="pe-7s-news-paper"></i>
@@ -86,6 +75,12 @@
                         <p>Gestion Notas</p>
                     </a>
                 </li> 
+                 <li>
+                    <a href="../Gestiones/ListadoMaterias.jsp">
+                        <i class="pe-7s-ribbon"></i>
+                        <p>Materias</p>
+                    </a>
+                </li>
                  
                   <li>
                     <a href="../Gestiones/ListadoDeGrado.jsp">
