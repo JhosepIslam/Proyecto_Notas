@@ -85,7 +85,7 @@
                                 <table class="table table-hover ">
                                     <thead>
                                         
-                                        <th>Nombre</th>
+                                    <th class="col-md-1">Nombre</th>
                                         <th>Apellido</th>
                                     	<th>Carnet</th>
                                         <th>Correo</th>

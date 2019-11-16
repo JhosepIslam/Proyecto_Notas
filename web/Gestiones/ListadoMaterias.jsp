@@ -14,7 +14,7 @@
 	<meta charset="utf-8" />
 	<link rel="icon" type="../image/png" href="../assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title>UTEC</title>
         <script type="text/javascript">
             function show(respuesta,snack){
@@ -185,11 +185,11 @@
                                 <table class="table table-hover ">
                                     
                                     <thead> 
-                                    <th>Nº</th>
-                                         <th>ID</th>
-                                        <th>Materia</th>
-                                        <th>Codigo</th>
-                                        <th></th>                                    	
+                                    <th class="col-md-2">Nº</th>
+                                         <th class="col-md-3">ID</th>
+                                        <th class="col-md-4">Materia</th>
+                                        <th class="col-md-4"> Codigo</th>
+                                        <th class="col-md-3"></th>                                    	
                                         
                                     </thead>
                                     <input type="hidden" id="tabSelected" value="1">
@@ -245,275 +245,7 @@
                 </div>
             </div>
         </div>
-                                             
-                                             
-                                             
-        <div id="popup" class="overlay">
-            <div id="popupBody">                                        
-                <form id="ModificarGradoSeccion" method="POST">
-                    <h2>Modificar</h2>                                                
-                    <a id="cerrar"  href="ListadoDeGrado.jsp">&times;</a>                                               
-                    <div class="popupContent">                                           
-                        <div class="row"><br>                                                   
-                            <div class="col-md-5">                                                      
-                                <div class="form-group">    
-                                    <label>Grado</label>
-                                    <input type="hidden" id="idHidden" value="">
-                                    <input type="text" id="txtGradoAdd" class="form-control" placeholder="" value="">                  
-                                </div>                
-                            </div>                                                  
-                            <br>                                                       
-                            <div class="col-md-5">                                                       
-                                <div class="form-group">                                                          
-                                    <button type="button" class="btn btn-info btn-fill pull-left " onclick="updateNombre()">Actualizar</button>                                                        
-                                </div>                  
-                            </div>                                           
-                        </div>           
-                        <div class="left">                                               
-                            <div class="col-md-4">                                
-                            </div>                                                       
-                            <div class="col-md-5">                                                        
-                                <div class="form-group">                                                          
-                                    <label for="sel1">Seccion</label>                                                           
-                                    <input type="text" id="txtSeccion" class="form-control" placeholder="" value="">                    
-                                </div>                   
-                            </div><br>                                               
-                            <div class="col-md-3">                                              
-                                <div class="form-group">                                                       
-                                    <button type="button" class="btn btn-info btn-fill pull-left  " onclick="CrearSeccion()">Agregar</button>                                                       
-                                </div></div>                                           
-                        </div>                                           
-                        <div class="row">                                              
-                            <div class="col-md-4">                                                
-                            </div>                                                  
-                            <div class="col-md-12">
-                                <div class="content table-responsive table-full-width">
-                                    <table class="table table-hover ">
-                                        <thead>
-                                        <th>ID</th>
-                                        <th>Seccion</th>
-                                        <th></th>
-                                        </thead>
-                                        <input type="hidden" id="tabSelectedSec" value="1">
-                                        
-                                        <tbody id="dataSecciones">
-                                        <script type="text/javascript">
-                                            var  Inicio=0; 
-                                            var Fin=0;
-                                            function setValueTabSec(tab){
-                                                $("#tabSelectedSec").val(tab); 
-                                              }
-                                              function cargarSec(Size){ 
-
-                                                  
-                                                    var thisTab;
-                                                    var size = Size;
-                                                    SetPaginadoSeccion(size);
-                                                    
-                                                    
-                                                    
-                                                    var tabs= Math.ceil(size/3);
-
-                                                    var lastTab;
-                                                    var tabSelected =$("#tabSelectedSec").val();
-
-                                                   var start = ((tabSelected)*3)-3;
-
-
-                                                   //dos o mas tabs
-                                                  if(tabs >=2){
-
-                                                      //si el tab seleccionado * 5 es mayor que size
-                                                    if((tabSelected*3)>size){
-                                                      lastTab =(size-((tabs*3)-3));
-                                                      thisTab= lastTab;
-
-
-                                                    }
-                                                  //si size mod 5 es 0
-                                                    else if(size % 3 ===0){
-                                                      thisTab=3;
-                                                      lastTab=3;
-
-                                                    }
-                                                    //cuando size es mayor o igual que tab * 5
-                                                    else{
-                                                      lastTab =(size-((tabs*3)-3));
-                                                      thisTab=3;
-
-                                                    }
-                                                   //cuando lastTab es igual a tab * 5 = 0 
-                                                    if(lastTab===0){
-                                                      lastTab=3;
-                                                      thisTab= 3;
-
-                                                    }  
-                                                  //cuando lastTab es menor que 0
-                                                    else if(lastTab<0){
-                                                      lastTab = lastTab*-1;
-                                                      thisTab = lastTab;
-
-
-                                                    }
-
-
-                                                  }//solo un tab
-                                                  else{
-                                                    lastTab =(size-((tabSelected*3)-3));                
-                                                    if(lastTab===0){
-                                                      lastTab=3;
-                                                      thisTab=3;
-                                                    }  
-                                                    else if(lastTab<0){
-                                                      lastTab = lastTab*-1;
-                                                      thisTab= lastTab;
-                                                    }else{
-                                                      thisTab= lastTab;
-                                                    }
-
-                                                  }                                                  
-                                                   Inicio= start;
-                                                   Fin = thisTab;
-
-
-                                              }
-
-                                              function SetPaginadoSeccion(Size){   
-
-                                                     var size = Size;               
-                                                    var tabs= Math.ceil(size/3);    
-                                                    var tabSelected =$("#tabSelectedSec").val();
-
-                                                    var Paginado="";
-
-                                                    if (tabSelected>=2) {
-                                                        var prev = tabSelected-1;                    
-                                                        Paginado +="<button type='button'  class='page-item' onclick=\"setValueTabSec("+prev+"); getSeccionesF5($('#idHidden').val(), $('#txtGradoAdd').val());\"  > <a class='page-link'>Previous</a>  </button>";
-
-                                                    }else{
-                                                        Paginado +="<button type='button'  class='page-item disabled'> <a class='page-link'>Previous</a>  </button>";
-
-                                                    }
-                                                    for (var i = 1, max = tabs; i <= max; i++) {
-                                                        Paginado +="<button type='button'  class='page-item' onclick=\"setValueTabSec("+i+"); getSeccionesF5($('#idHidden').val(), $('#txtGradoAdd').val());\"  > <a class='page-link'>"+i+"</a>  </button>";
-
-                                                    }
-                                                    if (tabSelected >=tabs) {
-                                                        Paginado +="<button type='button'  class='page-item disabled'> <a class='page-link'>Next</a>  </button>";
-
-                                                    }else{
-                                                        var next = parseInt(tabSelected)+ parseInt(1);
-                                                        Paginado +="<button type='button'  class='page-item' onclick=\"setValueTabSec("+next+"); getSeccionesF5($('#idHidden').val(), $('#txtGradoAdd').val());\"  > <a class='page-link'>Next</a>  </button>";
-
-                                                    }
-
-                                                    $("#ulPaginationSec").html(Paginado);
-
-
-                                              }
-                                              function getSeccionesF5(id,grado){
-                                                    $("#idHidden").val(id);                                                
-                                                     var direccion="../GetSeccionesList";
-                                                     var elemento =id;
-                                                     var parametro = {id_grado : id };
-                                                     $.get(direccion,parametro,function (respuesta){
-                                                         if (respuesta !==0) {
-                                                             cargarSec(respuesta);  
-                                                             parametro ={id_grado : elemento , inicio : Inicio , fin : Fin};
-                                                            $.post(direccion,parametro,function(respuesta2){ 
-                                                                $("#dataSecciones").html(respuesta2);                                                                
-                                                            });
-                                                         }  
-                                                });                                                  
-                                              }
-                                            
-                                            
-                                                function getSecciones(id,grado){
-                                               
-                                                    $("#txtGradoAdd").val(grado);
-                                                    $("#idHidden").val(id);                                                
-                                                     var direccion="../GetSeccionesList";
-                                                     var elemento =id;
-                                                     var parametro = {id_grado : id };
-                                                     $.get(direccion,parametro,function (respuesta){
-                                                         if (respuesta !==0) {
-                                                             cargarSec(respuesta);  
-                                                             parametro ={id_grado : elemento , inicio : Inicio , fin : Fin};
-                                                            $.post(direccion,parametro,function(respuesta2){ 
-                                                                $("#dataSecciones").html(respuesta2);
-                                                                window.location=href='#popup';
-                                                            });
-                                                         }   
-                                                    
-                                                });
-                                                 
-
-                                            }
-                                            
-                                            function CrearSeccion() {
-                                                var direccion ="../CrearSeccion";
-                                                var id = $("#idHidden").val();                                                
-                                                var seccion_Nombre =$("#txtSeccion").val();                                                 
-                                                $("#txtSeccion").val("");                                                                                                 
-                                                var parametro ={id_grado : id , seccion : seccion_Nombre };
-                                                
-                                                if (seccion_Nombre.trim() !=="") {                                                    
-                                                    $.post(direccion,parametro,function (respuesta){
-                                                        getSecciones(id,$("#txtGradoAdd").val());                                                        
-                                                    });
-                                                }    
-                                            }
-                                            
-                                            function DeleteSeccion(ID){
-                                                var direccion ="../EliminarSeccion";
-                                                parametro = {id_seccion : ID};
-                                               $.post(direccion,parametro,function (respuesta){                                                            
-                                                   getSecciones($("#idHidden").val(),$("#txtGradoAdd").val());
-                                               });
-                                                
-                                            }
-                                            
-                                            function updateNombre(){
-                                                var direccion ="../ActualizarNombreGrado";
-                                                var id = $("#idHidden").val();                                                
-                                                var Nombre =$("#txtGradoAdd").val();                                                 
-                                                
-                                                var parametro ={id_grado : id , grado : Nombre };
-                                                
-                                                if (Nombre.trim() !=="") {                                                    
-                                                    $.post(direccion,parametro,function (respuesta){
-                                                        //alert(respuesta);
-                                                        if (respuesta ==='true') {
-                                                            show("Actualizado!","snackbar");
-                                                        }else{
-                                                            show("Error!","snackbar");
-                                                        }
-
-                                                    });
-                                                }else{
-                                                    show("LLene los Campos","snackbar");
-                                                }
-                                            }
-    
-                                        </script>
-                                        </tbody>
-                                    </table>
-                                    <div class="col-md-12">
-                                            
-                                          <ul class="pagination" id="ulPaginationSec">                                                                 
-                                   
-                                          </ul>
-                                            
-                                     </div> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>  
-            </div>
-           
-        </div>
-                                             
+                               
                                              
                                              
         <div id="popupGrado" class="overlay">
@@ -540,11 +272,34 @@
                                     <button type="button" class="btn btn-info btn-fill pull-left " onclick="add()">Agregar</button>                                                       
                                     <script type="text/javascript">
                                         var codigo_com=false;
-                                        function validarCodig(){
+                                        $("#txtCodigo").blur(function (){
+                                           
+                                            var codigo = $("#txtCodigo").val();
+                                            var direccion ="../CrearMateria";
+                                            var parametro ={codigo_materia : codigo};
+                                            $.get(direccion,parametro,function (respuesta){
+                                                
+                                                if (respuesta === 'false') {
+                                                    codigo_com = false;
+                                                    document.getElementById('CodDiv').style.display='block';
+                                                    document.getElementById("txtCodigo").style.borderColor="#F41C1C";
+                                                }else{
+                                                    codigo_com = true;
+                                                    document.getElementById('CodDiv').style.display='none';
+                                                    document.getElementById("txtCodigo").style.borderColor="#D9D9D9";
+                                                }
+    
+
+                                            });
                                             
-                                        }
+                                        });
                                         
                                         function add(){
+                                            if (!codigo_com) {
+                                                return false;
+                                            }
+    
+
                                           var direccion  ="../CrearMateria";
                                           var codigo = $("#txtCodigo").val();
                                           var materia = $("#txtMateria").val();
@@ -562,10 +317,7 @@
                                                 $("#snackbar").html("Error: complete los campos vacios");
                                                 setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
                                               }                                                                                             
-                                          });
-                                        
-        
-                                            
+                                          });                                        
                                       }
                                
                                     </script>

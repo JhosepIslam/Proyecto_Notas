@@ -10,6 +10,10 @@
 
 <xs:element name="CreateMateria" type="tns:CreateMateria"/>
 
+<xs:element name="CreateMateriaGrado" type="tns:CreateMateriaGrado"/>
+
+<xs:element name="CreateMateriaGradoResponse" type="tns:CreateMateriaGradoResponse"/>
+
 <xs:element name="CreateMateriaResponse" type="tns:CreateMateriaResponse"/>
 
 <xs:element name="CreateSeccion" type="tns:CreateSeccion"/>
@@ -25,6 +29,10 @@
 <xs:element name="DeleteGradoResponse" type="tns:DeleteGradoResponse"/>
 
 <xs:element name="DeleteMateria" type="tns:DeleteMateria"/>
+
+<xs:element name="DeleteMateriaGrado" type="tns:DeleteMateriaGrado"/>
+
+<xs:element name="DeleteMateriaGradoResponse" type="tns:DeleteMateriaGradoResponse"/>
 
 <xs:element name="DeleteMateriaResponse" type="tns:DeleteMateriaResponse"/>
 
@@ -58,11 +66,23 @@
 
 <xs:element name="ListMaterias" type="tns:ListMaterias"/>
 
+<xs:element name="ListMateriasNotInGrados" type="tns:ListMateriasNotInGrados"/>
+
+<xs:element name="ListMateriasNotInGradosResponse" type="tns:ListMateriasNotInGradosResponse"/>
+
 <xs:element name="ListMateriasResponse" type="tns:ListMateriasResponse"/>
+
+<xs:element name="ListarMateriasGrados" type="tns:ListarMateriasGrados"/>
+
+<xs:element name="ListarMateriasGradosResponse" type="tns:ListarMateriasGradosResponse"/>
 
 <xs:element name="UpdateNombreGrado" type="tns:UpdateNombreGrado"/>
 
 <xs:element name="UpdateNombreGradoResponse" type="tns:UpdateNombreGradoResponse"/>
+
+<xs:element name="ValidarCodigoMateria" type="tns:ValidarCodigoMateria"/>
+
+<xs:element name="ValidarCodigoMateriaResponse" type="tns:ValidarCodigoMateriaResponse"/>
 
 <xs:element name="login" type="tns:login"/>
 
@@ -100,6 +120,29 @@
 <xs:complexType name="GetUsuarioIfExitsResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ValidarCodigoMateria">
+<xs:sequence>
+<xs:element name="CODIGO" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ValidarCodigoMateriaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:materias" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="materias">
+<xs:sequence>
+<xs:element name="CODIGO_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ESTADO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="FECHA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ID_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="NOMBRE_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="RESULT" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -155,6 +198,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="ListMateriasNotInGrados">
+<xs:sequence>
+<xs:element name="ID_GRADO" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListMateriasNotInGradosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:materias" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="CreateMateria">
 <xs:sequence>
 <xs:element name="Codigo" type="xs:string" minOccurs="0"/>
@@ -165,17 +220,6 @@
 <xs:complexType name="CreateMateriaResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:materias" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="materias">
-<xs:sequence>
-<xs:element name="CODIGO_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="ESTADO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="FECHA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="ID_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="NOMBRE_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="RESULT" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -258,6 +302,19 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="DeleteMateriaGrado">
+<xs:sequence>
+<xs:element name="ID_MATERIA" type="xs:int"/>
+<xs:element name="ID_GRADO" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DeleteMateriaGradoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:materias" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="DeleteGrado">
 <xs:sequence>
 <xs:element name="arg0" type="xs:int"/>
@@ -302,16 +359,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="ListMaterias">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="ListMateriasResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:materias" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="CreateSeccion">
 <xs:sequence>
 <xs:element name="arg0" type="xs:int"/>
@@ -325,6 +372,16 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="ListMaterias">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ListMateriasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:materias" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="DeleteMateria">
 <xs:sequence>
 <xs:element name="ID_Materia" type="xs:int"/>
@@ -332,6 +389,31 @@
 </xs:complexType>
 
 <xs:complexType name="DeleteMateriaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:materias" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListarMateriasGrados">
+<xs:sequence>
+<xs:element name="ID_GRADO" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListarMateriasGradosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:materias" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CreateMateriaGrado">
+<xs:sequence>
+<xs:element name="ID_MATERIA" type="xs:int"/>
+<xs:element name="ID_GRADO" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CreateMateriaGradoResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:materias" minOccurs="0"/>
 </xs:sequence>

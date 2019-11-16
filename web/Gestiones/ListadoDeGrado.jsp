@@ -108,6 +108,12 @@
                 var tabs= Math.ceil(size/5);                                
                 var tabSelected =$("#tabSelected").val();
                 
+                if ( size<=((tabSelected*5)-5) ) {
+                    tabSelected= tabSelected-1;
+                    $("#tabSelected").val(tabSelected);
+                    
+                }
+                
                 var Paginado="";
                 
                 if (tabSelected>=2) {
@@ -183,13 +189,16 @@
                             <div class="content table-responsive table-middle-width">
                                 <table class="table table-hover ">
                                     
-                                    <thead>                                    
-                                        <th>Nº</th>
-                                         <th>ID</th>
-                                        <th>Grado</th>
-                                        <th>Secciones</th>
-                                        <th></th>                                    	
-                                        <th></th>
+                                    <thead>
+                                    
+                                        <th class="col-md-3">Nº</th>
+                                         <th class="col-md-3">ID</th>
+                                         <th class="col-md-4">Grado</th>
+                                        <th class="col-md-4">Secciones</th>
+                                        <th class="col-md-3"></th>                                    	
+                                        <th class="col-md-3"></th>
+                                        <th class="col-md-3"></th>
+                                        
                                     </thead>
                                     <input type="hidden" id="tabSelected" value="1">
                                     <input type="hidden" id="SizeArray" value="<%
@@ -382,6 +391,11 @@
                                                      var size = Size;               
                                                     var tabs= Math.ceil(size/3);    
                                                     var tabSelected =$("#tabSelectedSec").val();
+                                                    if ( size<=((tabSelected*3)-3) ) {
+                                                        tabSelected= tabSelected-1;
+                                                        $("#tabSelectedSec").val(tabSelected);
+                                                        
+                                                    }
 
                                                     var Paginado="";
 
@@ -434,7 +448,7 @@
                                                      var direccion="../GetSeccionesList";
                                                      var elemento =id;
                                                      var parametro = {id_grado : id };
-                                                     $.get(direccion,parametro,function (respuesta){
+                                                     $.get(direccion,parametro,function (respuesta){                                                         
                                                          if (respuesta !==0) {
                                                              cargarSec(respuesta);  
                                                              parametro ={id_grado : elemento , inicio : Inicio , fin : Fin};
@@ -512,6 +526,267 @@
             </div>
             <div id="snackbar">Some text some message..</div>  
         </div>
+                                    
+                                    
+     <div id="popupMaterias" class="overlay">
+            <div id="popupBody">                                        
+                <form id="ModificarGradoSeccion" method="POST">
+                    <h2>Agregar Materias</h2>                                                
+                    <a id="cerrar"  href="ListadoDeGrado.jsp">&times;</a>                                               
+                    <div class="popupContent">                                           
+                        <div class="row"><br>                                                   
+                            <div class="col-md-5">                                                      
+                                <div class="form-group">    
+                                    <label>Materias</label>
+                                    <input type="hidden" id="idHidden" value="">                                    
+                                </div>                
+                            </div>                                                                                                                                                                                                           
+                        </div>           
+                        <div class="left">                                               
+                            <div class="col-md-4">                                
+                            </div>                                                       
+                            <div class="col-md-5">                                                        
+                                <div class="form-group">                                                          
+                                    <label for="sel1">Materia</label>                                                           
+                                    <select class="form-control" id="sMaterias">
+                                        
+                                    </select>
+                                </div>                   
+                            </div><br> <div class="col-md-3">                                              
+                                <div class="form-group">                                                       
+                                    <button type="button" class="btn btn-info btn-fill pull-left  " onclick="AgregarMateria()">Agregar</button>                                                       
+                                </div></div>                                           
+                        </div>                                           
+                        <div class="row">                                              
+                            <div class="col-md-4">                                                
+                            </div>                                                  
+                            <div class="col-md-12">
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-hover ">
+                                        <thead>
+                                        <th>ID</th>
+                                        <th>Codigo</th>
+                                        <th>Nombre</th>
+                                        <th></th>
+                                        </thead>
+                                        <input type="hidden" id="tabSelectedMateria" value="1">
+                                        
+                                        <tbody id="dataMaterias">
+                                        <script type="text/javascript">
+                                            var  Inicio=0; 
+                                            var Fin=0;
+                                            function setValueTabMateria(tab){
+                                                $("#tabSelectedMateria").val(tab); 
+                                              }
+                                              function cargarMaterias(Size){ 
+
+                                                  
+                                                    var thisTab;
+                                                    var size = Size;
+                                                   
+                                                    SetPaginadoMaterias(size);
+                                                    
+                                                    
+                                                    
+                                                    var tabs= Math.ceil(size/3);
+
+                                                    var lastTab;
+                                                    var tabSelected =$("#tabSelectedMateria").val();
+
+                                                   var start = ((tabSelected)*3)-3;
+
+
+                                                   //dos o mas tabs
+                                                  if(tabs >=2){
+
+                                                      //si el tab seleccionado * 5 es mayor que size
+                                                    if((tabSelected*3)>size){
+                                                      lastTab =(size-((tabs*3)-3));
+                                                      thisTab= lastTab;
+
+
+                                                    }
+                                                  //si size mod 5 es 0
+                                                    else if(size % 3 ===0){
+                                                      thisTab=3;
+                                                      lastTab=3;
+
+                                                    }
+                                                    //cuando size es mayor o igual que tab * 5
+                                                    else{
+                                                      lastTab =(size-((tabs*3)-3));
+                                                      thisTab=3;
+
+                                                    }
+                                                   //cuando lastTab es igual a tab * 5 = 0 
+                                                    if(lastTab===0){
+                                                      lastTab=3;
+                                                      thisTab= 3;
+
+                                                    }  
+                                                  //cuando lastTab es menor que 0
+                                                    else if(lastTab<0){
+                                                      lastTab = lastTab*-1;
+                                                      thisTab = lastTab;
+
+
+                                                    }
+
+
+                                                  }//solo un tab
+                                                  else{
+                                                    lastTab =(size-((tabSelected*3)-3));                
+                                                    if(lastTab===0){
+                                                      lastTab=3;
+                                                      thisTab=3;
+                                                    }  
+                                                    else if(lastTab<0){
+                                                      lastTab = lastTab*-1;
+                                                      thisTab= lastTab;
+                                                    }else{
+                                                      thisTab= lastTab;
+                                                    }
+
+                                                  }                                                  
+                                                   Inicio= start;
+                                                   Fin = thisTab;
+
+
+                                              }
+
+                                              function SetPaginadoMaterias(Size){   
+
+                                                     var size = Size;               
+                                                    var tabs= Math.ceil(size/3);    
+                                                    var tabSelected =$("#tabSelectedMateria").val();
+                                                    
+                                                    if ( size<=((tabSelected*3)-3) ) {
+                                                        tabSelected= tabSelected-1;
+                                                        $("#tabSelectedMateria").val(tabSelected);
+                                                        
+                                                    }
+    
+
+
+                                                    var Paginado="";
+
+                                                    if (tabSelected>=2) {
+                                                        var prev = tabSelected-1;                    
+                                                        Paginado +="<button type='button'  class='page-item' onclick=\"setValueTabMateria("+prev+"); getMateriasF5($('#idHidden').val())\"  > <a class='page-link'>Previous</a>  </button>";
+
+                                                    }else{
+                                                        Paginado +="<button type='button'  class='page-item disabled'> <a class='page-link'>Previous</a>  </button>";
+
+                                                    }
+                                                    for (var i = 1, max = tabs; i <= max; i++) {
+                                                        Paginado +="<button type='button'  class='page-item' onclick=\"setValueTabMateria("+i+"); getMateriasF5($('#idHidden').val())\"  > <a class='page-link'>"+i+"</a>  </button>";
+
+                                                    }
+                                                    if (tabSelected >=tabs) {
+                                                        Paginado +="<button type='button'  class='page-item disabled'> <a class='page-link'>Next</a>  </button>";
+
+                                                    }else{
+                                                        var next = parseInt(tabSelected)+ parseInt(1);
+                                                        Paginado +="<button type='button'  class='page-item' onclick=\"setValueTabMateria("+next+"); getMateriasF5($('#idHidden').val())\"  > <a class='page-link'>Next</a>  </button>";
+
+                                                    }
+
+                                                    $("#ulPaginationMateria").html(Paginado);
+
+
+                                              }
+                                              function getMateriasF5(id){
+                                                  getMaterias(id);
+                                                    $("#idHidden").val(id);                                                
+                                                     var direccion="../ListarMateriaGrado";
+                                                     var elemento =id;
+                                                     var parametro = {id_grado : id };
+                                                     $.get(direccion,parametro,function (respuesta){
+                                                         if (respuesta !==0) {
+                                                             cargarMaterias(respuesta);  
+                                                             parametro ={id_grado : elemento , inicio : Inicio , fin : Fin};
+                                                            $.post(direccion,parametro,function(respuesta2){ 
+                                                                $("#dataMaterias").html(respuesta2);                                                                
+                                                            });
+                                                         }  
+                                                });                                                  
+                                              }
+                                            
+                                                function getMaterias(id){
+                                                    
+                                                    var direccion="../ListarMateriasNotInGrados";
+                                                    var id_grado =id;
+                                                    var elemento ={id_grado : id_grado};
+                                                    $.post(direccion,elemento, function (respuesta){
+                                                        $("#sMaterias").html(respuesta);
+                                                    });
+                                                }
+                                            
+                                            
+                                                function getMateriasList(id){
+                                                        getMaterias(id);                                                                                              
+                                                    $("#idHidden").val(id);                                                
+                                                     var direccion="../ListarMateriaGrado";
+                                                     var elemento =id;
+                                                     var parametro = {id_grado : id };
+                                                     $.get(direccion,parametro,function (respuesta){
+                                                         if (respuesta !==0) {
+                                                             cargarMaterias(respuesta);  
+                                                             parametro ={id_grado : elemento , inicio : Inicio , fin : Fin};
+                                                            $.post(direccion,parametro,function(respuesta2){ 
+                                                                $("#dataMaterias").html(respuesta2);
+                                                                window.location=href='#popupMaterias';
+                                                            });
+                                                         }   
+                                                    
+                                                });                                               
+
+                                            }
+                                            
+                                            function AgregarMateria() {
+                                                var direccion ="../CrearMateraGrado";
+                                                var id = $("#idHidden").val();                                                
+                                                var materia_id =$("#sMaterias").val();                                                 
+                                               
+                                                var parametro ={id_grado : id , materia : materia_id };
+                                                
+                                                if (materia_id !==0) {                                                    
+                                                    $.post(direccion,parametro,function (respuesta){
+                                                        getMateriasF5(id);                                                        
+                                                    });
+                                                }    
+                                            }
+                                            
+                                            function DeleteMateria(IDMateria, IDGrado ){                                                
+                                               
+                                                var direccion ="../EliminarGradoMateria";
+                                                parametro = {id_grado : IDGrado , materia : IDMateria };
+                                               $.post(direccion,parametro,function (respuesta){                                                            
+                                                   getMateriasF5($("#idHidden").val());
+                                               });
+                                                
+                                            }              
+                                        </script>
+                                        </tbody>
+                                    </table>
+                                    <div class="col-md-12">
+                                            
+                                          <ul class="pagination" id="ulPaginationMateria">                                                                 
+                                   
+                                          </ul>
+                                            
+                                     </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>  
+            </div>
+            <div id="snackbar">Some text some message..</div>  
+        </div>
+                                    
+                                    
+                                    
                                              
                                              
                                              

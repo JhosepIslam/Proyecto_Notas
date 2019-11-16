@@ -17,46 +17,36 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author LENOVO
  */
-public class CrearMateria extends HttpServlet {
+public class CrearMateraGrado extends HttpServlet {
+
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-          
-        
+           
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) { 
-            String Codigo = request.getParameter("codigo_materia");
-            out.print(MMaterias.validarCodigoMateria(Codigo).isRESULT());
-        }
-         
-       
+        processRequest(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {        
-        
-        
-            String Codigo = request.getParameter("codigo");
-            String Materia = request.getParameter("materia");
-
-            if (Codigo.isEmpty() || Materia.isEmpty()) {
-                out.print(false);
-
-            }else{                
-               out.print(MMaterias.createMateria(Codigo, Materia).isRESULT());                
-            }
+        try (PrintWriter out = response.getWriter()) {
+            
+            int ID_GRADO = Integer.parseInt(request.getParameter("id_grado"));
+            int ID_Materia = Integer.parseInt(request.getParameter("materia"));
+            
+            out.print(MMaterias.createMateriaGrado(ID_Materia, ID_GRADO).isRESULT());
+            
+            
+           
         }
-  
     }
-
 
 }

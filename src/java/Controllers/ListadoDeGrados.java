@@ -69,8 +69,11 @@ public class ListadoDeGrados extends HttpServlet {
                         + "','"+Grados.get(i)
                         + "')\">Ver Secciones</button></td>"
                         + "<td>"
+                        + "<button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"getMateriasList('"+ID_Grado.get(i)+"')\" role=\"link\" >Ver Materias</button>"
+                        + "</td>" 
+                        + "<td>"
                         + "<button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"eliminar('"+ID_Grado.get(i)+"')\" role=\"link\" >Eliminar</button>"
-                        + "</td>"                        
+                        + "</td>"                         
                         + "</tr>";
             }
             out.print(Resp);
