@@ -16,10 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-/**
- *
- * @author LENOVO
- */
+
 public class GetSecciones extends HttpServlet {
 
     @Override

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Index
-    Created on : 17-oct-2019, 21:31:20
-    Author     : osmin_000
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

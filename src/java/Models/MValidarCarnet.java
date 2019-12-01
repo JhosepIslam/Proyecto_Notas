@@ -5,10 +5,6 @@
  */
 package Models;
 
-/**
- *
- * @author LENOVO
- */
 public class MValidarCarnet {
 
     public static boolean getCarnetIfExists(java.lang.String Carnet) {

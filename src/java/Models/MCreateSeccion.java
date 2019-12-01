@@ -7,10 +7,6 @@ package Models;
 
 import service.Secciones;
 
-/**
- *
- * @author LENOVO
- */
 public class MCreateSeccion {
 
     public static Secciones createSeccion(int id, java.lang.String seccion) {

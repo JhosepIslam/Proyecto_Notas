@@ -7,10 +7,6 @@ package Models.Usuario;
 
 import service.Usuario;
 
-/**
- *
- * @author LENOVO
- */
 public class MUsuario {
 
     public static Usuario createUser(java.lang.String usuario, java.lang.String pass, java.lang.String nombre, java.lang.String apellido, java.lang.String correo, int nivel) {
@@ -18,7 +14,5 @@ public class MUsuario {
         service.ServicioWeb port = service.getServicioWebPort();
         return port.createUser(usuario, pass, nombre, apellido, correo, nivel);
     }
-    
-    
-    
+     
 }

@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controllers;
+package Controllers.Docentes;
 
-import Models.MGetListGrados;
+import Models.Docentes.MDocentes;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -14,20 +15,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ListadoDeGrados extends HttpServlet {
-    private ArrayList ID_Grado = new ArrayList();
-    private ArrayList Grados = new ArrayList();
-    private ArrayList Secciones = new ArrayList();
-    
-    
-    
+public class GetDocentes extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
+          
         }
     }
+    
+    public int getSize(){
+        int Size = MDocentes.getListDocentes().getIDDOCENTE().size();
+        return Size;
+    }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,59 +40,47 @@ public class ListadoDeGrados extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         try (PrintWriter out = response.getWriter()) {
             
-            ID_Grado = (ArrayList) MGetListGrados.getListGradosInfo().getID();
-            Grados = (ArrayList) MGetListGrados.getListGradosInfo().getGRADO();
-            Secciones = (ArrayList) MGetListGrados.getListGradosInfo().getSECCIONES();
+            ArrayList ID_Docente = (ArrayList)  MDocentes.getListDocentes().getIDDOCENTE();
+            ArrayList Nombre =  (ArrayList)  MDocentes.getListDocentes().getNOMBRE();
+            ArrayList Apellido = (ArrayList)  MDocentes.getListDocentes().getAPELLIDO();
             
             int inicio = Integer.parseInt(request.getParameter("inicio"));
             int fin = Integer.parseInt(request.getParameter("fin"));
             String Resp ="";
+            int Size = getSize();
+            
+            
             if (fin <= inicio) {
                 fin=inicio+fin;                
+            }
+            if (Size < fin) {
+                inicio = 0;
+                fin = Size;
             }
             
             for ( int i =inicio; i < fin; i++) {
                 int num = i+1;
                 Resp +=   "<tr> "
-                        + "<td>"+num+"</td>"                       
-                        + "<td>"+ID_Grado.get(i)
+                        + "<td>"+num+"</td>"                        
+                        + "<td>"+ID_Docente.get(i)
                         + "</td>"
-                        + "<td>"+Grados.get(i)
+                        + "<td>"+Apellido.get(i)
                         + "</td>"
-                        + "<td>"+Secciones.get(i)
-                        + "</td>"
-                        + "<td><button type=\"button\" class=\"btn btn-info btn-fill pull-right\" role=\"link\" onclick=\"getSecciones('"+ID_Grado.get(i)
-                        + "','"+Grados.get(i)
-                        + "')\">Ver Secciones</button></td>"
+                        + "<td>"+Nombre.get(i)
+                        + "</td>"                        
                         + "<td>"
-                        + "<button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"getMateriasList('"+ID_Grado.get(i)+"')\" role=\"link\" >Ver Materias</button>"
+                        + "<button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"setID('"+ID_Docente.get(i)+"')\" role=\"link\" >Eliminar</button>"
                         + "</td>" 
                         + "<td>"
-                        + "<button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"eliminar('"+ID_Grado.get(i)+"')\" role=\"link\" >Eliminar</button>"
-                        + "</td>"                         
+                        + "<button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"abrirPopUp('"+ID_Docente.get(i)+"')\" role=\"link\" >Secciones</button>"
+                        + "</td>"                        
                         + "</tr>";
             }
-            out.print(Resp);
-            
+            out.print(Resp);            
         }
     }
-
-    public ArrayList getID_Grado() {
-        ID_Grado = (ArrayList) MGetListGrados.getListGradosInfo().getID();       
-             
-        return ID_Grado;
-    }
-    
-    
-
- 
- 
-   
-
-    
-   
-  
 
 }

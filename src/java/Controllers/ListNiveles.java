@@ -10,10 +10,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- *
- * @author LENOVO
- */
 public class ListNiveles {
     private final ArrayList Niveles = new ArrayList();
     private final ArrayList IdNiveles = new ArrayList();

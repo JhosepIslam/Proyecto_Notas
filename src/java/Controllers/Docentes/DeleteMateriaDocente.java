@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controllers;
-import Models.MDeleteSeccion;
+package Controllers.Docentes;
+
+import Models.Materias.MMaterias;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,14 +13,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-public class EliminarSeccion extends HttpServlet {
+public class DeleteMateriaDocente extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-          
+         
         }
     }
 
@@ -34,9 +34,9 @@ public class EliminarSeccion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-            int ID = Integer.parseInt(request.getParameter("id_seccion"));
-            
-            MDeleteSeccion.deleteSeccion(ID);
+            int IdMateriaDocente = Integer.parseInt(request.getParameter("IdMateriaDocente"));
+            boolean resp = MMaterias.deleteMateriaDocente(IdMateriaDocente).isRESULT();
+            out.print(resp);
         }
     }
 

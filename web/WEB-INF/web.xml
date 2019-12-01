@@ -76,6 +76,42 @@
         <servlet-name>EliminarGradoMateria</servlet-name>
         <servlet-class>Controllers.Materias.EliminarGradoMateria</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetDocentes</servlet-name>
+        <servlet-class>Controllers.Docentes.GetDocentes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteDocente</servlet-name>
+        <servlet-class>Controllers.Docentes.DeleteDocente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetMaterias</servlet-name>
+        <servlet-class>Controllers.Docentes.GetMaterias</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetGrados</servlet-name>
+        <servlet-class>Controllers.Docentes.GetGrados</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetSeccionesByGradoDoc</servlet-name>
+        <servlet-class>Controllers.Docentes.GetSeccionesByGradoDoc</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetMateriasDocenteByIDSeccion</servlet-name>
+        <servlet-class>Controllers.Docentes.GetMateriasDocenteByIDSeccion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertarMatriaDocente</servlet-name>
+        <servlet-class>Controllers.Docentes.InsertarMatriaDocente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetMateriaDocenteByIDDocente</servlet-name>
+        <servlet-class>Controllers.Docentes.GetMateriaDocenteByIDDocente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteMateriaDocente</servlet-name>
+        <servlet-class>Controllers.Docentes.DeleteMateriaDocente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -151,6 +187,42 @@
     <servlet-mapping>
         <servlet-name>EliminarGradoMateria</servlet-name>
         <url-pattern>/EliminarGradoMateria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetDocentes</servlet-name>
+        <url-pattern>/GetDocentes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteDocente</servlet-name>
+        <url-pattern>/DeleteDocente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetMaterias</servlet-name>
+        <url-pattern>/GetMaterias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetGrados</servlet-name>
+        <url-pattern>/GetGrados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetSeccionesByGradoDoc</servlet-name>
+        <url-pattern>/GetSeccionesByGradoDoc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetMateriasDocenteByIDSeccion</servlet-name>
+        <url-pattern>/GetMateriasDocenteByIDSeccion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertarMatriaDocente</servlet-name>
+        <url-pattern>/InsertarMatriaDocente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetMateriaDocenteByIDDocente</servlet-name>
+        <url-pattern>/GetMateriaDocenteByIDDocente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteMateriaDocente</servlet-name>
+        <url-pattern>/DeleteMateriaDocente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

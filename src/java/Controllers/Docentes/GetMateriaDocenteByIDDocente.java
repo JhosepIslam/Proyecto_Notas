@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controllers;
+package Controllers.Docentes;
 
-import Models.MGetSecciones;
+import Models.Docentes.MDocentes;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -15,53 +15,59 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class GetSeccionesList extends HttpServlet {
+public class GetMateriaDocenteByIDDocente extends HttpServlet {
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
         
+        }
     }
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-           int idGrado =Integer.parseInt(request.getParameter("id_grado")); 
-           int Size = MGetSecciones.getSecciones(idGrado).getIDSECCION().size();
-           out.print(Size);
+             int IdDocente =Integer.parseInt(request.getParameter("IdDocente"));
+             ArrayList id =(ArrayList)MDocentes.getMateriaDocente(IdDocente).getIDMATERIADOCENTE();        
+             out.print(id.size());
         }
+        
     }
-
-
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         try (PrintWriter out = response.getWriter()) {
-            int inicio = Integer.parseInt(request.getParameter("inicio"));
+            
+             int inicio = Integer.parseInt(request.getParameter("inicio"));
             int fin = Integer.parseInt(request.getParameter("fin"));
             if (fin <= inicio) {
                 fin=inicio+fin;                
             }
-            int idGrado =Integer.parseInt(request.getParameter("id_grado"));
-            ArrayList Seccion = (ArrayList)MGetSecciones.getSecciones(idGrado).getSECCION();
-            ArrayList id = (ArrayList)MGetSecciones.getSecciones(idGrado).getIDSECCION();
+            int IdDocente =Integer.parseInt(request.getParameter("IdDocente"));
+            
+            ArrayList Grado = (ArrayList)MDocentes.getMateriaDocente(IdDocente).getGRADO();
+            ArrayList Seccion = (ArrayList)MDocentes.getMateriaDocente(IdDocente).getSECCION();
+            ArrayList Materia = (ArrayList)MDocentes.getMateriaDocente(IdDocente).getNOMBREMATERIA();
+            ArrayList id =(ArrayList)MDocentes.getMateriaDocente(IdDocente).getIDMATERIADOCENTE();
             String Result = "";
             
             for (int i = inicio; i < fin; i++) {
                 Result +=
                     "<tr>"
                     + "<td>"+id.get(i)+"</td>"
-                    + "<td>"+Seccion.get(i)+"</td>"                  
-                    + "<td><button type=\"button\" class=\"btn btn-info btn-fill pull-right \"  onclick=\"DeleteSeccion('"+id.get(i)+"')\">Borrar</button></td>"
+                    + "<td>"+Grado.get(i)+"</td>"
+                    + "<td>"+Seccion.get(i)+"</td>"
+                    + "<td>"+Materia.get(i)+"</td>"
+                    + "<td><button type=\"button\" class=\"btn btn-info btn-fill pull-right \"  onclick=\"deleteMateriaDocente('"+id.get(i)+"')\">Borrar</button></td>"
                     + "</tr>";
             }
             out.print(Result);
- 
-           
+        
         }
         
     }

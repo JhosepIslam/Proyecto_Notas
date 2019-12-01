@@ -7,10 +7,6 @@ package Models;
 
 import service.Secciones;
 
-/**
- *
- * @author LENOVO
- */
 public class MGetSecciones {
 
     public static Secciones getSecciones(int arg0) {

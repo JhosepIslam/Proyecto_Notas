@@ -7,10 +7,7 @@ package Models;
 
 import service.Grados;
 
-/**
- *
- * @author LENOVO
- */
+
 public class MCreateGrado {
 
     public static Grados createGrado(java.lang.String arg0) {

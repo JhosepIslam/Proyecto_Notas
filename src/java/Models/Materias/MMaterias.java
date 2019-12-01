@@ -7,10 +7,7 @@ package Models.Materias;
 
 import service.Materias;
 
-/**
- *
- * @author LENOVO
- */
+
 public class MMaterias {
 
     public static Materias listMaterias() {
@@ -62,9 +59,24 @@ public class MMaterias {
         service.ServicioWeb port = service.getServicioWebPort();
         return port.deleteMateriaGrado(idMATERIA, idGRADO);
     }
-    
-    
-    
+
+    public static Materias getMateriasWithoutDocenteBySeccion(int idSeccion) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.getMateriasWithoutDocenteBySeccion(idSeccion);
+    }
+
+    public static Materias insertarMateriaDocente(int idDocente, int idMateria, int idSeccion) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.insertarMateriaDocente(idDocente, idMateria, idSeccion);
+    }
+
+    public static Materias deleteMateriaDocente(int idMateriaDocente) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.deleteMateriaDocente(idMateriaDocente);
+    }
     
     
     

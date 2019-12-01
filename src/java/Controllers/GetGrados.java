@@ -8,10 +8,6 @@ package Controllers;
 import Models.MGetGrados;
 import java.util.ArrayList;
 
-/**
- *
- * @author LENOVO
- */
 public class GetGrados {
     private ArrayList Grado = new ArrayList();
     private ArrayList Id_Grado = new ArrayList();

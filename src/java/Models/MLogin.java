@@ -5,30 +5,11 @@
  */
 package Models;
 
-
-
-
-/**
- *
- * @author LENOVO
- */
-public class MLogin {
-  
-
-
-
+public class MLogin { 
     public static int login(java.lang.String arg0, java.lang.String arg1) {
         service.ServicioWeb_Service service = new service.ServicioWeb_Service();
         service.ServicioWeb port = service.getServicioWebPort();
         return port.login(arg0, arg1);
     }
-
-
-
- 
-
-  
-
-
     
 }

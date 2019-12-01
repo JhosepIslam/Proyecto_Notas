@@ -7,10 +7,6 @@ package Models.Alumnos;
 
 import service.Alumno;
 
-/**
- *
- * @author LENOVO
- */
 public class MAlumnos {
 
     public static Alumno createAlumno(java.lang.String nie, java.lang.String nombre, java.lang.String apellido, java.lang.String fechaMatricula, int idSeccion, java.lang.String password) {

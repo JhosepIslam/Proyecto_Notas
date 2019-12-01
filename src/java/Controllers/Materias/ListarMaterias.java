@@ -15,10 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author LENOVO
- */
 public class ListarMaterias extends HttpServlet {
     private ArrayList ID_Materia;
 

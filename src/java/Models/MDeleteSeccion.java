@@ -7,10 +7,6 @@ package Models;
 
 import service.Secciones;
 
-/**
- *
- * @author LENOVO
- */
 public class MDeleteSeccion {
 
     public static Secciones deleteSeccion(int id) {
@@ -18,9 +14,5 @@ public class MDeleteSeccion {
         service.ServicioWeb port = service.getServicioWebPort();
         return port.deleteSeccion(id);
     }
-
-
-    
-    
-    
+  
 }

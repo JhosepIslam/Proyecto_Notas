@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controllers;
-import Models.MDeleteSeccion;
+package Controllers.Docentes;
+
+import Models.Materias.MMaterias;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,16 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class EliminarSeccion extends HttpServlet {
+public class InsertarMatriaDocente extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-          
+      
         }
     }
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,12 +34,16 @@ public class EliminarSeccion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-            int ID = Integer.parseInt(request.getParameter("id_seccion"));
             
-            MDeleteSeccion.deleteSeccion(ID);
+            int IdDocente = Integer.parseInt(request.getParameter("IdDocente"));
+            int IdMateria = Integer.parseInt(request.getParameter("IdMateria"));
+            int IdSeccion = Integer.parseInt(request.getParameter("IdSeccion"));
+            
+            boolean resp = MMaterias.insertarMateriaDocente(IdDocente, IdMateria, IdSeccion).isRESULT();
+            out.print(resp);
+            
+                  
         }
     }
-
-
 
 }

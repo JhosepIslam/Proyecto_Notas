@@ -7,10 +7,7 @@ package Models;
 
 import service.Grados;
 
-/**
- *
- * @author LENOVO
- */
+
 public class MGetGrados {
 
     public static Grados getGrados() {
@@ -18,15 +15,5 @@ public class MGetGrados {
         service.ServicioWeb port = service.getServicioWebPort();
         return port.getGrados();
     }
-
-   /* public static String getGrados() {
-        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
-        service.ServicioWeb port = service.getServicioWebPort();
-        return port.getGrados();
-    }*/
-    
-    
-    
-    
-    
+ 
 }

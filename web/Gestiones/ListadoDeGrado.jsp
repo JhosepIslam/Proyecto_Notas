@@ -173,7 +173,7 @@
     <link href="../assets/popup/popup_1.css" rel="stylesheet">
     <link href="../assets/popup/snackbar.css" rel="stylesheet" type="text/css"/>
 </head>
-<body onload="cargar()">
+<body onload="cargar(); window.location.href='#'">
 
 <%@ include file='../include/includeAdmin.jsp' %>
 
@@ -312,7 +312,6 @@
                                                 $("#tabSelectedSec").val(tab); 
                                               }
                                               function cargarSec(Size){ 
-
                                                   
                                                     var thisTab;
                                                     var size = Size;

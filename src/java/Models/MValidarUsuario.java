@@ -5,10 +5,7 @@
  */
 package Models;
 
-/**
- *
- * @author LENOVO
- */
+
 public class MValidarUsuario {
 
     public static boolean getUsuarioIfExits(java.lang.String Usuario) {

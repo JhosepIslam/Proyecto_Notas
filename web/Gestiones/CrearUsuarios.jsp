@@ -71,13 +71,13 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Crear Usuario</h4>
                             </div>
-                            <div class="content">
-                                <form action="../CrearUsuario" id="form" method="post" onsubmit="return validarForm()" >
+                            <div class="content" >
+                                <form action="../CrearUsuario"  id="form" method="post" onsubmit="return validarForm()" >
                                     <div class="row">
                                       
                                         <div class="col-md-3">
@@ -88,7 +88,7 @@
                                             </div>                                              
                                         </div>
                                         
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email </label>
                                                 <input type="email" name="txtEmail" id ="txtEmail" class="form-control" required="Requerido"  placeholder="Email">
@@ -116,20 +116,20 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Nombre</label>
                                                 <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder=""  required="Requerido"  value="">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Apellido</label>
                                                 <input type="text" id ="txtApellido" name="txtApellido" class="form-control" placeholder="" required="Requerido" value="">
                                             </div>
                                         </div>
                                     </div><div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Password</label>
                                                 <input type="Password" class="form-control" name="txtPass" id="txtPass" placeholder="" minlength="6" required="Requerido" value="">
@@ -178,7 +178,11 @@
                                                          return user;
                                                      }
                                                     
-                                                    });                                                                                                      
+                                                    });
+                                                    
+                                                     
+        
+        
                                                 }                                                                      
                                                 function validarPass(){
                                                     var Rep=document.getElementById("txtRepPass").value;
@@ -215,11 +219,15 @@
                                                 
                                                 function validarForm(){  
                                                     validarNivel();
+                                                    validarPass();
                                                     validarUser();
-                                                    validarNivel();
-                                                    if(user && nivel && pass){                                                      
+                                                        if(user && nivel && pass){                                                      
                                                         return true;
-                                                    }
+                                                        }                                                        
+                                                   
+                                                    
+                                                                                                        
+                                                    
                                                     
                                                     return false;
                                                 }

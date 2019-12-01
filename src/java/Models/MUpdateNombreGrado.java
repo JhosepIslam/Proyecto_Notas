@@ -7,10 +7,7 @@ package Models;
 
 import service.Grados;
 
-/**
- *
- * @author LENOVO
- */
+
 public class MUpdateNombreGrado {
 
     public static Grados updateNombreGrado(int ID, java.lang.String Grado) {

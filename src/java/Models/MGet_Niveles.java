@@ -5,10 +5,6 @@
  */
 package Models;
 
-/**
- *
- * @author LENOVO
- */
 public class MGet_Niveles {
 
     public static String getNiveles() {

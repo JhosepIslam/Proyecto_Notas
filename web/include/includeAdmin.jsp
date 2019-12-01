@@ -38,57 +38,39 @@
                         <i class="pe-7s-add-user"></i>
                         <p>Crear usuario</p>
                     </a>
-                </li>
-                <li>
-                    <a href="../Gestiones/ModificarAlumno.jsp">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Modificar Alumno</p>
-                    </a>
-                </li>  <li>
-                    <a href="../Gestiones/ModificarUsuario.jsp">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Modificar Usuario</p>
-                    </a>
-                </li>
-                  <li>
-                    <a href="../Gestiones/AsignacionMateriaDocente.jsp">
-                        <i class="pe-7s-study"></i>
-                        <p>Asignacion Materia</p>
-                    </a>
-                </li>
-                 
-                <li>
-                    <a href="../Gestiones/DardeBaja.jsp">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Dar Baja Alumno</p>
-                    </a>
-                </li> 
+                </li>             
+                                               
                     <li>
                     <a href="../Gestiones/GestionUsuarios.jsp">
                         <i class="pe-7s-ribbon"></i>
-                        <p>Gestion Usuarios</p>
+                        <p>Gestion de Usuarios</p>
                     </a>
                 </li> 
                   <li>
                     <a href="../Gestiones/GestionNotas.jsp">
                         <i class="pe-7s-ribbon"></i>
-                        <p>Gestion Notas</p>
+                        <p>Gestion de Notas</p>
                     </a>
                 </li> 
                  <li>
                     <a href="../Gestiones/ListadoMaterias.jsp">
                         <i class="pe-7s-ribbon"></i>
-                        <p>Materias</p>
+                        <p>Gestion de Materias</p>
                     </a>
                 </li>
                  
                   <li>
                     <a href="../Gestiones/ListadoDeGrado.jsp">
                         <i class="pe-7s-ribbon"></i>
-                        <p>Gestion Grados</p>
+                        <p>Gestion de Grados</p>
                     </a>
                 </li>
-                
+                <li>
+                    <a href="../Gestiones/ListadoDeDocentes.jsp">
+                        <i class="pe-7s-ribbon"></i>
+                        <p>Gestion de Docentes</p>
+                    </a>
+                </li>
                 
                 <!---<li>
 

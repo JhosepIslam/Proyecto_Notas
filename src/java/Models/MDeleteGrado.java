@@ -7,10 +7,6 @@ package Models;
 
 import service.Grados;
 
-/**
- *
- * @author LENOVO
- */
 public class MDeleteGrado {
 
     public static Grados deleteGrado(int arg0) {
