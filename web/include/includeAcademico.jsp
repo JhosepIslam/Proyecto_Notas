@@ -77,6 +77,11 @@
                         <i class="pe-7s-ribbon"></i>
                         <p>Gestion de Docentes</p>
                     </a>
+                </li> <li>
+                    <a href="../Gestiones/Evaluaciones.jsp">
+                        <i class="pe-7s-ribbon"></i>
+                        <p>Evaluaciones</p>
+                    </a>
                 </li>
                 
                 

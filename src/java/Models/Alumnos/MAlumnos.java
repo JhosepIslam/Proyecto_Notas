@@ -6,6 +6,7 @@
 package Models.Alumnos;
 
 import service.Alumno;
+import service.Alumnos;
 
 public class MAlumnos {
 
@@ -13,6 +14,12 @@ public class MAlumnos {
         service.ServicioWeb_Service service = new service.ServicioWeb_Service();
         service.ServicioWeb port = service.getServicioWebPort();
         return port.createAlumno(nie, nombre, apellido, fechaMatricula, idSeccion, password);
+    }
+
+    public static Alumnos listAlumnosfromSeccion(int idSeccion) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.listAlumnosfromSeccion(idSeccion);
     }
 
     

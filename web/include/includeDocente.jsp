@@ -38,6 +38,12 @@
                         <p>Lista Alumnos</p>
                     </a>
                 </li>
+                <li>
+                    <a href="../Docente/MisSecciones.jsp">
+                        <i class="pe-7s-note2"></i>
+                        <p>Mis Secciones</p>
+                    </a>
+                </li>
                   
                 <!---<li>
 

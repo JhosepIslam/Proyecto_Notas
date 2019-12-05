@@ -40,116 +40,181 @@
    
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-    <link href="../assets/popup/popup.css" rel="stylesheet">
+    <script type="text/javascript">
+        
+        function getMisSecciones(){
+            var direccion = "../GetSeccionesParaNotas";
+            var parametro={}; 
+            $.get(direccion,parametro,function(respuest){
+                    $("#titulo").html(respuest);
+                 });
+            $.post(direccion,parametro,function(resp){
+                $("#bodyMisSecciones").html(resp);                
+            });
+            
+            
+            
+            
+            
+             direccion = "../GetSeccionesConNotas";
+                       
+            $.post(direccion,parametro,function(resp){
+                $("#bodyMisSeccionesConNotas").html(resp);
+            });
+            
+            
+            direccion = "../GetSeccionesRevisionYRechazados";
+                       
+            $.post(direccion,parametro,function(resp){
+                $("#bodyMisSeccionesConNotasRevision").html(resp);
+                $.get(direccion,parametro,function(resp){
+                $("#bodyMisSeccionesConNotasRechazado").html(resp);
+            });
+            });
+            
+            
+        }
+       
+        
+      
+        
+        
+    </script>
 
 </head>
-<body>
-<%@include file='../include/includeDocente.jsp' %>
+<body onload="getMisSecciones()">
 
+<%@include file='../include/includeDocente.jsp' %>
 
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Ingresar Notas</h4>
+                                <h4 class="title" id="titulo">Subir Notas</h4>                               
                             </div>
-                           <!--  <form class="col s12">
-                                <div class="materialContainer">
-
-
-   <div class="box">
-
-      <div class="title">LOGIN</div>
-
-      <div class="input">
-         <label for="name">Username</label>
-         <input type="text" name="name" id="name">
-         <span class="spin"></span>
-      </div>
-       </div>
-
-</div>
-      <div class="row">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">First Name</label>
-        </div -->
-                            <div class="content">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <button type="submit" onclick="window.location=href='SubirManualmente.jsp'"class="btn btn-info btn-fill pull-right">Subir Manualmente</button>
-                                            </div>
-                                         </div>
-                                          
-                                        
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                               <button type="submit"  class="btn btn-info btn-fill pull-right">Subir Excel</button>
-                                            </div>
-                                            
-                                        </div>
-                                          <div class="col-md-2">
-                                            <div class="form-group">
-                                               <button type="submit" class="btn btn-info btn-fill pull-right">Resubir Notas</button>
-                                            </div>
-                                            
-                                        </div>
-                                    </div><br/><br/>
-                                            
-
-                                   
-
-                                   
-
+                            <div class="header">
+                                <h4 class="title" >Secciones sin Notas</h4>                               
+                            </div>
+                            <div class="content ">                                
                                   
-                                     <button type="submit" class="btn btn-info btn-fill pull-right" role="link" onclick="window.location=href='#popup'">Descargar Plantilla</button>
-                                    <div id="popup" class="overlay">
-                                        
-                                        <div id="popupBody">
-                                              
-                                            
-                                            <h2>Descargar Plantilla</h2> 
-                                            <a id="cerrar" href="">&times;</a>
-                                            <div class="popupContent">
-                                                <div class="col-md-3">
-                                                <select class="form-control" name="Materia">
-                                                    <option>Ciencias</option>
-                                                </select></div>
-                                                <div class="col-md-3">
-                                                <select class="form-control" name="Grado">
-                                                    <option>Primer grado</option>
-                                                </select></div>
-                                                <div class="col-md-3">
-                                                <select class="form-control" name="Seccion">
-                                                    <option>01</option>
-                                                </select></div>
-                                                <div>
-                                                   <button class="btn btn-info btn-fill pull-right">Descargar</button> 
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                   
-                                    <div class="clearfix"></div>
-                                </form>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>ID</th>
+                                        <th>Grado</th>
+                                    	<th>Seccion</th>
+                                        <th>Materias</th>
+                                        <th></th>
+                                        <th></th>
+                                    	
+                                    </thead>
+                                    <tbody id="bodyMisSecciones">                                      
+                                        	
+                                    </tbody>
+                                </table>                                
+                                <br/><br/><br/>
+
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        
-                    </div>
+                        </div>
+                    </div>   
+                    
+                    
+                    <div class="col-md-12">
+                        <div class="card">                            
+                            <div class="header">
+                                <h4 class="title" >Secciones con Notas</h4>                               
+                            </div>
+                            <div class="content ">                                
+                                  
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>ID</th>
+                                        <th>Grado</th>
+                                    	<th>Seccion</th>
+                                        <th>Materias</th>
+                                        <th></th>
+                                        <th></th>
+                                    	
+                                    </thead>
+                                    <tbody id="bodyMisSeccionesConNotas">                                      
+                                        	
+                                    </tbody>
+                                </table>                                
+                                <br/><br/><br/>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-12">
+                        <div class="card">                            
+                            <div class="header">
+                                <h4 class="title" >Secciones con Notas en Revisión</h4>                               
+                            </div>
+                            <div class="content ">                                
+                                  
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>ID</th>
+                                        <th>Grado</th>
+                                    	<th>Seccion</th>
+                                        <th>Materias</th>
+                                        <th></th>
+                                        <th></th>
+                                    	
+                                    </thead>
+                                    <tbody id="bodyMisSeccionesConNotasRevision">                                      
+                                        	
+                                    </tbody>
+                                </table>                                
+                                <br/><br/><br/>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-12">
+                        <div class="card">                            
+                            <div class="header">
+                                <h4 class="title" >Secciones con Notas Rechazadas</h4>                               
+                            </div>
+                            <div class="content ">                                
+                                  
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>ID</th>
+                                        <th>Grado</th>
+                                    	<th>Seccion</th>
+                                        <th>Materias</th>
+                                        <th></th>
+                                        <th></th>
+                                    	
+                                    </thead>
+                                    <tbody id="bodyMisSeccionesConNotasRechazado">                                      
+                                        	
+                                    </tbody>
+                                </table>                                
+                                <br/><br/><br/>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div> 
+          
 
                 </div>
             </div>
         </div>
 
 
+
+      
         <footer class="footer">
             <div class="container-fluid">
                 
@@ -165,7 +230,7 @@
 
 </body>
 
-  <!--   Core JS Files   -->
+ <!--   Core JS Files   -->
     <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 

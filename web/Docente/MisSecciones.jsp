@@ -1,5 +1,8 @@
-
-
+<%-- 
+    Document   : Tabla
+    Created on : 29-oct-2019, 17:29:37
+    Author     : osmin_000
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
@@ -37,36 +40,67 @@
    
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <script type="text/javascript">
+        
+        function getMisSecciones(){
+            var direccion = "../MisSecciones";
+            var parametro={};            
+            $.post(direccion,parametro,function(resp){
+                $("#bodyMisSecciones").html(resp);
+            });
+        }
+       
+        
+      
+        
+        
+    </script>
 
 </head>
-<body>
+<body onload="getMisSecciones()">
 
-<%@include file='../include/includeError.jsp' %>
+<%@include file='../include/includeDocente.jsp' %>
 
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <center>
-                                <h1>
-                                    Lo lamentamos 
-                                </h1><br><p>
-                                Tu no tienes acceso a este sitio web.</p>
-                                <div class="col-md-12">
-                                 <button type="submit" onclick="window.location=href='SubirManualmente.jsp'"class="btn btn-info btn-fill pull-right">Regresar</button></div>
-                                <br>
-                                  <br>
-                                
-                                  <br>
-                                
-                                   
-                            </center>        
+                            <div class="header">
+                                <h4 class="title">Mis Secciones</h4>                               
+                            </div>
+                            
+                            <div class="content ">                                
+                                  
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>Nº</th>
+                                        <th>Grado</th>
+                                    	<th>Seccion</th>
+                                        <th>Materias</th>
+                                    	
+                                    </thead>
+                                    <tbody id="bodyMisSecciones">                                        
+                                        	
+                                       
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 ">
+                                        <button type="submit" class="btn btn-info btn-fill pull-right ">Descargar</button>
+                                        </div> 
+                                <br/><br/><br/>
+
+                            </div>
                         </div>
-                    </div>
+                        </div>
+                    </div>                 
+
                 </div>
             </div>
         </div>
+
+      
         <footer class="footer">
             <div class="container-fluid">
                 
@@ -81,7 +115,8 @@
 
 
 </body>
-<!--   Core JS Files   -->
+
+ <!--   Core JS Files   -->
     <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 
@@ -105,3 +140,4 @@
 
 
 </html>
+

@@ -40,9 +40,44 @@
    
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <script type="text/javascript">
+        
+        function getGrados(){
+            var direccion = "../GetClasesByDocente";
+            var parametro={};
+            
+            $.post(direccion,parametro,function(resp){
+                $("#Grado").html(resp);
+            });
+        }
+        function getSecciones(){
+            var direccion ="../GetSeccionesByDocente";
+            var IdGrado = $("#Grado").val();
+            var parametro={IdGrado : IdGrado};            
+            $.post(direccion,parametro,function(resp){
+                $("#Secciones").html(resp);
+            });
+                        
+        }
+        
+        function getAlumnos(){
+            var direccion ="../ListarMisAlumnos";
+            var IdSeccion = $("#Secciones").val();
+            var parametro={IdSeccion : IdSeccion}; 
+            
+            if (IdSeccion !== '0') {
+                $.post(direccion,parametro,function(resp){
+                     $("#bodyAlumnos").html(resp);
+                });
+            }
+             
+        }
+        
+        
+    </script>
 
 </head>
-<body>
+<body onload="getGrados()">
 
 <%@include file='../include/includeDocente.jsp' %>
 
@@ -52,7 +87,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Notas</h4>
+                                <h4 class="title">Alumnos</h4>
                                
                             </div>
                             
@@ -62,9 +97,8 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="sel1">Grado</label>
-                                                <select class="form-control" id="sel1">
-                                                <option></option>
-                                               
+                                                <select class="form-control" id="Grado" onchange="getSecciones()">
+                                                    <option value= 0>SELECCIONE</option>                                               
                                                 </select>
                                             </div>
                                          </div>
@@ -73,78 +107,28 @@
                                        
                                             <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="sel1">Materias</label>
-                                                <select class="form-control" id="sel1">
-                                                <option></option>
+                                                <label for="sel1">Seccion</label>
+                                                <select class="form-control" id="Secciones" onchange="getAlumnos()">
+                                                <option value= 0>SELECCIONE</option>
                                                 
                                                 </select>
                                             </div>
                                         </div>
-                                         <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="sel1">Seccion</label>
-                                                <select class="form-control" id="sel1">
-                                                <option></option>
-                                               
-                                                </select>
-                                            </div>
-                                            
-                                        </div>
+                                        
                                     </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>Alumno</th>
-                                        <th>Seccion</th>
-                                    	<th>Grado</th>
-                                        <th>Estado</th>
+                                        <th>Nº</th>
+                                        <th>ID</th>
+                                        <th>Apellido</th>
+                                    	<th>Nombre</th>
+                                        <th>Grado</th>
                                     	
                                     </thead>
-                                    <tbody>
-
-                                        <tr>
-                                            <td><label>Alumno1</label></td>
-                                            <td><label>02</label></td>
-                                            <td><label>Noveno</label></td>
-                                            <td><label>Estado</label></td>
+                                    <tbody id="bodyAlumnos">                                        
                                         	
-                                        </tr>
-
-                                        <tr>
-                                            <td><label>Alumno2</label></td>
-                                            <td><label>02</label></td>
-                                            <td><label>Noveno</label></td>
-                                            <td><label>Estado</label></td>
-                                        	
-                                        </tr>
-                                        <tr>
-                                            <td><label>Alumno3</label></td>
-                                            <td><label>02</label></td>
-                                            <td><label>Noveno</label></td>
-                                            <td><label>Estado</label></td>
-                                        	
-                                        </tr>
-                                        <tr>
-                                            <td><label>Alumno4</label></td>
-                                            <td><label>02</label></td>
-                                            <td><label>Noveno</label></td>
-                                            <td><label>Estado</label></td>
-                                        
-                                        </tr>
-                                        <tr>
-                                            <td><label>Alumno5</label></td>
-                                            <td><label>02</label></td>
-                                            <td><label>Noveno</label></td>
-                                            <td><label>Estado</label></td>
-                                        
-                                        </tr>
-                                        <tr>
-                                            <td><label>Alumno6</label></td>
-                                            <td><label>02</label></td>
-                                            <td><label>Noveno</label></td>
-                                            <td><label>Estado</label></td>
-                                        	
-                                        </tr>
+                                       
                                     </tbody>
                                 </table>
                                 <div class="col-md-12 ">
@@ -156,12 +140,6 @@
                         </div>
                         </div>
                     </div>
-
-
-                   
-                       
-
-
                 </div>
             </div>
         </div>

@@ -112,6 +112,46 @@
         <servlet-name>DeleteMateriaDocente</servlet-name>
         <servlet-class>Controllers.Docentes.DeleteMateriaDocente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetClasesByDocente</servlet-name>
+        <servlet-class>Controllers.Docentes.GetClasesByDocente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetSeccionesByDocente</servlet-name>
+        <servlet-class>Controllers.Docentes.GetSeccionesByDocente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarMisAlumnos</servlet-name>
+        <servlet-class>Controllers.Docentes.ListarMisAlumnos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MisSecciones</servlet-name>
+        <servlet-class>Controllers.Docentes.MisSecciones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateEvaluacion</servlet-name>
+        <servlet-class>Controllers.Evaluaciones.CreateEvaluacion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarEvaluaciones</servlet-name>
+        <servlet-class>Controllers.Evaluaciones.ListarEvaluaciones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarEvaluacion</servlet-name>
+        <servlet-class>Controllers.Evaluaciones.EliminarEvaluacion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetSeccionesParaNotas</servlet-name>
+        <servlet-class>Controllers.Docentes.GetSeccionesParaNotas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetSeccionesConNotas</servlet-name>
+        <servlet-class>Controllers.Docentes.GetSeccionesConNotas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetSeccionesRevisionYRechazados</servlet-name>
+        <servlet-class>Controllers.Docentes.GetSeccionesRevisionYRechazados</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -223,6 +263,46 @@
     <servlet-mapping>
         <servlet-name>DeleteMateriaDocente</servlet-name>
         <url-pattern>/DeleteMateriaDocente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetClasesByDocente</servlet-name>
+        <url-pattern>/GetClasesByDocente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetSeccionesByDocente</servlet-name>
+        <url-pattern>/GetSeccionesByDocente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarMisAlumnos</servlet-name>
+        <url-pattern>/ListarMisAlumnos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MisSecciones</servlet-name>
+        <url-pattern>/MisSecciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateEvaluacion</servlet-name>
+        <url-pattern>/CreateEvaluacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarEvaluaciones</servlet-name>
+        <url-pattern>/ListarEvaluaciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarEvaluacion</servlet-name>
+        <url-pattern>/EliminarEvaluacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetSeccionesParaNotas</servlet-name>
+        <url-pattern>/GetSeccionesParaNotas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetSeccionesConNotas</servlet-name>
+        <url-pattern>/GetSeccionesConNotas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetSeccionesRevisionYRechazados</servlet-name>
+        <url-pattern>/GetSeccionesRevisionYRechazados</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

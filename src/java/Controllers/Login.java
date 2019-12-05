@@ -5,9 +5,11 @@
  */
 package Controllers;
 
+import Models.Docentes.MDocentes;
 import Models.MLogin;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,10 +47,17 @@ public class Login extends HttpServlet {
                         break;
                     case 3:
                         response.sendRedirect("Docente/");
-                        break;
-                        
-                    case 4:
+                        ArrayList ID =(ArrayList) MDocentes.getIdDocente(Usuario).getIDDOCENTE();
+                        int IdDocente = Integer.parseInt(ID.get(0).toString());
+                        session.setAttribute("IdDocente", IdDocente);
+                        break;                        
+                    case 5:
                         response.sendRedirect("Estudiante/");
+                        break;
+                    default:
+                         Login=false;
+                        session.setAttribute("LoginFail", Login);
+                        response.sendRedirect("index.jsp");
                         break;
                 }
                 

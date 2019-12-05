@@ -589,10 +589,10 @@
     
                         </script>
                         <input type="hidden" id="IdDocente">
-                            <div >
-                                <button type="button" class="btn btn-info btn-fill pull-left" onclick="eliminar()">Eliminar</button>
-                            </div><div class="col-md-6">
-                               <button type="button" class="btn btn-info btn-fill pull-left " onclick="window.location.href='#'">Cancelar</button>                                                                                                               
+                            <div class="col-md-10" >
+                                <button type="button" class="btn btn-info btn-fill pull-right" onclick="eliminar()">Eliminar</button>
+                            </div><div >
+                               <button type="button" class="btn btn-info btn-fill pull-right " onclick="window.location.href='#'">Cancelar</button>                                                                                                               
                            </div>
                                 </div>  
                             

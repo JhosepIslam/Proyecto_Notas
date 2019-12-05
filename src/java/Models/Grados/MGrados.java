@@ -4,6 +4,7 @@ package Models.Grados;
 import service.Grados;
 
 
+
 public class MGrados {
 
     public static Grados getListGradosWithSecciones() {
@@ -11,6 +12,8 @@ public class MGrados {
         service.ServicioWeb port = service.getServicioWebPort();
         return port.getListGradosWithSecciones();
     }
+
+   
   
     
     
