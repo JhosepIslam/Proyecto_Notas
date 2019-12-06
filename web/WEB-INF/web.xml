@@ -152,6 +152,18 @@
         <servlet-name>GetSeccionesRevisionYRechazados</servlet-name>
         <servlet-class>Controllers.Docentes.GetSeccionesRevisionYRechazados</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnviaArchivo</servlet-name>
+        <servlet-class>Controllers.Docentes.EnviaArchivo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RecibirArchivo</servlet-name>
+        <servlet-class>Controllers.Docentes.RecibirArchivo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CancelarRevision</servlet-name>
+        <servlet-class>Controllers.Notas.CancelarRevision</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -303,6 +315,18 @@
     <servlet-mapping>
         <servlet-name>GetSeccionesRevisionYRechazados</servlet-name>
         <url-pattern>/GetSeccionesRevisionYRechazados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnviaArchivo</servlet-name>
+        <url-pattern>/EnviaArchivo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecibirArchivo</servlet-name>
+        <url-pattern>/RecibirArchivo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CancelarRevision</servlet-name>
+        <url-pattern>/CancelarRevision</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

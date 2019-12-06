@@ -47,7 +47,9 @@ public class GetSeccionesRevisionYRechazados extends HttpServlet {
                             + "</td>"
                             + "<td>"+codigo.get(i)+"-"+Materia.get(i)
                             + "</td>"
-                            +"<td></td>"                        
+                            + "<td>"
+                            + "<button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"setID('"+Id.get(i)+"')\" role=\"link\" >Detalles</button>"
+                            + "</td>" 
                             + "</tr>";
                         }
             
@@ -79,7 +81,9 @@ public class GetSeccionesRevisionYRechazados extends HttpServlet {
                             + "</td>"
                             + "<td>"+codigo.get(i)+"-"+Materia.get(i)
                             + "</td>"
-                            +"<td></td>"                        
+                            + "<td>"
+                            + "<button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"cancelarRevision("+Id.get(i)+")\" role=\"link\" >Cancelar</button>"
+                            + "</td>"                        
                             + "</tr>";
                         }
             

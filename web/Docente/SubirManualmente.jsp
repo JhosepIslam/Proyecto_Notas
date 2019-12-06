@@ -41,9 +41,19 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link href="../assets/popup/popup.css" rel="stylesheet">
+    <script type="text/javascript">
+        function abrirSubirNotas(){
+            var params= new URLSearchParams(location.search);
+            var v1 = params.get('id');
+            
+            alert(v1);
+            window.location.href="#";
+        }        
+    
+    </script>
 
 </head>
-<body>
+<body onload="abrirSubirNotas();">
 
 <%@include file='../include/includeDocente.jsp' %>
 
@@ -54,118 +64,26 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Notas</h4>
+                                <h5 class="title" id="infoSeccion">Info</h5>
+                                
                                
                             </div>
                             
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>Materia</th>
-                                        <th>Evaluacion 1</th>
-                                    	<th>Evaluacion 2</th>
-                                        <th>Evaluacion 3</th>
+                                        <th>Nº</th>
+                                        <th>NIE</th>
+                                        <th>Apellidos </th>
+                                    	<th>Nombre </th>
+                                        <th>Nota</th>
                                     	
                                     </thead>
                                     <tbody>
 
-                                        <tr>
-                                            <td><label>Alumno1</label></td>
-                                        	<td>
-                                                    <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">     
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                        	
-                                        </tr>
-
-                                        <tr>
-                                                <td><label>Alumno2</label></td>
-                                        	<td>
-                                                    <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">     
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                        	
-                                        </tr>
-                                        <tr>
-                                                <td><label>Alumno3</label></td>
-                                        	<td>
-                                                    <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">     
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                        	
-                                        </tr>
-                                        <tr>
-                                                <td><label>Alumno4</label></td>
-                                        	<td>
-                                                    <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">     
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                        
-                                        </tr>
-                                        <tr>
-                                                <td><label>Alumno5</label></td>
-                                        	<td>
-                                                    <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">     
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                        
-                                        </tr>
-                                        <tr>
-                                                <td><label>Alumno6</label></td>
-                                        	<td>
-                                                    <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">     
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                                <td>
-                                                     <input type="text"  placeholder="" value="1" class="col-md-2" class="form-group">
-                                                </td>
-                                        	
-                                        </tr>
                                     </tbody>
                                 </table>
-                                        <div class="col-md-12">
-                                            <nav aria-label="..." >
-                                              <ul class="pagination">
-                                                <li class="page-item disabled">
-                                                  <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                <li class="page-item active">
-                                                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                <li class="page-item">
-                                                  <a class="page-link" href="#">Next</a>
-                                                </li>
-                                              </ul>
-                                            </nav>
-                                        </div>
+                                       
                             </div>
                         </div>
                     </div>

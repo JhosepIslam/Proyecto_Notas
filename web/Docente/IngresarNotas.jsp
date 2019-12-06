@@ -26,18 +26,18 @@
 
     <!--  Light Bootstrap Table core CSS    -->
     <link href="../assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js"></script>
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="../assets/css/demo.css" rel="stylesheet" />
 
-
+    <link href="../assets/popup/popup_1.css" rel="stylesheet">
     <!--     Fonts and icons     -->
     <link rel="icon" type="../image/png" href="../assets/img/favicon.ico">
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
- 
-   
+  <link href="../assets/css/input.css" rel="stylesheet" type="text/css"/>
+  
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <script type="text/javascript">
@@ -76,19 +76,27 @@
         }
        
         
-      
+      function cancelarRevision(id){
+          var direccion  = "../CancelarRevision";
+          var parametro ={id:id};
+          $.post(direccion,parametro,function (resp){
+                    getMisSecciones();        
+          });
+          
+      }
         
         
     </script>
 
 </head>
-<body onload="getMisSecciones()">
+<body onload="getMisSecciones() ; window.location.href='#'">
 
 <%@include file='../include/includeDocente.jsp' %>
 
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    <h4 class="title" id="titulo">Subir Notas</h4>                               
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
@@ -102,12 +110,12 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>ID</th>
-                                        <th>Grado</th>
-                                    	<th>Seccion</th>
-                                        <th>Materias</th>
-                                        <th></th>
-                                        <th></th>
+                                         <th class="col-md-1">ID</th>
+                                        <th class="col-md-3">Grado</th>
+                                    	<th class="col-md-3">Seccion</th>
+                                        <th class="col-md-4">Materias</th>
+                                        <th class="col-md-4"></th>
+                                        <th class="col-md-4"></th>
                                     	
                                     </thead>
                                     <tbody id="bodyMisSecciones">                                      
@@ -135,12 +143,10 @@
                                         <th>ID</th>
                                         <th>Grado</th>
                                     	<th>Seccion</th>
-                                        <th>Materias</th>
-                                        <th></th>
-                                        <th></th>
+                                        <th>Materias</th>                                        
                                     	
                                     </thead>
-                                    <tbody id="bodyMisSeccionesConNotas">                                      
+                                    <tbody id="bodyMisSeccionesConNotas">                                    
                                         	
                                     </tbody>
                                 </table>                                
@@ -164,8 +170,7 @@
                                         <th>Grado</th>
                                     	<th>Seccion</th>
                                         <th>Materias</th>
-                                        <th></th>
-                                        <th></th>
+                                        <th></th>                                        
                                     	
                                     </thead>
                                     <tbody id="bodyMisSeccionesConNotasRevision">                                      
@@ -188,12 +193,11 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>ID</th>
-                                        <th>Grado</th>
-                                    	<th>Seccion</th>
-                                        <th>Materias</th>
-                                        <th></th>
-                                        <th></th>
+                                        <th class="col-md-1">ID</th>
+                                        <th class="col-md-3">Grado</th>
+                                    	<th class="col-md-3">Seccion</th>
+                                        <th class="col-md-4">Materias</th>
+                                        <th class="col-md-3"></th>                                        
                                     	
                                     </thead>
                                     <tbody id="bodyMisSeccionesConNotasRechazado">                                      
@@ -205,14 +209,123 @@
                             </div>
                         </div>
                         </div>
-                    </div> 
+                    </div>
+           
           
 
                 </div>
             </div>
         </div>
+<div id="popupNotas" class="overlay">
+            <div id="popupBody">                                        
+                <form id="SubirNota" method="POST">
+                    <h2>Opciones</h2>                                                
+                    <a id="cerrar" href="#">&times;</a>                                               
+                    <div class="popupContent">                                                                              
+                        <div class="left">                                               
+                            <input type="hidden" name="id" id="ID">
+                            <div class="col-md-6">                                                        
+                                <div class="form-group">                              
+                                    <button type="button" class="btn btn-info btn-fill pull-left" onclick="SubirManual()">Subir Manualmente</button>                                                       
+                                </div>                   
+                            </div>
+                            <div class="col-md-6">                                                        
+                                <div class="form-group">                              
+                                    <button type="button" class="btn btn-info btn-fill pull-right" onclick="abrirPopExcel($('#ID').val())">Subir Excel</button>                                                       
+                                </div>                   
+                            </div>
+                            
+                            <script type="text/javascript">
+                                function abrirPopNotas(id){
+                                    window.location.href='#';
+                                    window.location.href='#popupNotas';
+                                    $("#ID").val(id);
+                                    console.log(id);
+                                    //window.location=href='#popupGrado'
+                                    
+                                }  
+                                
+                                function SubirManual(){
+                                    var id = $("#ID").val();
+                                    window.location.href=("SubirManualmente.jsp?id="+id);
+                                }
+                            </script>
 
+                        </div>                                           
+                        
+                        </div>
+                    </div>
+                </form>  
+                  
+            </div>
+ 
+<div id="popupExcel" class="overlay">
+            <div id="popupBody">                                        
+                <form action="../RecibirArchivo" id="SubirNota" method="POST" enctype="multipart/form-data">
+                    <h2>Subir</h2>                                                
+                    <a id="cerrar" href="#">&times;</a>                                               
+                    <div class="popupContent">                                                                              
+                        <div class="right">                                               
+                            <center>
+                            <div class="col-md-5">                                                        
+                                <div  id="div_file">   
+                                    <p id="texto">Agregar</p>
+                                    <input type="hidden" id="Nombre" name="name">
+                                    <input type="hidden" id="idDoceM" name="idDoceM">
+                                    <input type="file" class="btn btn-info btn-fill "
+                                           id="enviar"
+                                           name="file"
+                                           accept=".xlsx, .xlsm"
+                                           onchange="archivoSubido()"
+                                           >
+                                </div> 
+                            </div>
+                                                                                       
+                            <div class="col-md-6">                                                        
+                                <div class="form-group">                              
+                                    <input type="submit" id="enviarBu" disabled="Seleccione Archivo" class="btn btn-info btn-fill " value="Enviar">                                                     
+                                </div>                   
+                            </div>
+                            </div>
+                        </center>
+                            
+                            <script type="text/javascript">
+                                function abrirPopExcel(id){
+                                    $("#idDoceM").val(id);
+                                    
+                                    window.location.href='#';
+                                    window.location.href='#popupExcel';
+                                    //window.location=href='#popupGrado'
+                                }  
+                                
+                                function archivoSubido(){
+                                    
+                                    var allowedExtensions = /(.xlsx|.xlsm)$/i;
+                                    var fileInput = document.getElementById("enviar");
+                                    var filePath = fileInput.value;
+                                     if(!allowedExtensions.exec(filePath)){
+                                         document.getElementById("enviarBu").disabled = true;
+                                        alert('Por Favor Suba la Plantilla de Excel');                                        
+                                        fileInput.value = '';                                        
+                                        return false;
+                                    }else{
+                                        var nombre = uuid.v4();
+                                        $("#Nombre").val(nombre);
+                                        document.getElementById("enviarBu").disabled = false;
+                                    }
+                                    
+                                    
+                                }
+                                
+                            </script>
 
+                        </div>                                           
+                        </form> 
+                        </div>
+                    </div>
+                 
+                  
+            </div>
 
       
         <footer class="footer">
@@ -228,7 +341,10 @@
 </div>
 
 
+
+
 </body>
+
 
  <!--   Core JS Files   -->
     <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>

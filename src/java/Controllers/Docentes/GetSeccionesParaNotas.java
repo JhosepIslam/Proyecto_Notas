@@ -64,8 +64,13 @@ public class GetSeccionesParaNotas extends HttpServlet {
                             + "</td>"
                             + "<td>"+codigo.get(i)+"-"+Materia.get(i)
                             + "</td>"
-                            +"<td></td>"
-                        
+                            + "<td>"
+                            + "<button type=\"button\" class=\"btn btn-info btn-fill pull-right\" onclick=\"abrirPopNotas('"+Id.get(i)+"')\" role=\"link\" >Subir Notas</button>"
+                            + "</td>" 
+                            + "<td>"
+                            + "<button type=\"button\" class=\"btn btn-info btn-fill pull-right\" onclick=\"abrirPopNotas('"+Id.get(i)+"')\" role=\"link\" >Decargar Plantilla</button>"
+                            + "</td>"                        
+                                                
                             + "</tr>";
                         }
             
