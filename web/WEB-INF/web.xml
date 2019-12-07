@@ -164,6 +164,34 @@
         <servlet-name>CancelarRevision</servlet-name>
         <servlet-class>Controllers.Notas.CancelarRevision</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetListAlumnosNotas</servlet-name>
+        <servlet-class>Controllers.Docentes.GetListAlumnosNotas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SubirNotasManual</servlet-name>
+        <servlet-class>Controllers.Docentes.SubirNotasManual</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getSeccionesSinNotasAcademica</servlet-name>
+        <servlet-class>Controllers.Academica.getSeccionesSinNotasAcademica</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getSeccionesConNotasAcademica</servlet-name>
+        <servlet-class>Controllers.Academica.getSeccionesConNotasAcademica</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getSeccionesConNotasRevisionAcademica</servlet-name>
+        <servlet-class>Controllers.Academica.getSeccionesConNotasRevisionAcademica</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getSeccionesConNotasRechazadasAcademica</servlet-name>
+        <servlet-class>Controllers.Academica.getSeccionesConNotasRechazadasAcademica</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AprobaraRechazarExcel</servlet-name>
+        <servlet-class>Controllers.Academica.AprobaraRechazarExcel</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -327,6 +355,34 @@
     <servlet-mapping>
         <servlet-name>CancelarRevision</servlet-name>
         <url-pattern>/CancelarRevision</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetListAlumnosNotas</servlet-name>
+        <url-pattern>/GetListAlumnosNotas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubirNotasManual</servlet-name>
+        <url-pattern>/SubirNotasManual</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getSeccionesSinNotasAcademica</servlet-name>
+        <url-pattern>/getSeccionesSinNotasAcademica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getSeccionesConNotasAcademica</servlet-name>
+        <url-pattern>/getSeccionesConNotasAcademica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getSeccionesConNotasRevisionAcademica</servlet-name>
+        <url-pattern>/getSeccionesConNotasRevisionAcademica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getSeccionesConNotasRechazadasAcademica</servlet-name>
+        <url-pattern>/getSeccionesConNotasRechazadasAcademica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AprobaraRechazarExcel</servlet-name>
+        <url-pattern>/AprobaraRechazarExcel</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

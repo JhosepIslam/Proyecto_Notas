@@ -45,9 +45,13 @@
         function abrirSubirNotas(){
             var params= new URLSearchParams(location.search);
             var v1 = params.get('id');
+            $("#ID_MateriaDocente").val(v1);
+            var direccion ="../GetListAlumnosNotas";
+            var parametro ={id : v1};            
+            $.post(direccion,parametro,function (respuesta){
+                  $("#tbodyNotasAlumnos").html(respuesta);
+            });
             
-            alert(v1);
-            window.location.href="#";
         }        
     
     </script>
@@ -68,7 +72,8 @@
                                 
                                
                             </div>
-                            
+                            <form method="POST" action="../SubirNotasManual">
+                                 <input type="hidden" id="ID_MateriaDocente" name="ID_MateriDocente" value="0">
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
@@ -76,15 +81,28 @@
                                         <th>NIE</th>
                                         <th>Apellidos </th>
                                     	<th>Nombre </th>
-                                        <th>Nota</th>
-                                    	
+                                        <th>Apellidos </th>
+                                    	<th>Nombre </th>
+                                        <th>Nota</th>                                    	
                                     </thead>
-                                    <tbody>
+                                    <tbody id="tbodyNotasAlumnos">
+                                   
 
                                     </tbody>
                                 </table>
+                                <hr>
+                                         <div class="col-md-12">
+                                        
+                                             <input type="submit" class="btn btn-info btn-fill pull-right"  value="Enviar">
+                                             
+                                        <div class="col-md-11"> 
+                                           
+                                         </div>                                      
+                                        
+                                        </div>
                                        
                             </div>
+                                </form>
                         </div>
                     </div>
 

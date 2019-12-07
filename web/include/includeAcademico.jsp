@@ -83,6 +83,12 @@
                         <p>Evaluaciones</p>
                     </a>
                 </li>
+                <li>
+                    <a href="../Gestiones/GestionDeNotas.jsp">
+                        <i class="pe-7s-ribbon"></i>
+                        <p>Gestion De Notas</p>
+                    </a>
+                </li>
                 
                 
                 <!---<li>

@@ -22,6 +22,12 @@ public class MAlumnos {
         return port.listAlumnosfromSeccion(idSeccion);
     }
 
+    public static Alumnos listAlumnosNotas(int idMateriaDocente) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.listAlumnosNotas(idMateriaDocente);
+    }
+
     
         
 }

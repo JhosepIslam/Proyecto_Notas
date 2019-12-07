@@ -48,30 +48,44 @@
             $.get(direccion,parametro,function(respuest){
                     $("#titulo").html(respuest);
                  });
+                 //secciones sin Notas
+            var direccion = "../getSeccionesSinNotasAcademica";
             $.post(direccion,parametro,function(resp){
-                $("#bodyMisSecciones").html(resp);                
-            });
-            
-            
-            
-            
-            
-             direccion = "../GetSeccionesConNotas";
+                $("#bodyMisSecciones").html(resp); 
+                //con nota
+             direccion = "../getSeccionesConNotasAcademica";
                        
             $.post(direccion,parametro,function(resp){
                 $("#bodyMisSeccionesConNotas").html(resp);
-            });
-            
-            
-            direccion = "../GetSeccionesRevisionYRechazados";
-                       
+                
+                $.get(direccion,parametro,function(resp){
+                $("#bodyMisSeccionesConNotasExcel").html(resp);
+                
+                
+                 //revision
+            direccion = "../getSeccionesConNotasRevisionAcademica";                       
             $.post(direccion,parametro,function(resp){
                 $("#bodyMisSeccionesConNotasRevision").html(resp);
-                $.get(direccion,parametro,function(resp){
+                    $.get(direccion,parametro,function(resp){
+                $("#bodyMisSeccionesConNotasRevisionExcel").html(resp);
+                    });
+                //rechazado
+                direccion = "../getSeccionesConNotasRechazadasAcademica";
+                $.post(direccion,parametro,function(resp){
                 $("#bodyMisSeccionesConNotasRechazado").html(resp);
+                
+                $.get(direccion,parametro,function(resp){
+                $("#bodyMisSeccionesConNotasRechazadoExcel").html(resp);
             });
             });
-            
+            });
+            });
+                
+            });
+                
+            });
+    
+  
             
         }
        
@@ -84,6 +98,23 @@
           });
           
       }
+      
+      function AprobarExcel(idMateriaDocente){
+          var direccion ="../AprobaraRechazarExcel";
+          var parametro ={IdMateriaDocente : idMateriaDocente};
+          
+          $.post(direccion,parametro,function(resp){
+                    getMisSecciones();        
+          });   
+      }
+      function RechazarExcel(idMateriaDocente){
+          var direccion ="../AprobaraRechazarExcel";
+          var parametro ={IdMateriaDocente : idMateriaDocente};
+          
+          $.get(direccion,parametro,function(resp){
+                 getMisSecciones();           
+          });   
+      }
         
         
     </script>
@@ -91,16 +122,13 @@
 </head>
 <body onload="getMisSecciones() ; window.location.href='#'">
 
-<%@include file='../include/includeDocente.jsp' %>
+    <%@include file='../include/includeAcademico.jsp' %>
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <h4 class="title" id="titulo">Subir Notas</h4>                               
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title" id="titulo">Subir Notas</h4>                               
-                            </div>
+                        <div class="card">                            
                             <div class="header">
                                 <h4 class="title" >Secciones sin Notas</h4>                               
                             </div>
@@ -155,10 +183,12 @@
                         </div>
                         </div>
                     </div> 
+                    
+                    
                     <div class="col-md-12">
                         <div class="card">                            
                             <div class="header">
-                                <h4 class="title" >Secciones con Notas en Revisión</h4>                               
+                                <h4 class="title" >Secciones con Notas en Excel</h4>                               
                             </div>
                             <div class="content ">                                
                                   
@@ -168,11 +198,70 @@
                                         <th>ID</th>
                                         <th>Grado</th>
                                     	<th>Seccion</th>
-                                        <th>Materias</th>
+                                        <th>Materias</th>                                        
+                                    	
+                                    </thead>
+                                    <tbody id="bodyMisSeccionesConNotasExcel">                                    
+                                        	
+                                    </tbody>
+                                </table>                                
+                                <br/><br/><br/>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div> 
+                    
+                    <div class="col-md-12">
+                        <div class="card">                            
+                            <div class="header">
+                                <h4 class="title" >Secciones con Notas en Revisión </h4>                               
+                            </div>
+                            <div class="content ">                                
+                                  
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th class="col-md-2">ID</th>
+                                        <th class="col-md-2"> Grado</th>
+                                    	<th class="col-md-2">Seccion</th>
+                                        <th class="col-md-2">Materias</th>
                                         <th></th>                                        
+                                        <th></th> 
+                                        <th></th> 
                                     	
                                     </thead>
                                     <tbody id="bodyMisSeccionesConNotasRevision">                                      
+                                        	
+                                    </tbody>
+                                </table>                                
+                                <br/><br/><br/>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div> 
+                    
+                    <div class="col-md-12">
+                        <div class="card">                            
+                            <div class="header">
+                                <h4 class="title" >Secciones con Notas en Excel en Revisión </h4>                               
+                            </div>
+                            <div class="content ">                                
+                                  
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                    <th class="col-md-2">ID</th>
+                                        <th class="col-md-2"> Grado</th>
+                                    	<th class="col-md-2">Seccion</th>
+                                        <th class="col-md-2">Materias</th>
+                                        <th></th> 
+                                        <th></th> 
+                                        <th></th> 
+                                    	
+                                    </thead>
+                                    <tbody id="bodyMisSeccionesConNotasRevisionExcel">                                      
                                         	
                                     </tbody>
                                 </table>                                
@@ -200,6 +289,34 @@
                                     	
                                     </thead>
                                     <tbody id="bodyMisSeccionesConNotasRechazado">                                      
+                                        	
+                                    </tbody>
+                                </table>                                
+                                <br/><br/><br/>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <div class="card">                            
+                            <div class="header">
+                                <h4 class="title" >Secciones con Notas en Excel Rechazadas</h4>                               
+                            </div>
+                            <div class="content ">                                
+                                  
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th class="col-md-1">ID</th>
+                                        <th class="col-md-3">Grado</th>
+                                    	<th class="col-md-3">Seccion</th>
+                                        <th class="col-md-4">Materias</th>
+                                        <th class="col-md-3"></th>                                        
+                                    	
+                                    </thead>
+                                    <tbody id="bodyMisSeccionesConNotasRechazadoExcel">                                      
                                         	
                                     </tbody>
                                 </table>                                

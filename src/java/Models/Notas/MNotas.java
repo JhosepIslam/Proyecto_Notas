@@ -16,6 +16,12 @@ public class MNotas {
         service.ServicioWeb port = service.getServicioWebPort();
         return port.cancelarNotasRevision(idMateriaDocente);
     }
+
+    public static Notas subirNotasRevisionManual(int idMateriaDocente, int idAlumnos, float notas) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.subirNotasRevisionManual(idMateriaDocente, idAlumnos, notas);
+    }
     
     
     

@@ -46,12 +46,7 @@
                         <p>Gestion de Usuarios</p>
                     </a>
                 </li> 
-                  <li>
-                    <a href="../Gestiones/GestionNotas.jsp">
-                        <i class="pe-7s-ribbon"></i>
-                        <p>Gestion de Notas</p>
-                    </a>
-                </li> 
+                   
                  <li>
                     <a href="../Gestiones/ListadoMaterias.jsp">
                         <i class="pe-7s-ribbon"></i>
@@ -69,6 +64,12 @@
                     <a href="../Gestiones/ListadoDeDocentes.jsp">
                         <i class="pe-7s-ribbon"></i>
                         <p>Gestion de Docentes</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Gestiones/GestionDeNotas.jsp">
+                        <i class="pe-7s-ribbon"></i>
+                        <p>Gestion De Notas</p>
                     </a>
                 </li>
                 
