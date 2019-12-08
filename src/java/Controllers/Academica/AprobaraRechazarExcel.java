@@ -37,7 +37,12 @@ public class AprobaraRechazarExcel extends HttpServlet {
             throws ServletException, IOException {
         
         int idMateriaDocente = Integer.parseInt(request.getParameter("IdMateriaDocente"));
-        MAcademica.academicoAprobarNotasExcel(idMateriaDocente);
+        
+        LeerYSubirNotasExcel leerYSubirNotasExcel = new LeerYSubirNotasExcel();
+        leerYSubirNotasExcel.SubirNotas(idMateriaDocente);
+        
+        
+       MAcademica.academicoAprobarNotasExcel(idMateriaDocente);
        
     }
 

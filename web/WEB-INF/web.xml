@@ -192,6 +192,30 @@
         <servlet-name>AprobaraRechazarExcel</servlet-name>
         <servlet-class>Controllers.Academica.AprobaraRechazarExcel</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AprobarRechazarNotas</servlet-name>
+        <servlet-class>Controllers.Academica.AprobarRechazarNotas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerNotasManual</servlet-name>
+        <servlet-class>Controllers.Academica.VerNotasManual</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DescargaArchivoExcel</servlet-name>
+        <servlet-class>Controllers.Academica.DescargaArchivoExcel</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DescargarPlantilla</servlet-name>
+        <servlet-class>Controllers.Docentes.DescargarPlantilla</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DescargarArchivoExcekPlantilla</servlet-name>
+        <servlet-class>Controllers.Docentes.DescargarArchivoExcekPlantilla</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetMisNotasAlumnos</servlet-name>
+        <servlet-class>Controllers.Alumnos.GetMisNotasAlumnos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -383,6 +407,30 @@
     <servlet-mapping>
         <servlet-name>AprobaraRechazarExcel</servlet-name>
         <url-pattern>/AprobaraRechazarExcel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AprobarRechazarNotas</servlet-name>
+        <url-pattern>/AprobarRechazarNotas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerNotasManual</servlet-name>
+        <url-pattern>/VerNotasManual</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DescargaArchivoExcel</servlet-name>
+        <url-pattern>/DescargaArchivoExcel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DescargarPlantilla</servlet-name>
+        <url-pattern>/DescargarPlantilla</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DescargarArchivoExcekPlantilla</servlet-name>
+        <url-pattern>/DescargarArchivoExcekPlantilla</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetMisNotasAlumnos</servlet-name>
+        <url-pattern>/GetMisNotasAlumnos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

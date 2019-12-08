@@ -29,5 +29,45 @@ public class MAlumnos {
     }
 
     
+    
+    //notas
+
+   
+
+    public static Alumnos alumnosgetMiID(java.lang.String usuario) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.alumnosgetMiID(usuario);
+    }
+
+    public static Alumnos alumnosgetMisEvaluaciones() {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.alumnosgetMisEvaluaciones();
+    }
+
+    public static Alumnos alumnosgetMisNotas(int idAlumno, int idMateria, int idEvaluacion) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.alumnosgetMisNotas(idAlumno, idMateria, idEvaluacion);
+    }
+
+    public static Alumnos alumnosGetMisMaterias(int idSeccion) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.alumnosGetMisMaterias(idSeccion);
+    }
+
+    public static int alumnosgetMiSeccion(int idAlumno) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.alumnosgetMiSeccion(idAlumno);
+    }
+    
+    
+    
+            
+            
+    
         
 }

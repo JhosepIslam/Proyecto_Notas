@@ -46,7 +46,7 @@ public class getSeccionesConNotasRevisionAcademica extends HttpServlet {
                             + "</td>"
                             + "<td>"+codigo.get(i)+"-"+Materia.get(i)
                             + "</td>" 
-                               + "<td><button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"cancelarRevision("+Id.get(i)+")\" role=\"link\" >Ver</button> </td>"
+                               + "<td><button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"verNotasEXCEL("+Id.get(i)+")\" role=\"link\" >Ver</button> </td>"
                          + "<td><button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"AprobarExcel("+Id.get(i)+")\" role=\"link\" >Aprobar</button> </td>"
                           + "<td><button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"RechazarExcel("+Id.get(i)+")\" role=\"link\" >Rechazar</button> </td>"
                              
@@ -82,9 +82,9 @@ public class getSeccionesConNotasRevisionAcademica extends HttpServlet {
                             + "</td>"
                             + "<td>"+codigo.get(i)+"-"+Materia.get(i)
                             + "</td>"  
-                             + "<td><button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"cancelarRevision("+Id.get(i)+")\" role=\"link\" >Ver</button> </td>"
-                         + "<td><button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"cancelarRevision("+Id.get(i)+")\" role=\"link\" >Aprobar</button> </td>"
-                          + "<td><button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"cancelarRevision("+Id.get(i)+")\" role=\"link\" >Rechazar</button> </td>"
+                             + "<td><button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"verNotas("+Id.get(i)+")\" role=\"link\" >Ver</button> </td>"
+                         + "<td><button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"AprobarNota("+Id.get(i)+")\" role=\"link\" >Aprobar</button> </td>"
+                          + "<td><button type=\"submit\" class=\"btn btn-info btn-fill pull-right\" onclick=\"RechazarNotas("+Id.get(i)+")\" role=\"link\" >Rechazar</button> </td>"
                              
                             + "</tr>";
                         }

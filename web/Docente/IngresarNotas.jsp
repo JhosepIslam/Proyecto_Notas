@@ -85,7 +85,19 @@
           
       }
         
-        
+        function descargarPlantilla(id){
+            var direccion = "../DescargarPlantilla";
+            var parametros = {id : id};
+            $.post(direccion,parametros,function(resp){
+                if (resp !== null) {
+                     window.open(resp,'_blank');
+                }
+    
+
+               
+            });
+            
+        }
     </script>
 
 </head>

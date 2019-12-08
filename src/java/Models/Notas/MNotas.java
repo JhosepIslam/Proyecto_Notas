@@ -22,6 +22,12 @@ public class MNotas {
         service.ServicioWeb port = service.getServicioWebPort();
         return port.subirNotasRevisionManual(idMateriaDocente, idAlumnos, notas);
     }
+
+    public static Notas subirNotasExcelAceptadas(int idMateriaDocente, int idAlumno, float nota) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.subirNotasExcelAceptadas(idMateriaDocente, idAlumno, nota);
+    }
     
     
     

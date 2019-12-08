@@ -1,8 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://Service/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Service/">
 
+<xs:element name="AcademicoAprobarNotas" type="tns:AcademicoAprobarNotas"/>
+
 <xs:element name="AcademicoAprobarNotasExcel" type="tns:AcademicoAprobarNotasExcel"/>
 
 <xs:element name="AcademicoAprobarNotasExcelResponse" type="tns:AcademicoAprobarNotasExcelResponse"/>
+
+<xs:element name="AcademicoAprobarNotasResponse" type="tns:AcademicoAprobarNotasResponse"/>
 
 <xs:element name="AcademicoGetMateriasConNotas" type="tns:AcademicoGetMateriasConNotas"/>
 
@@ -32,9 +36,33 @@
 
 <xs:element name="AcademicoGetMateriasSinNotasResponse" type="tns:AcademicoGetMateriasSinNotasResponse"/>
 
+<xs:element name="AcademicoRechazarNotas" type="tns:AcademicoRechazarNotas"/>
+
 <xs:element name="AcademicoRechazarNotasExcel" type="tns:AcademicoRechazarNotasExcel"/>
 
 <xs:element name="AcademicoRechazarNotasExcelResponse" type="tns:AcademicoRechazarNotasExcelResponse"/>
+
+<xs:element name="AcademicoRechazarNotasResponse" type="tns:AcademicoRechazarNotasResponse"/>
+
+<xs:element name="AlumnosGetMisMaterias" type="tns:AlumnosGetMisMaterias"/>
+
+<xs:element name="AlumnosGetMisMateriasResponse" type="tns:AlumnosGetMisMateriasResponse"/>
+
+<xs:element name="AlumnosgetMiID" type="tns:AlumnosgetMiID"/>
+
+<xs:element name="AlumnosgetMiIDResponse" type="tns:AlumnosgetMiIDResponse"/>
+
+<xs:element name="AlumnosgetMiSeccion" type="tns:AlumnosgetMiSeccion"/>
+
+<xs:element name="AlumnosgetMiSeccionResponse" type="tns:AlumnosgetMiSeccionResponse"/>
+
+<xs:element name="AlumnosgetMisEvaluaciones" type="tns:AlumnosgetMisEvaluaciones"/>
+
+<xs:element name="AlumnosgetMisEvaluacionesResponse" type="tns:AlumnosgetMisEvaluacionesResponse"/>
+
+<xs:element name="AlumnosgetMisNotas" type="tns:AlumnosgetMisNotas"/>
+
+<xs:element name="AlumnosgetMisNotasResponse" type="tns:AlumnosgetMisNotasResponse"/>
 
 <xs:element name="CancelarNotasRevision" type="tns:CancelarNotasRevision"/>
 
@@ -144,6 +172,10 @@
 
 <xs:element name="ListAlumnosNotasResponse" type="tns:ListAlumnosNotasResponse"/>
 
+<xs:element name="ListAlumnosNotasRevision" type="tns:ListAlumnosNotasRevision"/>
+
+<xs:element name="ListAlumnosNotasRevisionResponse" type="tns:ListAlumnosNotasRevisionResponse"/>
+
 <xs:element name="ListAlumnosfromSeccion" type="tns:ListAlumnosfromSeccion"/>
 
 <xs:element name="ListAlumnosfromSeccionResponse" type="tns:ListAlumnosfromSeccionResponse"/>
@@ -179,6 +211,10 @@
 <xs:element name="ValidarCodigoMateria" type="tns:ValidarCodigoMateria"/>
 
 <xs:element name="ValidarCodigoMateriaResponse" type="tns:ValidarCodigoMateriaResponse"/>
+
+<xs:element name="getFilePathExcel" type="tns:getFilePathExcel"/>
+
+<xs:element name="getFilePathExcelResponse" type="tns:getFilePathExcelResponse"/>
 
 <xs:element name="getGradosByDocente" type="tns:getGradosByDocente"/>
 
@@ -220,9 +256,36 @@
 
 <xs:element name="setEvaluacionResponse" type="tns:setEvaluacionResponse"/>
 
+<xs:element name="subirNotasExcelAceptadas" type="tns:subirNotasExcelAceptadas"/>
+
+<xs:element name="subirNotasExcelAceptadasResponse" type="tns:subirNotasExcelAceptadasResponse"/>
+
 <xs:element name="validarEvaluacion" type="tns:validarEvaluacion"/>
 
 <xs:element name="validarEvaluacionResponse" type="tns:validarEvaluacionResponse"/>
+
+<xs:complexType name="ListMateriasNotInGrados">
+<xs:sequence>
+<xs:element name="ID_GRADO" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListMateriasNotInGradosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:materias" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="materias">
+<xs:sequence>
+<xs:element name="CODIGO_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ESTADO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="FECHA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ID_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="NOMBRE_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="RESULT" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="GetSecciones">
 <xs:sequence>
@@ -276,29 +339,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="ListMateriasNotInGrados">
-<xs:sequence>
-<xs:element name="ID_GRADO" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="ListMateriasNotInGradosResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:materias" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="materias">
-<xs:sequence>
-<xs:element name="CODIGO_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="ESTADO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="FECHA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="ID_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="NOMBRE_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="RESULT" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="AcademicoGetMateriasSinNotas">
 <xs:sequence/>
 </xs:complexType>
@@ -321,6 +361,39 @@
 <xs:element name="ID_USUARIO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 <xs:element name="NOMBRE" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 <xs:element name="NOMBRE_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="RESULT" type="xs:boolean"/>
+<xs:element name="SECCION" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AlumnosgetMisNotas">
+<xs:sequence>
+<xs:element name="IdAlumno" type="xs:int"/>
+<xs:element name="IdMateria" type="xs:int"/>
+<xs:element name="IdEvaluacion" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AlumnosgetMisNotasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:alumnos" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="alumnos">
+<xs:sequence>
+<xs:element name="APELLIDO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="CODIGO_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="GRADO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ID_ALUMNO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ID_FECHA_EVALUACION" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ID_GRADO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ID_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="NOMBRE" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="NOMBRE_MATERIA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="NOTA" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="NUMERO_ID" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="NUM_EVALUACION" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 <xs:element name="RESULT" type="xs:boolean"/>
 <xs:element name="SECCION" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
@@ -445,6 +518,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="ListAlumnosNotasRevision">
+<xs:sequence>
+<xs:element name="IdMateriaDocente" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListAlumnosNotasRevisionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:alumnos" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="EvaluaciondeHoy">
 <xs:sequence/>
 </xs:complexType>
@@ -501,6 +586,30 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="AlumnosgetMiID">
+<xs:sequence>
+<xs:element name="Usuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AlumnosgetMiIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:alumnos" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AlumnosGetMisMaterias">
+<xs:sequence>
+<xs:element name="IdSeccion" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AlumnosGetMisMateriasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:alumnos" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="GetUsuarioIfExits">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
@@ -510,6 +619,18 @@
 <xs:complexType name="GetUsuarioIfExitsResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AcademicoAprobarNotas">
+<xs:sequence>
+<xs:element name="IdMateriaDocente" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AcademicoAprobarNotasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:academicos" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -580,6 +701,16 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="GetListGrados_Info">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GetListGrados_InfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:grados" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="DeleteEvaluacion">
 <xs:sequence>
 <xs:element name="IdEval" type="xs:int"/>
@@ -589,16 +720,6 @@
 <xs:complexType name="DeleteEvaluacionResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:evaluaciones" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="GetListGrados_Info">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="GetListGrados_InfoResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:grados" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -657,16 +778,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="GetListDocentes">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="GetListDocentesResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:docente" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="ValidarCodigoMateria">
 <xs:sequence>
 <xs:element name="CODIGO" type="xs:string" minOccurs="0"/>
@@ -679,6 +790,16 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="GetListDocentes">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GetListDocentesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:docente" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="GetListGradosWithSecciones">
 <xs:sequence/>
 </xs:complexType>
@@ -686,6 +807,18 @@
 <xs:complexType name="GetListGradosWithSeccionesResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:grados" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFilePathExcel">
+<xs:sequence>
+<xs:element name="IdMateriaDocente" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFilePathExcelResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -822,6 +955,20 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="subirNotasExcelAceptadas">
+<xs:sequence>
+<xs:element name="IdMateriaDocente" type="xs:int"/>
+<xs:element name="IdAlumno" type="xs:int"/>
+<xs:element name="Nota" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="subirNotasExcelAceptadasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:notas" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="SubirNotasRevision">
 <xs:sequence>
 <xs:element name="IdMateriaDocente" type="xs:int"/>
@@ -884,6 +1031,16 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="AlumnosgetMisEvaluaciones">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="AlumnosgetMisEvaluacionesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:alumnos" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="AcademicoGetMateriasConNotasRevisionEXCEL">
 <xs:sequence/>
 </xs:complexType>
@@ -932,15 +1089,15 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="alumnos">
+<xs:complexType name="getSeccionesConNotasRechazado">
 <xs:sequence>
-<xs:element name="APELLIDO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="GRADO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="ID_ALUMNO" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="NOMBRE" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="NUMERO_ID" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="RESULT" type="xs:boolean"/>
-<xs:element name="SECCION" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="IdDocente" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSeccionesConNotasRechazadoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:docente" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -956,18 +1113,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getSeccionesConNotasRechazado">
-<xs:sequence>
-<xs:element name="IdDocente" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getSeccionesConNotasRechazadoResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:docente" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="getGradosByDocente">
 <xs:sequence>
 <xs:element name="IdDocente" type="xs:int"/>
@@ -977,6 +1122,18 @@
 <xs:complexType name="getGradosByDocenteResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:grados" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AcademicoRechazarNotas">
+<xs:sequence>
+<xs:element name="IdMateriaDocente" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AcademicoRechazarNotasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:academicos" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -999,6 +1156,18 @@
 <xs:complexType name="AcademicoGetMateriasConNotasRechazadaResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:academicos" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AlumnosgetMiSeccion">
+<xs:sequence>
+<xs:element name="IdAlumno" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AlumnosgetMiSeccionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 

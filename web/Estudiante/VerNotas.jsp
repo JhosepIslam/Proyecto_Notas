@@ -4,6 +4,8 @@
     Author     : osmin_000
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="Controllers.Alumnos.GetMisNotas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -40,9 +42,20 @@
    
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    
+    
+    <script type="text/javascript">
+        function load(){
+            var direccion = "../GetMisNotasAlumnos";
+            var parametros ={};
+            $.post(direccion,parametros,function (resp){
+                $("#bodyNotas").html(resp);
+            });
+        }        
+     </script>
 
 </head>
-<body>
+<body onload="load()">
 
 <%@include file='../include/includeEstudiante.jsp' %>
 
@@ -60,59 +73,18 @@
                                 <table class="table table-hover ">
                                     <thead>
                                         <th>Materia</th>
-                                        <th>Evaluacion 1</th>
-                                    	<th>Evaluacion 2</th>
-                                        <th>Evaluacion 3</th>
-                                        <th>Total</th>
+                                        <%                                            
+                                            GetMisNotas getMisNotas = new GetMisNotas();
+                                            ArrayList Evaluacion =getMisNotas.getEvaluaciones();
+                                            
+                                            for (int i = 0; i < Evaluacion.size(); i++) {
+                                                    out.print("<th>Evaluacion "+Evaluacion.get(i)+"</th>");
+                                                }
+                                        %>
                                     	
                                     </thead>
-                                    <tbody>
-
-                                        <tr>
-                                        	<td>1</td>
-                                        	<td>123</td>
-                                                <td>14</td>
-                                                <td>12</td>
-                                                <td>12</td>
-                                        	
-                                        </tr>
-
-                                        <tr>
-                                        	<td>2</td>
-                                        	<td>123r</td>
-                                                <td>14</td>
-                                                <td>14</td>
-                                        	<td>12</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>3</td>
-                                        	<td>S12</td>
-                                                <td>14</td>
-                                                <td>14</td>
-                                                <td>12</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>4</td>
-                                        	<td>123</td>
-                                                <td>14</td>
-                                                <td>14</td>
-                                                <td>12</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>5</td>
-                                        	<td>123</td>
-                                                <td>14</td>
-                                                <td>14</td>
-                                                <td>12</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>6</td>
-                                        	<td>M123</td>
-                                                <td>14</td>
-                                                <td>14</td>
-                                                <td>12</td>
-                                        	
-                                        </tr>
+                                    <tbody id="bodyNotas">
+                                    
                                     </tbody>
                                 </table>
 

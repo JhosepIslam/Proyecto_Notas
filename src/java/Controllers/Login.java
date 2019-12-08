@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controllers;
 
+import Models.Alumnos.MAlumnos;
 import Models.Docentes.MDocentes;
 import Models.MLogin;
 import java.io.IOException;
@@ -52,6 +49,8 @@ public class Login extends HttpServlet {
                         session.setAttribute("IdDocente", IdDocente);
                         break;                        
                     case 5:
+                        int IdAlumno =Integer.parseInt(MAlumnos.alumnosgetMiID(Usuario).getIDALUMNO().get(0).toString());
+                        session.setAttribute("IdAlumno", IdAlumno);
                         response.sendRedirect("Estudiante/");
                         break;
                     default:

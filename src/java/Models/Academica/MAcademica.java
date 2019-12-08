@@ -6,6 +6,7 @@
 package Models.Academica;
 
 import service.Academicos;
+import service.Alumnos;
 
 /**
  *
@@ -67,6 +68,32 @@ public class MAcademica {
         return port.academicoRechazarNotasExcel(idMateriaDocente);
     }
 
+    public static Academicos academicoAprobarNotas(int idMateriaDocente) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.academicoAprobarNotas(idMateriaDocente);
+    }
+
+    public static Academicos academicoRechazarNotas(int idMateriaDocente) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.academicoRechazarNotas(idMateriaDocente);
+    }
+
+    public static Alumnos listAlumnosNotasRevision(int idMateriaDocente) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.listAlumnosNotasRevision(idMateriaDocente);
+    }
+
+    public static String getFilePathExcel(int idMateriaDocente) {
+        service.ServicioWeb_Service service = new service.ServicioWeb_Service();
+        service.ServicioWeb port = service.getServicioWebPort();
+        return port.getFilePathExcel(idMateriaDocente);
+    }
+
+    
+    
    
     
 }

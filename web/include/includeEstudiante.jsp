@@ -81,34 +81,10 @@
                     <a class="navbar-brand" href="../Estudiante/">Inicio</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                      
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret"></b>
-                                    <span class="notification">5</span>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notificacion 1</a></li>
-                                <li><a href="#">Notificacion 2</a></li>
-                                <li><a href="#">Notificacion 3</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                           <a href="">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    
 
                     <ul class="nav navbar-nav navbar-right">
-                        
-                       <li>
-                            <a href="../Estudiante/Perfil.jsp">
-                                Perfil
-                            </a>
-                        </li>
+                      
                         <li>
                             <a href="#">
                                 Cerrar Sesion

@@ -83,10 +83,7 @@
                 
             });
                 
-            });
-    
-  
-            
+            });    
         }
        
         
@@ -115,13 +112,36 @@
                  getMisSecciones();           
           });   
       }
+      
+      function AprobarNota(id){
+          var direccion ="../AprobarRechazarNotas";
+          var parametro ={IdMateriaDocente : id};
+          $.post(direccion,parametro,function (respuesta){
+               getMisSecciones();             
+          });
+      }
+      function RechazarNotas(id){
+          var direccion ="../AprobarRechazarNotas";
+          var parametro ={IdMateriaDocente : id};
+          $.get(direccion,parametro,function (respuesta){
+               getMisSecciones();             
+          });
+      }
+       
+      function verNotas(id){
+          var win =window.open("VerNotasAlumnos.jsp?id="+id,'_blank');
+          win.focus();
+      }
+      function verNotasEXCEL(id){
+          var win =window.open("descargar.jsp?id="+id,'_blank');                    
+      }
         
         
     </script>
 
 </head>
 <body onload="getMisSecciones() ; window.location.href='#'">
-
+  
     <%@include file='../include/includeAcademico.jsp' %>
         <div class="content">
             <div class="container-fluid">

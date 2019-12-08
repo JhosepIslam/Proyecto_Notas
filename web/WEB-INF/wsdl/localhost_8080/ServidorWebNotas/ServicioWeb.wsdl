@@ -4,150 +4,6 @@
 <xsd:import namespace="http://Service/" schemaLocation="http://localhost:8080/ServidorWebNotas/ServicioWeb?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="login">
-<part name="parameters" element="tns:login"/>
-</message>
-<message name="loginResponse">
-<part name="parameters" element="tns:loginResponse"/>
-</message>
-<message name="GetNiveles">
-<part name="parameters" element="tns:GetNiveles"/>
-</message>
-<message name="GetNivelesResponse">
-<part name="parameters" element="tns:GetNivelesResponse"/>
-</message>
-<message name="GetGrados">
-<part name="parameters" element="tns:GetGrados"/>
-</message>
-<message name="GetGradosResponse">
-<part name="parameters" element="tns:GetGradosResponse"/>
-</message>
-<message name="GetSecciones">
-<part name="parameters" element="tns:GetSecciones"/>
-</message>
-<message name="GetSeccionesResponse">
-<part name="parameters" element="tns:GetSeccionesResponse"/>
-</message>
-<message name="DeleteGrado">
-<part name="parameters" element="tns:DeleteGrado"/>
-</message>
-<message name="DeleteGradoResponse">
-<part name="parameters" element="tns:DeleteGradoResponse"/>
-</message>
-<message name="CreateGrado">
-<part name="parameters" element="tns:CreateGrado"/>
-</message>
-<message name="CreateGradoResponse">
-<part name="parameters" element="tns:CreateGradoResponse"/>
-</message>
-<message name="CreateSeccion">
-<part name="parameters" element="tns:CreateSeccion"/>
-</message>
-<message name="CreateSeccionResponse">
-<part name="parameters" element="tns:CreateSeccionResponse"/>
-</message>
-<message name="DeleteSeccion">
-<part name="parameters" element="tns:DeleteSeccion"/>
-</message>
-<message name="DeleteSeccionResponse">
-<part name="parameters" element="tns:DeleteSeccionResponse"/>
-</message>
-<message name="CreateUser">
-<part name="parameters" element="tns:CreateUser"/>
-</message>
-<message name="CreateUserResponse">
-<part name="parameters" element="tns:CreateUserResponse"/>
-</message>
-<message name="CreateAlumno">
-<part name="parameters" element="tns:CreateAlumno"/>
-</message>
-<message name="CreateAlumnoResponse">
-<part name="parameters" element="tns:CreateAlumnoResponse"/>
-</message>
-<message name="CreateMateria">
-<part name="parameters" element="tns:CreateMateria"/>
-</message>
-<message name="CreateMateriaResponse">
-<part name="parameters" element="tns:CreateMateriaResponse"/>
-</message>
-<message name="DeleteMateria">
-<part name="parameters" element="tns:DeleteMateria"/>
-</message>
-<message name="DeleteMateriaResponse">
-<part name="parameters" element="tns:DeleteMateriaResponse"/>
-</message>
-<message name="ListMaterias">
-<part name="parameters" element="tns:ListMaterias"/>
-</message>
-<message name="ListMateriasResponse">
-<part name="parameters" element="tns:ListMateriasResponse"/>
-</message>
-<message name="GetListDocentes">
-<part name="parameters" element="tns:GetListDocentes"/>
-</message>
-<message name="GetListDocentesResponse">
-<part name="parameters" element="tns:GetListDocentesResponse"/>
-</message>
-<message name="DeleteDocente">
-<part name="parameters" element="tns:DeleteDocente"/>
-</message>
-<message name="DeleteDocenteResponse">
-<part name="parameters" element="tns:DeleteDocenteResponse"/>
-</message>
-<message name="getIdDocente">
-<part name="parameters" element="tns:getIdDocente"/>
-</message>
-<message name="getIdDocenteResponse">
-<part name="parameters" element="tns:getIdDocenteResponse"/>
-</message>
-<message name="ListAlumnosNotas">
-<part name="parameters" element="tns:ListAlumnosNotas"/>
-</message>
-<message name="ListAlumnosNotasResponse">
-<part name="parameters" element="tns:ListAlumnosNotasResponse"/>
-</message>
-<message name="getMisSecciones">
-<part name="parameters" element="tns:getMisSecciones"/>
-</message>
-<message name="getMisSeccionesResponse">
-<part name="parameters" element="tns:getMisSeccionesResponse"/>
-</message>
-<message name="setEvaluacion">
-<part name="parameters" element="tns:setEvaluacion"/>
-</message>
-<message name="setEvaluacionResponse">
-<part name="parameters" element="tns:setEvaluacionResponse"/>
-</message>
-<message name="DeleteEvaluacion">
-<part name="parameters" element="tns:DeleteEvaluacion"/>
-</message>
-<message name="DeleteEvaluacionResponse">
-<part name="parameters" element="tns:DeleteEvaluacionResponse"/>
-</message>
-<message name="ListEvaluaciones">
-<part name="parameters" element="tns:ListEvaluaciones"/>
-</message>
-<message name="ListEvaluacionesResponse">
-<part name="parameters" element="tns:ListEvaluacionesResponse"/>
-</message>
-<message name="EvaluaciondeHoy">
-<part name="parameters" element="tns:EvaluaciondeHoy"/>
-</message>
-<message name="EvaluaciondeHoyResponse">
-<part name="parameters" element="tns:EvaluaciondeHoyResponse"/>
-</message>
-<message name="AcademicoAprobarNotasExcel">
-<part name="parameters" element="tns:AcademicoAprobarNotasExcel"/>
-</message>
-<message name="AcademicoAprobarNotasExcelResponse">
-<part name="parameters" element="tns:AcademicoAprobarNotasExcelResponse"/>
-</message>
-<message name="AcademicoRechazarNotasExcel">
-<part name="parameters" element="tns:AcademicoRechazarNotasExcel"/>
-</message>
-<message name="AcademicoRechazarNotasExcelResponse">
-<part name="parameters" element="tns:AcademicoRechazarNotasExcelResponse"/>
-</message>
 <message name="GetUsuarioIfExits">
 <part name="parameters" element="tns:GetUsuarioIfExits"/>
 </message>
@@ -304,6 +160,198 @@
 <message name="AcademicoGetMateriasConNotasResponse">
 <part name="parameters" element="tns:AcademicoGetMateriasConNotasResponse"/>
 </message>
+<message name="AcademicoAprobarNotasExcel">
+<part name="parameters" element="tns:AcademicoAprobarNotasExcel"/>
+</message>
+<message name="AcademicoAprobarNotasExcelResponse">
+<part name="parameters" element="tns:AcademicoAprobarNotasExcelResponse"/>
+</message>
+<message name="AcademicoRechazarNotasExcel">
+<part name="parameters" element="tns:AcademicoRechazarNotasExcel"/>
+</message>
+<message name="AcademicoRechazarNotasExcelResponse">
+<part name="parameters" element="tns:AcademicoRechazarNotasExcelResponse"/>
+</message>
+<message name="AcademicoRechazarNotas">
+<part name="parameters" element="tns:AcademicoRechazarNotas"/>
+</message>
+<message name="AcademicoRechazarNotasResponse">
+<part name="parameters" element="tns:AcademicoRechazarNotasResponse"/>
+</message>
+<message name="AcademicoAprobarNotas">
+<part name="parameters" element="tns:AcademicoAprobarNotas"/>
+</message>
+<message name="AcademicoAprobarNotasResponse">
+<part name="parameters" element="tns:AcademicoAprobarNotasResponse"/>
+</message>
+<message name="ListAlumnosNotasRevision">
+<part name="parameters" element="tns:ListAlumnosNotasRevision"/>
+</message>
+<message name="ListAlumnosNotasRevisionResponse">
+<part name="parameters" element="tns:ListAlumnosNotasRevisionResponse"/>
+</message>
+<message name="subirNotasExcelAceptadas">
+<part name="parameters" element="tns:subirNotasExcelAceptadas"/>
+</message>
+<message name="subirNotasExcelAceptadasResponse">
+<part name="parameters" element="tns:subirNotasExcelAceptadasResponse"/>
+</message>
+<message name="AlumnosgetMisEvaluaciones">
+<part name="parameters" element="tns:AlumnosgetMisEvaluaciones"/>
+</message>
+<message name="AlumnosgetMisEvaluacionesResponse">
+<part name="parameters" element="tns:AlumnosgetMisEvaluacionesResponse"/>
+</message>
+<message name="AlumnosgetMisNotas">
+<part name="parameters" element="tns:AlumnosgetMisNotas"/>
+</message>
+<message name="AlumnosgetMisNotasResponse">
+<part name="parameters" element="tns:AlumnosgetMisNotasResponse"/>
+</message>
+<message name="login">
+<part name="parameters" element="tns:login"/>
+</message>
+<message name="loginResponse">
+<part name="parameters" element="tns:loginResponse"/>
+</message>
+<message name="GetNiveles">
+<part name="parameters" element="tns:GetNiveles"/>
+</message>
+<message name="GetNivelesResponse">
+<part name="parameters" element="tns:GetNivelesResponse"/>
+</message>
+<message name="GetGrados">
+<part name="parameters" element="tns:GetGrados"/>
+</message>
+<message name="GetGradosResponse">
+<part name="parameters" element="tns:GetGradosResponse"/>
+</message>
+<message name="GetSecciones">
+<part name="parameters" element="tns:GetSecciones"/>
+</message>
+<message name="GetSeccionesResponse">
+<part name="parameters" element="tns:GetSeccionesResponse"/>
+</message>
+<message name="DeleteGrado">
+<part name="parameters" element="tns:DeleteGrado"/>
+</message>
+<message name="DeleteGradoResponse">
+<part name="parameters" element="tns:DeleteGradoResponse"/>
+</message>
+<message name="CreateGrado">
+<part name="parameters" element="tns:CreateGrado"/>
+</message>
+<message name="CreateGradoResponse">
+<part name="parameters" element="tns:CreateGradoResponse"/>
+</message>
+<message name="CreateSeccion">
+<part name="parameters" element="tns:CreateSeccion"/>
+</message>
+<message name="CreateSeccionResponse">
+<part name="parameters" element="tns:CreateSeccionResponse"/>
+</message>
+<message name="DeleteSeccion">
+<part name="parameters" element="tns:DeleteSeccion"/>
+</message>
+<message name="DeleteSeccionResponse">
+<part name="parameters" element="tns:DeleteSeccionResponse"/>
+</message>
+<message name="CreateUser">
+<part name="parameters" element="tns:CreateUser"/>
+</message>
+<message name="CreateUserResponse">
+<part name="parameters" element="tns:CreateUserResponse"/>
+</message>
+<message name="CreateAlumno">
+<part name="parameters" element="tns:CreateAlumno"/>
+</message>
+<message name="CreateAlumnoResponse">
+<part name="parameters" element="tns:CreateAlumnoResponse"/>
+</message>
+<message name="CreateMateria">
+<part name="parameters" element="tns:CreateMateria"/>
+</message>
+<message name="CreateMateriaResponse">
+<part name="parameters" element="tns:CreateMateriaResponse"/>
+</message>
+<message name="DeleteMateria">
+<part name="parameters" element="tns:DeleteMateria"/>
+</message>
+<message name="DeleteMateriaResponse">
+<part name="parameters" element="tns:DeleteMateriaResponse"/>
+</message>
+<message name="ListMaterias">
+<part name="parameters" element="tns:ListMaterias"/>
+</message>
+<message name="ListMateriasResponse">
+<part name="parameters" element="tns:ListMateriasResponse"/>
+</message>
+<message name="GetListDocentes">
+<part name="parameters" element="tns:GetListDocentes"/>
+</message>
+<message name="GetListDocentesResponse">
+<part name="parameters" element="tns:GetListDocentesResponse"/>
+</message>
+<message name="DeleteDocente">
+<part name="parameters" element="tns:DeleteDocente"/>
+</message>
+<message name="DeleteDocenteResponse">
+<part name="parameters" element="tns:DeleteDocenteResponse"/>
+</message>
+<message name="getIdDocente">
+<part name="parameters" element="tns:getIdDocente"/>
+</message>
+<message name="getIdDocenteResponse">
+<part name="parameters" element="tns:getIdDocenteResponse"/>
+</message>
+<message name="ListAlumnosNotas">
+<part name="parameters" element="tns:ListAlumnosNotas"/>
+</message>
+<message name="ListAlumnosNotasResponse">
+<part name="parameters" element="tns:ListAlumnosNotasResponse"/>
+</message>
+<message name="getMisSecciones">
+<part name="parameters" element="tns:getMisSecciones"/>
+</message>
+<message name="getMisSeccionesResponse">
+<part name="parameters" element="tns:getMisSeccionesResponse"/>
+</message>
+<message name="setEvaluacion">
+<part name="parameters" element="tns:setEvaluacion"/>
+</message>
+<message name="setEvaluacionResponse">
+<part name="parameters" element="tns:setEvaluacionResponse"/>
+</message>
+<message name="DeleteEvaluacion">
+<part name="parameters" element="tns:DeleteEvaluacion"/>
+</message>
+<message name="DeleteEvaluacionResponse">
+<part name="parameters" element="tns:DeleteEvaluacionResponse"/>
+</message>
+<message name="ListEvaluaciones">
+<part name="parameters" element="tns:ListEvaluaciones"/>
+</message>
+<message name="ListEvaluacionesResponse">
+<part name="parameters" element="tns:ListEvaluacionesResponse"/>
+</message>
+<message name="EvaluaciondeHoy">
+<part name="parameters" element="tns:EvaluaciondeHoy"/>
+</message>
+<message name="EvaluaciondeHoyResponse">
+<part name="parameters" element="tns:EvaluaciondeHoyResponse"/>
+</message>
+<message name="getFilePathExcel">
+<part name="parameters" element="tns:getFilePathExcel"/>
+</message>
+<message name="getFilePathExcelResponse">
+<part name="parameters" element="tns:getFilePathExcelResponse"/>
+</message>
+<message name="AlumnosgetMiID">
+<part name="parameters" element="tns:AlumnosgetMiID"/>
+</message>
+<message name="AlumnosgetMiIDResponse">
+<part name="parameters" element="tns:AlumnosgetMiIDResponse"/>
+</message>
 <message name="GetMateriasWithoutDocenteBySeccion">
 <part name="parameters" element="tns:GetMateriasWithoutDocenteBySeccion"/>
 </message>
@@ -340,103 +388,19 @@
 <message name="AcademicoGetMateriasConNotasRechazadaEXCELResponse">
 <part name="parameters" element="tns:AcademicoGetMateriasConNotasRechazadaEXCELResponse"/>
 </message>
+<message name="AlumnosgetMiSeccion">
+<part name="parameters" element="tns:AlumnosgetMiSeccion"/>
+</message>
+<message name="AlumnosgetMiSeccionResponse">
+<part name="parameters" element="tns:AlumnosgetMiSeccionResponse"/>
+</message>
+<message name="AlumnosGetMisMaterias">
+<part name="parameters" element="tns:AlumnosGetMisMaterias"/>
+</message>
+<message name="AlumnosGetMisMateriasResponse">
+<part name="parameters" element="tns:AlumnosGetMisMateriasResponse"/>
+</message>
 <portType name="ServicioWeb">
-<operation name="login">
-<input wsam:Action="http://Service/ServicioWeb/loginRequest" message="tns:login"/>
-<output wsam:Action="http://Service/ServicioWeb/loginResponse" message="tns:loginResponse"/>
-</operation>
-<operation name="GetNiveles">
-<input wsam:Action="http://Service/ServicioWeb/GetNivelesRequest" message="tns:GetNiveles"/>
-<output wsam:Action="http://Service/ServicioWeb/GetNivelesResponse" message="tns:GetNivelesResponse"/>
-</operation>
-<operation name="GetGrados">
-<input wsam:Action="http://Service/ServicioWeb/GetGradosRequest" message="tns:GetGrados"/>
-<output wsam:Action="http://Service/ServicioWeb/GetGradosResponse" message="tns:GetGradosResponse"/>
-</operation>
-<operation name="GetSecciones">
-<input wsam:Action="http://Service/ServicioWeb/GetSeccionesRequest" message="tns:GetSecciones"/>
-<output wsam:Action="http://Service/ServicioWeb/GetSeccionesResponse" message="tns:GetSeccionesResponse"/>
-</operation>
-<operation name="DeleteGrado">
-<input wsam:Action="http://Service/ServicioWeb/DeleteGradoRequest" message="tns:DeleteGrado"/>
-<output wsam:Action="http://Service/ServicioWeb/DeleteGradoResponse" message="tns:DeleteGradoResponse"/>
-</operation>
-<operation name="CreateGrado">
-<input wsam:Action="http://Service/ServicioWeb/CreateGradoRequest" message="tns:CreateGrado"/>
-<output wsam:Action="http://Service/ServicioWeb/CreateGradoResponse" message="tns:CreateGradoResponse"/>
-</operation>
-<operation name="CreateSeccion">
-<input wsam:Action="http://Service/ServicioWeb/CreateSeccionRequest" message="tns:CreateSeccion"/>
-<output wsam:Action="http://Service/ServicioWeb/CreateSeccionResponse" message="tns:CreateSeccionResponse"/>
-</operation>
-<operation name="DeleteSeccion">
-<input wsam:Action="http://Service/ServicioWeb/DeleteSeccionRequest" message="tns:DeleteSeccion"/>
-<output wsam:Action="http://Service/ServicioWeb/DeleteSeccionResponse" message="tns:DeleteSeccionResponse"/>
-</operation>
-<operation name="CreateUser">
-<input wsam:Action="http://Service/ServicioWeb/CreateUserRequest" message="tns:CreateUser"/>
-<output wsam:Action="http://Service/ServicioWeb/CreateUserResponse" message="tns:CreateUserResponse"/>
-</operation>
-<operation name="CreateAlumno">
-<input wsam:Action="http://Service/ServicioWeb/CreateAlumnoRequest" message="tns:CreateAlumno"/>
-<output wsam:Action="http://Service/ServicioWeb/CreateAlumnoResponse" message="tns:CreateAlumnoResponse"/>
-</operation>
-<operation name="CreateMateria">
-<input wsam:Action="http://Service/ServicioWeb/CreateMateriaRequest" message="tns:CreateMateria"/>
-<output wsam:Action="http://Service/ServicioWeb/CreateMateriaResponse" message="tns:CreateMateriaResponse"/>
-</operation>
-<operation name="DeleteMateria">
-<input wsam:Action="http://Service/ServicioWeb/DeleteMateriaRequest" message="tns:DeleteMateria"/>
-<output wsam:Action="http://Service/ServicioWeb/DeleteMateriaResponse" message="tns:DeleteMateriaResponse"/>
-</operation>
-<operation name="ListMaterias">
-<input wsam:Action="http://Service/ServicioWeb/ListMateriasRequest" message="tns:ListMaterias"/>
-<output wsam:Action="http://Service/ServicioWeb/ListMateriasResponse" message="tns:ListMateriasResponse"/>
-</operation>
-<operation name="GetListDocentes">
-<input wsam:Action="http://Service/ServicioWeb/GetListDocentesRequest" message="tns:GetListDocentes"/>
-<output wsam:Action="http://Service/ServicioWeb/GetListDocentesResponse" message="tns:GetListDocentesResponse"/>
-</operation>
-<operation name="DeleteDocente">
-<input wsam:Action="http://Service/ServicioWeb/DeleteDocenteRequest" message="tns:DeleteDocente"/>
-<output wsam:Action="http://Service/ServicioWeb/DeleteDocenteResponse" message="tns:DeleteDocenteResponse"/>
-</operation>
-<operation name="getIdDocente">
-<input wsam:Action="http://Service/ServicioWeb/getIdDocenteRequest" message="tns:getIdDocente"/>
-<output wsam:Action="http://Service/ServicioWeb/getIdDocenteResponse" message="tns:getIdDocenteResponse"/>
-</operation>
-<operation name="ListAlumnosNotas">
-<input wsam:Action="http://Service/ServicioWeb/ListAlumnosNotasRequest" message="tns:ListAlumnosNotas"/>
-<output wsam:Action="http://Service/ServicioWeb/ListAlumnosNotasResponse" message="tns:ListAlumnosNotasResponse"/>
-</operation>
-<operation name="getMisSecciones">
-<input wsam:Action="http://Service/ServicioWeb/getMisSeccionesRequest" message="tns:getMisSecciones"/>
-<output wsam:Action="http://Service/ServicioWeb/getMisSeccionesResponse" message="tns:getMisSeccionesResponse"/>
-</operation>
-<operation name="setEvaluacion">
-<input wsam:Action="http://Service/ServicioWeb/setEvaluacionRequest" message="tns:setEvaluacion"/>
-<output wsam:Action="http://Service/ServicioWeb/setEvaluacionResponse" message="tns:setEvaluacionResponse"/>
-</operation>
-<operation name="DeleteEvaluacion">
-<input wsam:Action="http://Service/ServicioWeb/DeleteEvaluacionRequest" message="tns:DeleteEvaluacion"/>
-<output wsam:Action="http://Service/ServicioWeb/DeleteEvaluacionResponse" message="tns:DeleteEvaluacionResponse"/>
-</operation>
-<operation name="ListEvaluaciones">
-<input wsam:Action="http://Service/ServicioWeb/ListEvaluacionesRequest" message="tns:ListEvaluaciones"/>
-<output wsam:Action="http://Service/ServicioWeb/ListEvaluacionesResponse" message="tns:ListEvaluacionesResponse"/>
-</operation>
-<operation name="EvaluaciondeHoy">
-<input wsam:Action="http://Service/ServicioWeb/EvaluaciondeHoyRequest" message="tns:EvaluaciondeHoy"/>
-<output wsam:Action="http://Service/ServicioWeb/EvaluaciondeHoyResponse" message="tns:EvaluaciondeHoyResponse"/>
-</operation>
-<operation name="AcademicoAprobarNotasExcel">
-<input wsam:Action="http://Service/ServicioWeb/AcademicoAprobarNotasExcelRequest" message="tns:AcademicoAprobarNotasExcel"/>
-<output wsam:Action="http://Service/ServicioWeb/AcademicoAprobarNotasExcelResponse" message="tns:AcademicoAprobarNotasExcelResponse"/>
-</operation>
-<operation name="AcademicoRechazarNotasExcel">
-<input wsam:Action="http://Service/ServicioWeb/AcademicoRechazarNotasExcelRequest" message="tns:AcademicoRechazarNotasExcel"/>
-<output wsam:Action="http://Service/ServicioWeb/AcademicoRechazarNotasExcelResponse" message="tns:AcademicoRechazarNotasExcelResponse"/>
-</operation>
 <operation name="GetUsuarioIfExits">
 <input wsam:Action="http://Service/ServicioWeb/GetUsuarioIfExitsRequest" message="tns:GetUsuarioIfExits"/>
 <output wsam:Action="http://Service/ServicioWeb/GetUsuarioIfExitsResponse" message="tns:GetUsuarioIfExitsResponse"/>
@@ -541,6 +505,134 @@
 <input wsam:Action="http://Service/ServicioWeb/AcademicoGetMateriasConNotasRequest" message="tns:AcademicoGetMateriasConNotas"/>
 <output wsam:Action="http://Service/ServicioWeb/AcademicoGetMateriasConNotasResponse" message="tns:AcademicoGetMateriasConNotasResponse"/>
 </operation>
+<operation name="AcademicoAprobarNotasExcel">
+<input wsam:Action="http://Service/ServicioWeb/AcademicoAprobarNotasExcelRequest" message="tns:AcademicoAprobarNotasExcel"/>
+<output wsam:Action="http://Service/ServicioWeb/AcademicoAprobarNotasExcelResponse" message="tns:AcademicoAprobarNotasExcelResponse"/>
+</operation>
+<operation name="AcademicoRechazarNotasExcel">
+<input wsam:Action="http://Service/ServicioWeb/AcademicoRechazarNotasExcelRequest" message="tns:AcademicoRechazarNotasExcel"/>
+<output wsam:Action="http://Service/ServicioWeb/AcademicoRechazarNotasExcelResponse" message="tns:AcademicoRechazarNotasExcelResponse"/>
+</operation>
+<operation name="AcademicoRechazarNotas">
+<input wsam:Action="http://Service/ServicioWeb/AcademicoRechazarNotasRequest" message="tns:AcademicoRechazarNotas"/>
+<output wsam:Action="http://Service/ServicioWeb/AcademicoRechazarNotasResponse" message="tns:AcademicoRechazarNotasResponse"/>
+</operation>
+<operation name="AcademicoAprobarNotas">
+<input wsam:Action="http://Service/ServicioWeb/AcademicoAprobarNotasRequest" message="tns:AcademicoAprobarNotas"/>
+<output wsam:Action="http://Service/ServicioWeb/AcademicoAprobarNotasResponse" message="tns:AcademicoAprobarNotasResponse"/>
+</operation>
+<operation name="ListAlumnosNotasRevision">
+<input wsam:Action="http://Service/ServicioWeb/ListAlumnosNotasRevisionRequest" message="tns:ListAlumnosNotasRevision"/>
+<output wsam:Action="http://Service/ServicioWeb/ListAlumnosNotasRevisionResponse" message="tns:ListAlumnosNotasRevisionResponse"/>
+</operation>
+<operation name="subirNotasExcelAceptadas">
+<input wsam:Action="http://Service/ServicioWeb/subirNotasExcelAceptadasRequest" message="tns:subirNotasExcelAceptadas"/>
+<output wsam:Action="http://Service/ServicioWeb/subirNotasExcelAceptadasResponse" message="tns:subirNotasExcelAceptadasResponse"/>
+</operation>
+<operation name="AlumnosgetMisEvaluaciones">
+<input wsam:Action="http://Service/ServicioWeb/AlumnosgetMisEvaluacionesRequest" message="tns:AlumnosgetMisEvaluaciones"/>
+<output wsam:Action="http://Service/ServicioWeb/AlumnosgetMisEvaluacionesResponse" message="tns:AlumnosgetMisEvaluacionesResponse"/>
+</operation>
+<operation name="AlumnosgetMisNotas">
+<input wsam:Action="http://Service/ServicioWeb/AlumnosgetMisNotasRequest" message="tns:AlumnosgetMisNotas"/>
+<output wsam:Action="http://Service/ServicioWeb/AlumnosgetMisNotasResponse" message="tns:AlumnosgetMisNotasResponse"/>
+</operation>
+<operation name="login">
+<input wsam:Action="http://Service/ServicioWeb/loginRequest" message="tns:login"/>
+<output wsam:Action="http://Service/ServicioWeb/loginResponse" message="tns:loginResponse"/>
+</operation>
+<operation name="GetNiveles">
+<input wsam:Action="http://Service/ServicioWeb/GetNivelesRequest" message="tns:GetNiveles"/>
+<output wsam:Action="http://Service/ServicioWeb/GetNivelesResponse" message="tns:GetNivelesResponse"/>
+</operation>
+<operation name="GetGrados">
+<input wsam:Action="http://Service/ServicioWeb/GetGradosRequest" message="tns:GetGrados"/>
+<output wsam:Action="http://Service/ServicioWeb/GetGradosResponse" message="tns:GetGradosResponse"/>
+</operation>
+<operation name="GetSecciones">
+<input wsam:Action="http://Service/ServicioWeb/GetSeccionesRequest" message="tns:GetSecciones"/>
+<output wsam:Action="http://Service/ServicioWeb/GetSeccionesResponse" message="tns:GetSeccionesResponse"/>
+</operation>
+<operation name="DeleteGrado">
+<input wsam:Action="http://Service/ServicioWeb/DeleteGradoRequest" message="tns:DeleteGrado"/>
+<output wsam:Action="http://Service/ServicioWeb/DeleteGradoResponse" message="tns:DeleteGradoResponse"/>
+</operation>
+<operation name="CreateGrado">
+<input wsam:Action="http://Service/ServicioWeb/CreateGradoRequest" message="tns:CreateGrado"/>
+<output wsam:Action="http://Service/ServicioWeb/CreateGradoResponse" message="tns:CreateGradoResponse"/>
+</operation>
+<operation name="CreateSeccion">
+<input wsam:Action="http://Service/ServicioWeb/CreateSeccionRequest" message="tns:CreateSeccion"/>
+<output wsam:Action="http://Service/ServicioWeb/CreateSeccionResponse" message="tns:CreateSeccionResponse"/>
+</operation>
+<operation name="DeleteSeccion">
+<input wsam:Action="http://Service/ServicioWeb/DeleteSeccionRequest" message="tns:DeleteSeccion"/>
+<output wsam:Action="http://Service/ServicioWeb/DeleteSeccionResponse" message="tns:DeleteSeccionResponse"/>
+</operation>
+<operation name="CreateUser">
+<input wsam:Action="http://Service/ServicioWeb/CreateUserRequest" message="tns:CreateUser"/>
+<output wsam:Action="http://Service/ServicioWeb/CreateUserResponse" message="tns:CreateUserResponse"/>
+</operation>
+<operation name="CreateAlumno">
+<input wsam:Action="http://Service/ServicioWeb/CreateAlumnoRequest" message="tns:CreateAlumno"/>
+<output wsam:Action="http://Service/ServicioWeb/CreateAlumnoResponse" message="tns:CreateAlumnoResponse"/>
+</operation>
+<operation name="CreateMateria">
+<input wsam:Action="http://Service/ServicioWeb/CreateMateriaRequest" message="tns:CreateMateria"/>
+<output wsam:Action="http://Service/ServicioWeb/CreateMateriaResponse" message="tns:CreateMateriaResponse"/>
+</operation>
+<operation name="DeleteMateria">
+<input wsam:Action="http://Service/ServicioWeb/DeleteMateriaRequest" message="tns:DeleteMateria"/>
+<output wsam:Action="http://Service/ServicioWeb/DeleteMateriaResponse" message="tns:DeleteMateriaResponse"/>
+</operation>
+<operation name="ListMaterias">
+<input wsam:Action="http://Service/ServicioWeb/ListMateriasRequest" message="tns:ListMaterias"/>
+<output wsam:Action="http://Service/ServicioWeb/ListMateriasResponse" message="tns:ListMateriasResponse"/>
+</operation>
+<operation name="GetListDocentes">
+<input wsam:Action="http://Service/ServicioWeb/GetListDocentesRequest" message="tns:GetListDocentes"/>
+<output wsam:Action="http://Service/ServicioWeb/GetListDocentesResponse" message="tns:GetListDocentesResponse"/>
+</operation>
+<operation name="DeleteDocente">
+<input wsam:Action="http://Service/ServicioWeb/DeleteDocenteRequest" message="tns:DeleteDocente"/>
+<output wsam:Action="http://Service/ServicioWeb/DeleteDocenteResponse" message="tns:DeleteDocenteResponse"/>
+</operation>
+<operation name="getIdDocente">
+<input wsam:Action="http://Service/ServicioWeb/getIdDocenteRequest" message="tns:getIdDocente"/>
+<output wsam:Action="http://Service/ServicioWeb/getIdDocenteResponse" message="tns:getIdDocenteResponse"/>
+</operation>
+<operation name="ListAlumnosNotas">
+<input wsam:Action="http://Service/ServicioWeb/ListAlumnosNotasRequest" message="tns:ListAlumnosNotas"/>
+<output wsam:Action="http://Service/ServicioWeb/ListAlumnosNotasResponse" message="tns:ListAlumnosNotasResponse"/>
+</operation>
+<operation name="getMisSecciones">
+<input wsam:Action="http://Service/ServicioWeb/getMisSeccionesRequest" message="tns:getMisSecciones"/>
+<output wsam:Action="http://Service/ServicioWeb/getMisSeccionesResponse" message="tns:getMisSeccionesResponse"/>
+</operation>
+<operation name="setEvaluacion">
+<input wsam:Action="http://Service/ServicioWeb/setEvaluacionRequest" message="tns:setEvaluacion"/>
+<output wsam:Action="http://Service/ServicioWeb/setEvaluacionResponse" message="tns:setEvaluacionResponse"/>
+</operation>
+<operation name="DeleteEvaluacion">
+<input wsam:Action="http://Service/ServicioWeb/DeleteEvaluacionRequest" message="tns:DeleteEvaluacion"/>
+<output wsam:Action="http://Service/ServicioWeb/DeleteEvaluacionResponse" message="tns:DeleteEvaluacionResponse"/>
+</operation>
+<operation name="ListEvaluaciones">
+<input wsam:Action="http://Service/ServicioWeb/ListEvaluacionesRequest" message="tns:ListEvaluaciones"/>
+<output wsam:Action="http://Service/ServicioWeb/ListEvaluacionesResponse" message="tns:ListEvaluacionesResponse"/>
+</operation>
+<operation name="EvaluaciondeHoy">
+<input wsam:Action="http://Service/ServicioWeb/EvaluaciondeHoyRequest" message="tns:EvaluaciondeHoy"/>
+<output wsam:Action="http://Service/ServicioWeb/EvaluaciondeHoyResponse" message="tns:EvaluaciondeHoyResponse"/>
+</operation>
+<operation name="getFilePathExcel">
+<input wsam:Action="http://Service/ServicioWeb/getFilePathExcelRequest" message="tns:getFilePathExcel"/>
+<output wsam:Action="http://Service/ServicioWeb/getFilePathExcelResponse" message="tns:getFilePathExcelResponse"/>
+</operation>
+<operation name="AlumnosgetMiID">
+<input wsam:Action="http://Service/ServicioWeb/AlumnosgetMiIDRequest" message="tns:AlumnosgetMiID"/>
+<output wsam:Action="http://Service/ServicioWeb/AlumnosgetMiIDResponse" message="tns:AlumnosgetMiIDResponse"/>
+</operation>
 <operation name="GetMateriasWithoutDocenteBySeccion">
 <input wsam:Action="http://Service/ServicioWeb/GetMateriasWithoutDocenteBySeccionRequest" message="tns:GetMateriasWithoutDocenteBySeccion"/>
 <output wsam:Action="http://Service/ServicioWeb/GetMateriasWithoutDocenteBySeccionResponse" message="tns:GetMateriasWithoutDocenteBySeccionResponse"/>
@@ -565,225 +657,17 @@
 <input wsam:Action="http://Service/ServicioWeb/AcademicoGetMateriasConNotasRechazadaEXCELRequest" message="tns:AcademicoGetMateriasConNotasRechazadaEXCEL"/>
 <output wsam:Action="http://Service/ServicioWeb/AcademicoGetMateriasConNotasRechazadaEXCELResponse" message="tns:AcademicoGetMateriasConNotasRechazadaEXCELResponse"/>
 </operation>
+<operation name="AlumnosgetMiSeccion">
+<input wsam:Action="http://Service/ServicioWeb/AlumnosgetMiSeccionRequest" message="tns:AlumnosgetMiSeccion"/>
+<output wsam:Action="http://Service/ServicioWeb/AlumnosgetMiSeccionResponse" message="tns:AlumnosgetMiSeccionResponse"/>
+</operation>
+<operation name="AlumnosGetMisMaterias">
+<input wsam:Action="http://Service/ServicioWeb/AlumnosGetMisMateriasRequest" message="tns:AlumnosGetMisMaterias"/>
+<output wsam:Action="http://Service/ServicioWeb/AlumnosGetMisMateriasResponse" message="tns:AlumnosGetMisMateriasResponse"/>
+</operation>
 </portType>
 <binding name="ServicioWebPortBinding" type="tns:ServicioWeb">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="login">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="GetNiveles">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="GetGrados">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="GetSecciones">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="DeleteGrado">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="CreateGrado">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="CreateSeccion">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="DeleteSeccion">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="CreateUser">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="CreateAlumno">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="CreateMateria">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="DeleteMateria">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="ListMaterias">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="GetListDocentes">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="DeleteDocente">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getIdDocente">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="ListAlumnosNotas">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getMisSecciones">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="setEvaluacion">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="DeleteEvaluacion">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="ListEvaluaciones">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="EvaluaciondeHoy">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="AcademicoAprobarNotasExcel">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="AcademicoRechazarNotasExcel">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="GetUsuarioIfExits">
 <soap:operation soapAction=""/>
 <input>
@@ -1018,6 +902,294 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="AcademicoAprobarNotasExcel">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AcademicoRechazarNotasExcel">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AcademicoRechazarNotas">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AcademicoAprobarNotas">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ListAlumnosNotasRevision">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="subirNotasExcelAceptadas">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AlumnosgetMisEvaluaciones">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AlumnosgetMisNotas">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="login">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GetNiveles">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GetGrados">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GetSecciones">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DeleteGrado">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CreateGrado">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CreateSeccion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DeleteSeccion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CreateUser">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CreateAlumno">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CreateMateria">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DeleteMateria">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ListMaterias">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GetListDocentes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DeleteDocente">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getIdDocente">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ListAlumnosNotas">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getMisSecciones">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="setEvaluacion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DeleteEvaluacion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ListEvaluaciones">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EvaluaciondeHoy">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getFilePathExcel">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AlumnosgetMiID">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="GetMateriasWithoutDocenteBySeccion">
 <soap:operation soapAction=""/>
 <input>
@@ -1064,6 +1236,24 @@
 </output>
 </operation>
 <operation name="AcademicoGetMateriasConNotasRechazadaEXCEL">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AlumnosgetMiSeccion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AlumnosGetMisMaterias">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

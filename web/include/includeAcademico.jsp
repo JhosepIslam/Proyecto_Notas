@@ -25,12 +25,7 @@
             </div>
 
             <ul class="nav">                
-                <li>
-                    <a href="../Gestiones/AprobarDesaprobarAlumno.jsp">
-                        <i class="pe-7s-id"></i>
-                        <p>Aprobar o Reprobar</p>
-                    </a>
-                </li>
+               
                 <li>
                     <a href="../Gestiones/CrearAlumno.jsp">
                         <i class="pe-7s-add-user"></i>
@@ -42,37 +37,14 @@
                         <i class="pe-7s-add-user"></i>
                         <p>Crear usuario</p>
                     </a>
-                </li>                
-                  <li>
-                    <a href="../Gestiones/AsignacionMateriaDocente.jsp">
-                        <i class="pe-7s-study"></i>
-                        <p>Asignacion Materia</p>
-                    </a>
-                </li>
-                  <li>
-                    <a href="../Gestiones/DescargaAprobados.jsp">
-                        <i class="pe-7s-cloud-download"></i>
-                        <p>Descargar Aprobados</p>
-                    </a>
-                </li>
-                  <li>
-                    <a href="../Gestiones/DescargaReprobados.jsp">
-                        <i class="pe-7s-cloud-download"></i>
-                        <p>Descargar Reprobados</p>
-                    </a>
-                </li>             
-                  <li>
-                    <a href="../Gestiones/GestionUsuarios.jsp">
-                        <i class="pe-7s-ribbon"></i>
-                        <p>Gestion de Usuarios</p>
-                    </a>
                 </li> 
-                  <li>
-                    <a href="../Gestiones/GestionNotas.jsp">
+                <li>
+                    <a href="../Gestiones/ListadoDeGrado.jsp">
                         <i class="pe-7s-ribbon"></i>
-                        <p>Gestion de Notas</p>
+                        <p>Gestion de Grados</p>
                     </a>
-                </li>  <li>
+                </li>                 
+                    <li>
                     <a href="../Gestiones/ListadoDeDocentes.jsp">
                         <i class="pe-7s-ribbon"></i>
                         <p>Gestion de Docentes</p>
@@ -139,33 +111,10 @@
                     <a class="navbar-brand" href="../Academico/">Inicio</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                      
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret"></b>
-                                    <span class="notification">5</span>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notificacion 1</a></li>
-                                <li><a href="#">Notificacion 2</a></li>
-                                <li><a href="#">Notificacion 3</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                           <a href="">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    
 
-                    <ul class="nav navbar-nav navbar-right">                      
-                       <li>
-                            <a href="../Perfil/Perfil.jsp">
-                                Perfil
-                            </a>
-                        </li>
+                    <ul class="nav navbar-nav navbar-right">                     
+                       
                         <li>
                             <a href="#">
                                 Cerrar Sesion
