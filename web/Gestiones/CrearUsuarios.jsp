@@ -47,7 +47,7 @@
 <body>
 
 
-    <%
+ <%
         
            HttpSession objSesion = request.getSession(true);
             try {
@@ -57,12 +57,16 @@
     %>
          <%@ include file='../include/includeAdmin.jsp' %>        
     <%
-       }else{
+       }else if(Nivel == 2){
     %>
       <%@ include file='../include/includeAcademico.jsp' %>
     <%
-        }
-         }catch(Exception ex){}
+        }else{
+        response.sendRedirect("/Notas/");
+}
+         
+}catch(Exception ex){
+response.sendRedirect("/Notas/");}
                
     %>
     

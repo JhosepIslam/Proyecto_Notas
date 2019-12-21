@@ -95,13 +95,47 @@
                 <div class="collapse navbar-collapse">
                     
 
-                    <ul class="nav navbar-nav navbar-right">                        
+                    <ul class="nav navbar-nav navbar-right">                     
                        
-                        <li>
-                            <a href="#">
+                        <li onclick="cerrarSesion()">
+                            <a href="/Notas" >
                                 Cerrar Sesion
                             </a>
                         </li>
+                        
+                        <script type="text/javascript">
+                            function cerrarSesion(){
+                            var direccion= "../CerrarSeccion";
+                            var paremetros ={};
+                            $.post(direccion,paremetros,function (resp){
+                                
+                            });
+                        }
+                            
+                            
+                        </script>
+                        
+                        <!--   Core JS Files   -->
+    <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="../assets/js/bootstrap-checkbox-radio-switch.js"></script>
+
+	<!--  Charts Plugin -->
+	<script src="../assets/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="../assets/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="../assets/js/light-bootstrap-dashboard.js"></script>
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+	<script src="../assets/js/demo.js"></script>
                     </ul>
                 </div>
             </div>

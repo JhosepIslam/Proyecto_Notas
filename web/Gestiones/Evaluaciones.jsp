@@ -170,8 +170,28 @@
     <link href="../assets/popup/snackbar.css" rel="stylesheet" type="text/css"/>
 </head>
 <body onload="cargar(); window.location.href='#'">
-
-<%@ include file='../include/includeAdmin.jsp' %>
+ <%
+        
+           HttpSession objSesion = request.getSession(true);
+            try {
+                    int Nivel = Integer.parseInt(objSesion.getAttribute("Nivel").toString());
+                    if (Nivel==1) {                            
+    
+    %>
+         <%@ include file='../include/includeAdmin.jsp' %>        
+    <%
+       }else if(Nivel == 2){
+    %>
+      <%@ include file='../include/includeAcademico.jsp' %>
+    <%
+        }else{
+        response.sendRedirect("/Notas/");
+}
+         
+}catch(Exception ex){
+response.sendRedirect("/Notas/");}
+               
+    %>
 
         <div class="content">
             <div class="container-fluid">
@@ -179,7 +199,7 @@
                     <div class="col-xs-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Grados</h4>
+                                <h4 class="title">Evaluaciones</h4>
                                
                             </div>
                             <div class="content table-responsive table-middle-width">

@@ -43,6 +43,19 @@
 
 </head>
 <body>
+     <%
+        
+           HttpSession objSesion = request.getSession(true);
+            try {
+                    int Nivel = Integer.parseInt(objSesion.getAttribute("Nivel").toString());
+                    if (Nivel!=3) {  
+                        response.sendRedirect("/Notas/");
+}
+         
+}catch(Exception ex){
+response.sendRedirect("/Notas/");}
+               
+    %>
 
 <%@include file='../include/includeDocente.jsp' %>
 

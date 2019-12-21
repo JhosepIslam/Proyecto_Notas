@@ -141,8 +141,28 @@
 
 </head>
 <body onload="getMisSecciones() ; window.location.href='#'">
-  
-    <%@include file='../include/includeAcademico.jsp' %>
+ <%
+        
+           HttpSession objSesion = request.getSession(true);
+            try {
+                    int Nivel = Integer.parseInt(objSesion.getAttribute("Nivel").toString());
+                    if (Nivel==1) {                            
+    
+    %>
+         <%@ include file='../include/includeAdmin.jsp' %>        
+    <%
+       }else if(Nivel == 2){
+    %>
+      <%@ include file='../include/includeAcademico.jsp' %>
+    <%
+        }else{
+        response.sendRedirect("/Notas/");
+}
+         
+}catch(Exception ex){
+response.sendRedirect("/Notas/");}
+               
+    %>
         <div class="content">
             <div class="container-fluid">
                 <div class="row">

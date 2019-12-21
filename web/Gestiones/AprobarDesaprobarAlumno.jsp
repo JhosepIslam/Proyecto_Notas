@@ -47,24 +47,24 @@
  <%
         
            HttpSession objSesion = request.getSession(true);
-           try{
-            
+            try {
                     int Nivel = Integer.parseInt(objSesion.getAttribute("Nivel").toString());
                     if (Nivel==1) {                            
     
     %>
          <%@ include file='../include/includeAdmin.jsp' %>        
     <%
-       }else if(Nivel==2){
+       }else if(Nivel == 2){
     %>
       <%@ include file='../include/includeAcademico.jsp' %>
-    <%}else{
-        response.sendRedirect("../");
+    <%
+        }else{
+        response.sendRedirect("/Notas/");
 }
-        
-            }catch(Exception ex){}
-            
-
+         
+}catch(Exception ex){
+response.sendRedirect("/Notas/");}
+               
     %>
     
            

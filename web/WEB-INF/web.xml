@@ -216,6 +216,10 @@
         <servlet-name>GetMisNotasAlumnos</servlet-name>
         <servlet-class>Controllers.Alumnos.GetMisNotasAlumnos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CerrarSeccion</servlet-name>
+        <servlet-class>Controllers.CerrarSeccion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -431,6 +435,10 @@
     <servlet-mapping>
         <servlet-name>GetMisNotasAlumnos</servlet-name>
         <url-pattern>/GetMisNotasAlumnos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CerrarSeccion</servlet-name>
+        <url-pattern>/CerrarSeccion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

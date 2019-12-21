@@ -6,6 +6,19 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+ <%
+        
+           HttpSession objSesion = request.getSession(true);
+            try {
+                    int Nivel = Integer.parseInt(objSesion.getAttribute("Nivel").toString());
+                    if (Nivel!=3) {  
+                        response.sendRedirect("/Notas/");
+}
+         
+}catch(Exception ex){
+response.sendRedirect("/Notas/");}
+               
+    %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

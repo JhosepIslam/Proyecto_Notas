@@ -65,7 +65,28 @@
 </head>
 <body onload="abrirSubirNotas();">
 
-
+ <%
+        
+           HttpSession objSesion = request.getSession(true);
+            try {
+                    int Nivel = Integer.parseInt(objSesion.getAttribute("Nivel").toString());
+                    if (Nivel==1) {                            
+    
+    %>
+        
+    <%
+       }else if(Nivel == 2){
+    %>
+      
+    <%
+        }else{
+        response.sendRedirect("/Notas/");
+}
+         
+}catch(Exception ex){
+response.sendRedirect("/Notas/");}
+               
+    %>
 
         <div class="content">
             <div class="container-fluid">
